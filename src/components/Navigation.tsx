@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import NavLink from './NavLink';
-import Container from './Container';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const SECTIONS = ['home', 'about', 'experience', 'projects', 'skills', 'achievements', 'contact'];
 
@@ -23,14 +22,14 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Safe navigation click to account for the fixed header height
+  // Safe navigation click to account for the floating header height offset
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
 
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -72; // Nav height offset (including borders & line)
+      const yOffset = -72; // Header offset (including margins & padding)
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ 
         top: y, 
@@ -41,21 +40,22 @@ export default function Navigation() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 select-none ${
-        scrolled 
-          ? 'py-3 bg-bg/95 border-b border-line shadow-soft backdrop-blur-sm' 
-          : 'py-4.5 bg-transparent border-b border-transparent'
-      }`}
+      className="fixed top-4 left-0 w-full z-50 px-4 md:px-6 select-none pointer-events-none"
       aria-label="Primary Navigation Feed"
     >
-      <Container className="flex items-center justify-between">
-        {/* Technical Logo */}
+      <div 
+        className={`mx-auto max-w-5xl rounded-[12px] bg-bg/80 border backdrop-blur-md px-6 flex items-center justify-between pointer-events-auto transition-all duration-300 relative ${
+          scrolled 
+            ? 'py-2.5 shadow-soft border-line' 
+            : 'py-3.5 border-line/40'
+        }`}
+      >
+        {/* Technical Logo without CPU icon */}
         <a 
           href="#home" 
           onClick={(e) => handleNavClick(e, 'home')}
-          className="flex items-center gap-2.5 font-display font-bold text-xs tracking-widest text-text-primary outline-none focus-visible:text-signal-cyan"
+          className="flex items-center gap-2 font-display font-bold text-xs tracking-widest text-text-primary outline-none focus-visible:text-signal-cyan"
         >
-          <Cpu className="w-4 h-4 text-signal-cyan" />
           <span>HIMESH_POPAT</span>
         </a>
 
@@ -82,25 +82,25 @@ export default function Navigation() {
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
-      </Container>
 
-      {/* Mobile Drawer panel */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[52px] bg-bg/98 z-40 md:hidden flex flex-col items-center justify-center gap-8 py-8 border-t border-line font-mono">
-          {SECTIONS.map((sec) => (
-            <a
-              key={sec}
-              href={`#${sec}`}
-              onClick={(e) => handleNavClick(e, sec)}
-              className={`text-base uppercase tracking-widest transition-colors relative py-1 focus-visible:text-signal-cyan outline-none ${
-                activeSection === sec ? 'text-signal-cyan font-bold' : 'text-text-muted hover:text-text-primary'
-              }`}
-            >
-              {sec}
-            </a>
-          ))}
-        </div>
-      )}
+        {/* Mobile Drawer panel: Drops down elegantly directly below the floating pill */}
+        {mobileMenuOpen && (
+          <div className="absolute top-[58px] left-0 right-0 bg-bg/95 border border-line/60 rounded-[12px] p-6 backdrop-blur-md flex flex-col items-center gap-5 font-mono pointer-events-auto shadow-soft md:hidden">
+            {SECTIONS.map((sec) => (
+              <a
+                key={sec}
+                href={`#${sec}`}
+                onClick={(e) => handleNavClick(e, sec)}
+                className={`text-sm uppercase tracking-widest transition-colors relative py-1 focus-visible:text-signal-cyan outline-none ${
+                  activeSection === sec ? 'text-signal-cyan font-bold' : 'text-text-muted hover:text-text-primary'
+                }`}
+              >
+                {sec}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </nav>
   );
 }

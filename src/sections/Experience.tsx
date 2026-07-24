@@ -1,9 +1,8 @@
 import SectionWrapper from '../components/SectionWrapper';
 import Container from '../components/Container';
 import SectionEyebrow from '../components/SectionEyebrow';
-import Card from '../components/Card';
 import { experiences } from '../data/experience';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 interface TextSegment {
   text: string;
@@ -38,48 +37,49 @@ export default function Experience() {
           Experience History
         </h2>
 
-        <div className="max-w-4xl">
+        {/* Refined vertical timeline stream */}
+        <div className="max-w-4xl border-l-2 border-line/50 pl-6 md:pl-8 ml-4 relative py-2">
           {experiences.map((exp, idx) => (
-            <Card key={idx} className="p-6 md:p-8">
-              {/* Card Header */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-line/60">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-signal-cyan/5 border border-signal-cyan/20 rounded-[10px] text-signal-cyan mt-1">
-                    <Briefcase className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-display font-bold text-text-primary">
-                      {exp.role}
-                    </h3>
-                    <p className="text-sm text-signal-cyan font-mono tracking-wider mt-0.5">
-                      {exp.company}
-                    </p>
-                  </div>
+            <div key={idx} className="relative">
+              
+              {/* Active pulsing timeline node indicator */}
+              <span className="absolute -left-[31px] md:-left-[39px] top-1.5 w-[14px] h-[14px] rounded-full border border-signal-cyan/40 bg-bg flex items-center justify-center select-none">
+                <span className="w-2.5 h-2.5 rounded-full bg-signal-cyan animate-pulse" />
+              </span>
+
+              {/* Node Header info */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2.5 mb-6">
+                <div>
+                  <h3 className="text-2xl font-display font-bold text-text-primary">
+                    {exp.role}
+                  </h3>
+                  <span className="font-mono text-xs text-signal-cyan tracking-wider uppercase block mt-1">
+                    {exp.company}
+                  </span>
                 </div>
 
-                {/* Metadata Column */}
-                <div className="flex flex-row md:flex-col items-start gap-3 md:gap-1.5 md:items-end text-xs font-mono text-text-muted">
+                {/* Metadata tags row */}
+                <div className="flex items-center gap-4 text-xs font-mono text-text-muted select-none mt-1 md:mt-0">
                   <div className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-text-muted/60" />
+                    <Calendar className="w-3.5 h-3.5 text-text-muted/40" />
                     <span>{exp.startDate} &mdash; {exp.endDate}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-text-muted/60" />
+                    <MapPin className="w-3.5 h-3.5 text-text-muted/40" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Outcomes Bullet List */}
-              <ul className="space-y-4 text-sm text-text-muted leading-relaxed font-sans">
+              {/* Work Outcomes list details */}
+              <ul className="space-y-4 text-sm md:text-base text-text-muted leading-relaxed font-sans mt-4">
                 {exp.bullets.map((bullet, bulletIdx) => (
                   <li key={bulletIdx} className="flex items-start gap-3">
-                    {/* Status marker */}
                     <span className="text-signal-cyan font-mono select-none mt-1 text-base">&rsaquo;</span>
-                    <span>
+                    <span className="text-text-muted">
                       {parseExperienceBullet(bullet).map((seg, sIdx) => 
                         seg.bold ? (
-                          <span key={sIdx} className="text-signal-amber font-mono font-bold">{seg.text}</span>
+                          <strong key={sIdx} className="text-text-primary font-bold">{seg.text}</strong>
                         ) : (
                           <span key={sIdx}>{seg.text}</span>
                         )
@@ -88,7 +88,8 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-            </Card>
+
+            </div>
           ))}
         </div>
       </Container>

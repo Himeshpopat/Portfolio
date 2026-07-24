@@ -5,6 +5,10 @@ import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
 
 export default function Projects() {
+  // Select the Color Vision Deficiency project as the featured engineering case study
+  const featuredProject = projects.find(p => p.initials === 'CVD') || projects[0];
+  const supportingProjects = projects.filter(p => p !== featuredProject);
+
   return (
     <SectionWrapper id="projects" ariaLabel="Projects Showcase">
       <Container>
@@ -14,13 +18,21 @@ export default function Projects() {
           Technical Showcase
         </h2>
 
-        {/* Project showcase grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {projects.map((project, idx) => (
-            <div key={idx} className="h-full">
-              <ProjectCard project={project} />
+        {/* Asymmetrical grid composition: Featured spans full width, supporting split columns */}
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          
+          {/* Featured Project Panel */}
+          <div className="col-span-12">
+            <ProjectCard project={featuredProject} isFeatured={true} />
+          </div>
+
+          {/* Supporting Projects */}
+          {supportingProjects.map((project, idx) => (
+            <div key={idx} className="col-span-12 md:col-span-6 h-full">
+              <ProjectCard project={project} isFeatured={false} />
             </div>
           ))}
+          
         </div>
       </Container>
     </SectionWrapper>
