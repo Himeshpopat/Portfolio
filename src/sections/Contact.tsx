@@ -61,11 +61,11 @@ export default function Contact() {
               <div className="space-y-4 pt-2 font-mono text-xs text-text-muted">
                 <div className="flex items-center gap-3 border border-line bg-surface/50 p-3 rounded-[10px] select-all">
                   <Mail className="w-4 h-4 text-signal-cyan shrink-0" />
-                  <span>himesh.popat@example.com</span> {/* TODO: replace with real email */}
+                  <span>himeshpopat2006@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3 border border-line bg-surface/50 p-3 rounded-[10px] select-all">
                   <Phone className="w-4 h-4 text-signal-cyan shrink-0" />
-                  <span>+91 XXXXX XXXXX</span> {/* TODO: replace with real phone */}
+                  <span>+91 82650 31634</span>
                 </div>
               </div>
             </div>
@@ -82,12 +82,12 @@ export default function Contact() {
                   label="GitHub Profile" 
                 />
                 <SocialIconButton 
-                  href="https://linkedin.com/in/himesh-popat" // TODO: verify profile
+                  href="https://linkedin.com/in/himesh-popat"
                   icon={Linkedin} 
                   label="LinkedIn Profile" 
                 />
                 <SocialIconButton 
-                  href="https://leetcode.com/u/himesh-popat" // TODO: verify username
+                  href="https://leetcode.com/u/himesh_popat/"
                   icon={Award} 
                   label="LeetCode Profile" 
                 />
@@ -148,7 +148,7 @@ export default function Contact() {
                         [TRANSMISSION_ESTABLISHED]
                       </p>
                       <p className="text-text-muted leading-relaxed">
-                        Data packets successfully broadcast. Connection buffer opened. Himesh will establish feedback sequence shortly.
+                        Data packets successfully broadcast. Connection buffer opened. I will establish a feedback sequence shortly.
                       </p>
                     </div>
                   </div>

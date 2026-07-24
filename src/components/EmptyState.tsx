@@ -13,8 +13,7 @@ export default function EmptyState({ initials, className = '' }: EmptyStateProps
       <span className="absolute bottom-2 left-2 font-mono text-[9px] text-text-muted/20 select-none">+</span>
       <span className="absolute bottom-2 right-2 font-mono text-[9px] text-text-muted/20 select-none">+</span>
       
-      {/* Background dots pattern */}
-      <div className="absolute inset-0 bg-dots-telemetry opacity-40" />
+
 
       <div className="flex flex-col items-center justify-center gap-1.5 z-10 text-center px-4">
         <span className="font-mono text-[10px] tracking-wider text-signal-cyan/50 uppercase">

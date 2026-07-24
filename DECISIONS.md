@@ -33,3 +33,15 @@ This document records the design and engineering choices made for Himesh Popat's
 - **Data-Driven:** Decoupled all projects, experience items, skills, and achievements into modular TypeScript files (`src/data/`). Future expansions require editing these files alone, requiring zero layout edits.
 - **SEO & Search Engines:** Embedded explicit metadata, Open Graph headers, and a structured `Person` JSON-LD block inside `index.html` to optimize Himesh's indexing rank.
 - **Accessibility:** Applied keyboard-navigable focus rings (`focus-visible:outline-signal-cyan`) with a 2px offset on all inputs, ensuring the interface remains fully screen-reader accessible.
+
+---
+
+## 5. Pre-delivery Self-Audit (§21)
+- [x] **Zero Banned Packages:** `package.json` contains exactly zero packages from the banned list in §19 (e.g., `three`, `lenis`, `gsap`, etc.). Pruned dependencies successfully.
+- [x] **Literal Contact Info:** All emails, phone numbers, and URLs rendered match the specifications in §1 literally (email: `himeshpopat2006@gmail.com`, phone: `+91 82650 31634`, github: `https://github.com/Himeshpopat`, linkedin: `https://linkedin.com/in/himesh-popat`, leetcode: `https://leetcode.com/u/himesh_popat/`, location: `Mumbai, India`).
+- [x] **Project URLs Empty:** All `liveUrl` and `repoUrl` fields are strictly `""` in `projects.ts` and fallback to `EmptyState` panels.
+- [x] **Single Ambient Element:** The `SignalLine` canvas is the exactly one ambient animated background trace. Removed all dot grids, grid patterns, and conic spotlights.
+- [x] **First-Person Voice:** Replaced all occurrences of "the candidate" or third-person copy with first-person prose (\"I\", \"my\", \"Get in touch\").
+- [x] **No DangerouslySetInnerHTML:** Custom React text parser segments and renders markdown bold formatting dynamically into pure JSX, removing `dangerouslySetInnerHTML` from both `ProjectCard.tsx` and `Experience.tsx` entirely.
+- [x] **Reduced-Motion CSS Rules:** Standard stylesheet reset instantly disables infinite animations (`animation-iteration-count: 1`), canvas render loops, transitions, and transforms under `prefers-reduced-motion: reduce`.
+

@@ -87,7 +87,6 @@ export default function Navigation() {
       {/* Mobile Drawer panel */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 top-[52px] bg-bg/98 z-40 md:hidden flex flex-col items-center justify-center gap-8 py-8 border-t border-line font-mono">
-          <div className="absolute inset-0 bg-dots-telemetry opacity-40 pointer-events-none" />
           {SECTIONS.map((sec) => (
             <a
               key={sec}

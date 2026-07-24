@@ -12,7 +12,7 @@ export default function About() {
         <SectionEyebrow label="SYSTEM_OVERVIEW" code="0x01" />
         
         <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 text-text-primary">
-          Candidate Profile
+          About Me
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

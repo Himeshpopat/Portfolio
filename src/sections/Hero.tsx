@@ -42,12 +42,9 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="min-h-[85vh] flex items-center justify-center pt-24 pb-12 relative overflow-hidden bg-grid-telemetry radar-sweep"
+      className="min-h-[85vh] flex items-center justify-center pt-24 pb-12 relative overflow-hidden bg-bg"
       aria-label="Hero Section"
     >
-      <div className="absolute inset-0 bg-dots-telemetry opacity-60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg/80 to-bg" />
-
       <Container className="relative z-10">
         <motion.div
           variants={containerVariants}
@@ -77,7 +74,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl mb-10 font-sans"
           >
-            B.Tech Information Technology student at KJSIT and AI/ML Intern at the India Meteorological Department. I design and build highly optimized time-series weather forecasting pipelines and scalable web backends.
+            I am a B.Tech Information Technology student at KJSIT and an AI/ML Intern at the India Meteorological Department. I design and build time-series weather forecasting pipelines and scalable web backends.
           </motion.p>
 
           {/* CTAs */}
@@ -90,7 +87,7 @@ export default function Hero() {
               onClick={() => handleScrollTo('projects')}
               className="w-full sm:w-auto text-xs font-mono uppercase tracking-wider"
             >
-              <span>View Projects</span>
+              <span>View my work</span>
               <ChevronRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
             </Button>
             
@@ -100,7 +97,7 @@ export default function Hero() {
               className="w-full sm:w-auto text-xs font-mono uppercase tracking-wider"
             >
               <FileText className="w-4 h-4 shrink-0" />
-              <span>Contact Candidate</span>
+              <span>Get in touch</span>
             </Button>
           </motion.div>
 
@@ -115,19 +112,19 @@ export default function Hero() {
               label="GitHub Profile" 
             />
             <SocialIconButton 
-              href="https://linkedin.com/in/himesh-popat" // TODO: verify profile
+              href="https://linkedin.com/in/himesh-popat"
               icon={Linkedin} 
               label="LinkedIn Profile" 
             />
             <SocialIconButton 
-              href="https://leetcode.com/u/himesh-popat" // TODO: verify username
+              href="https://leetcode.com/u/himesh_popat/"
               icon={Award} 
               label="LeetCode Profile" 
             />
             <SocialIconButton 
-              href="mailto:himesh.popat@example.com" // TODO: update with real email
+              href="mailto:himeshpopat2006@gmail.com"
               icon={Mail} 
-              label="Email Candidate" 
+              label="Email me" 
             />
           </motion.div>
 

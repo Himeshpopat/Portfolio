@@ -18,7 +18,7 @@ export const achievements: Achievement[] = [
   {
     value: "96th %ile",
     label: "JEE Main 2024",
-    description: "Scored in the 96th percentile in Joint Entrance Examination among 1.4 million candidates."
+    description: "Scored in the 96th percentile in Joint Entrance Examination among 1.4 million examinees."
   },
   {
     value: "Completed",

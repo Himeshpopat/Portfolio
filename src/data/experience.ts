@@ -12,13 +12,13 @@ export const experiences: ExperienceEntry[] = [
     role: "AI/ML Intern",
     company: "India Meteorological Department (IMD)",
     location: "Mumbai, India",
-    startDate: "May 2026",
+    startDate: "Jun 2026",
     endDate: "Present",
     bullets: [
-      "Engineered automated time-series weather forecasting pipelines utilizing **LightGBM** and **XGBoost** regression architectures.",
-      "Processed and structured **297K+** historical meteorological data telemetry records including temperature, pressure, and humidity.",
-      "Achieved an R² coefficient of **0.99+** on localized temperature and relative humidity forecasting metrics.",
-      "Optimized model inference time and feature engineering pipelines, achieving a **30%** reduction in runtime."
+      "Engineered automated time-series weather forecasting pipelines, performing advanced feature engineering on **297K+** historical records.",
+      "Trained, benchmarked, and evaluated six regression models including **LightGBM** and **XGBoost**.",
+      "Achieved R² scores of **0.9955** for temperature and **0.9817** for relative humidity forecasting.",
+      "Validated forecasting performance with MAE, RMSE, and R² metrics on unseen data, integrating results into a **real-time forecasting dashboard**."
     ]
   }
 ];

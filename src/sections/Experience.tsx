@@ -5,10 +5,28 @@ import Card from '../components/Card';
 import { experiences } from '../data/experience';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
+interface TextSegment {
+  text: string;
+  bold: boolean;
+}
+
 export default function Experience() {
-  // Utility function to inject amber-mono metrics in bold outcomes
-  const formatBullet = (text: string) => {
-    return text.replace(/\*\*(.*?)\*\*/g, '<span class="text-signal-amber font-mono font-bold">$1</span>');
+  const parseExperienceBullet = (text: string): TextSegment[] => {
+    const segments: TextSegment[] = [];
+    const regex = /\*\*(.*?)\*\*/g;
+    let lastIndex = 0;
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        segments.push({ text: text.substring(lastIndex, match.index), bold: false });
+      }
+      segments.push({ text: match[1], bold: true });
+      lastIndex = regex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      segments.push({ text: text.substring(lastIndex), bold: false });
+    }
+    return segments;
   };
 
   return (
@@ -58,9 +76,15 @@ export default function Experience() {
                   <li key={bulletIdx} className="flex items-start gap-3">
                     {/* Status marker */}
                     <span className="text-signal-cyan font-mono select-none mt-1 text-base">&rsaquo;</span>
-                    <span 
-                      dangerouslySetInnerHTML={{ __html: formatBullet(bullet) }}
-                    />
+                    <span>
+                      {parseExperienceBullet(bullet).map((seg, sIdx) => 
+                        seg.bold ? (
+                          <span key={sIdx} className="text-signal-amber font-mono font-bold">{seg.text}</span>
+                        ) : (
+                          <span key={sIdx}>{seg.text}</span>
+                        )
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -20,60 +20,57 @@ export const projects: Project[] = [
   {
     title: "Veloxa",
     tagline: "B2B commerce platform built for seamless merchant transactions",
-    problem: "Traditional B2B wholesale transaction channels are slow, heavily paper-based, and lack transparent, real-time inventory management.",
-    solution: "Designed a centralized Flask and SQLAlchemy engine with high-concurrency database queries, modular order states, and a real-time merchant control dashboard.",
-    stack: ["Flask", "SQLAlchemy", "Python", "SQLite", "Tailwind CSS", "HTML5"],
+    problem: "Wholesale transactions lack digital tracking pipelines, leading to manual paper invoice overheads and slow order settlement.",
+    solution: "Designed a B2B platform with 3-stage order workflows, passwordless OTP authentication, and transactional email automation.",
+    stack: ["Python", "Flask", "SQLAlchemy", "Bootstrap", "REST APIs", "Render"],
     metrics: [
-      { label: "Transaction Latency", value: "< 150ms" },
-      { label: "Database Queries", value: "Optimized" }
+      { label: "Registered Users", value: "50+" },
+      { label: "Order Pipeline", value: "3-Stage" }
     ],
-    liveUrl: "", // TODO: add link
-    repoUrl: "", // TODO: add link
+    liveUrl: "",
+    repoUrl: "",
     bullets: [
-      "Designed a normalized database schema in SQLAlchemy to handle concurrent cart reads/writes.",
-      "Built a secure B2B transaction pipeline with merchant authentication and session tokens.",
-      "Optimized query performance using eager loading to eliminate N+1 select bottlenecks.",
-      "Developed a clean front-end control panel for invoice generation and inventory tracking."
+      "Engineered a robust B2B transaction system with a structured **3-stage order workflow**.",
+      "Secured accounts using role-based access control (RBAC) and passwordless **OTP authentication**.",
+      "Integrated **Cloudinary** for image storage and **Brevo** for transactional email pipelines."
     ],
     initials: "VX"
   },
   {
-    title: "Color Vision Deficiency Simulator",
-    tagline: "High-performance browser-based color blindness detector and real-time simulator",
-    problem: "Web developers lack accessible, lightweight in-context tools to simulate and diagnose color blindness contrasts for UI testing.",
-    solution: "Developed an interactive canvas dashboard executing visual matrices (Protanopia, Deuteranopia, Tritanopia) in vanilla JavaScript.",
-    stack: ["JavaScript", "HTML5 Canvas", "Tailwind CSS", "Web Workers"],
+    title: "Color Vision Deficiency Detection & Simulation",
+    tagline: "High-performance browser-based color blindness simulator and assessment dashboard",
+    problem: "Simulating color blindness filters on high-resolution images suffers from latency overheads in standard browser threads.",
+    solution: "Developed an interactive canvas dashboard executing visual transforms in Python via Flask and optimized NumPy matrix operations.",
+    stack: ["HTML", "CSS", "JavaScript", "Flask", "SQLite", "NumPy"],
     metrics: [
-      { label: "Rendering Latency", value: "Real-time" },
-      { label: "Frame Rate", value: "60 FPS" }
+      { label: "Matrix Latency", value: "< 200ms" },
+      { label: "Core Simulations", value: "3 Types" }
     ],
-    liveUrl: "", // TODO: add link
-    repoUrl: "", // TODO: add link
+    liveUrl: "",
+    repoUrl: "",
     bullets: [
-      "Implemented color space conversion algorithms (RGB to LMS) for precise spectral shifting.",
-      "Utilized HTML5 Canvas pixel manipulation algorithms optimized for low layout shift.",
-      "Integrated step-by-step diagnostic vision assessments based on standard Ishihara plates.",
-      "Added support for drag-and-drop user image files with instantaneous processing feedback."
+      "Simulates **Protanopia, Deuteranopia, and Tritanopia** in real time with minimal layout shift.",
+      "Achieved sub-**200ms** latency by offloading processing to optimized **NumPy** matrix transforms.",
+      "Designed a responsive drag-and-drop interface for seamless file uploads and diagnostics."
     ],
     initials: "CVD"
   },
   {
     title: "Diabetes Risk Prediction System",
-    tagline: "Clinical-grade machine learning model for early screening and diagnostics",
-    problem: "Late diagnostics of type 2 diabetes lead to higher healthcare complications due to a lack of simple pre-screening tools.",
-    solution: "Built a robust supervised classifier using Scikit-Learn, yielding rapid risk classification profiles from key metabolic indicators.",
-    stack: ["Python", "Scikit-Learn", "Pandas", "Flask API", "Docker"],
+    tagline: "Clinical-grade machine learning model for early diabetes risk screening",
+    problem: "Imbalanced medical test datasets yield high false negative screening rates, overlooking at-risk patients.",
+    solution: "Built a classifier using Logistic Regression on the Pima Indians dataset with SMOTE resampling techniques.",
+    stack: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
     metrics: [
-      { label: "Model Accuracy", value: "94.2%" },
-      { label: "AUC-ROC Score", value: "0.96" }
+      { label: "Model Accuracy", value: "71.4%" },
+      { label: "Recall Rate", value: "67.0%" }
     ],
-    liveUrl: "", // TODO: add link
-    repoUrl: "", // TODO: add link
+    liveUrl: "",
+    repoUrl: "",
     bullets: [
-      "Trained and evaluated SVM, Random Forest, and Logistic Regression models on clinical datasets.",
-      "Applied SMOTE techniques to handle severe class imbalances in metabolic parameters.",
-      "Built a lightweight REST API wrapper using Flask to serve real-time predictions.",
-      "Packaged the pipeline using Docker to guarantee cross-environment deployment stability."
+      "Trained a **Logistic Regression** classifier on the **768-record Pima Indians** Diabetes dataset.",
+      "Achieved a predictive accuracy score of **71.4%** under unseen data partitions.",
+      "Boosted minority-class diagnostic recall from **58%** to **67%** using **SMOTE** resampling."
     ],
     initials: "DRP"
   }

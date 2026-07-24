@@ -56,14 +56,37 @@ export default function ProjectCard({ project, screenshot }: ProjectCardProps) {
 
         {/* Project outcome points */}
         <ul className="space-y-1.5 text-xs text-text-muted list-none pl-0 font-sans">
-          {project.bullets.map((bullet, idx) => (
-            <li key={idx} className="flex items-start gap-2">
-              <span className="text-signal-cyan font-mono select-none mt-0.5">&rsaquo;</span>
-              <span dangerouslySetInnerHTML={{ 
-                __html: bullet.replace(/\*\*(.*?)\*\*/g, '<strong class="text-text-primary font-medium">$1</strong>') 
-              }} />
-            </li>
-          ))}
+          {project.bullets.map((bullet, idx) => {
+            const segments = [];
+            const regex = /\*\*(.*?)\*\*/g;
+            let lastIndex = 0;
+            let match;
+            while ((match = regex.exec(bullet)) !== null) {
+              if (match.index > lastIndex) {
+                segments.push({ text: bullet.substring(lastIndex, match.index), bold: false });
+              }
+              segments.push({ text: match[1], bold: true });
+              lastIndex = regex.lastIndex;
+            }
+            if (lastIndex < bullet.length) {
+              segments.push({ text: bullet.substring(lastIndex), bold: false });
+            }
+
+            return (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="text-signal-cyan font-mono select-none mt-0.5">&rsaquo;</span>
+                <span>
+                  {segments.map((seg, sIdx) => 
+                    seg.bold ? (
+                      <strong key={sIdx} className="text-text-primary font-medium">{seg.text}</strong>
+                    ) : (
+                      <span key={sIdx}>{seg.text}</span>
+                    )
+                  )}
+                </span>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Push metrics to bottom */}
