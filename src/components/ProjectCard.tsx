@@ -2,41 +2,15 @@ import type { Project } from '../data/projects';
 import Card from './Card';
 import TechChip from './TechChip';
 import MetricReadout from './MetricReadout';
+import CvdInteractiveSchematic from './CvdInteractiveSchematic';
+import SmoteInteractivePlot from './SmoteInteractivePlot';
 
 interface ProjectCardProps {
   project: Project;
   isFeatured?: boolean;
 }
 
-// 1. Custom SVG Schematic: Color Vision Deficiency Simulation (RGB light channels matrix operation)
-function CvdSchematic() {
-  return (
-    <svg className="w-full h-full bg-surface-raised/40 border border-line rounded-[8px]" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="cvd-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(31, 39, 51, 0.4)" strokeWidth="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#cvd-grid)"/>
-      <line x1="40" y1="112.5" x2="360" y2="112.5" stroke="rgba(31, 39, 51, 0.5)" strokeWidth="1" strokeDasharray="3 3"/>
-      
-      {/* Lightwaves curves */}
-      <path d="M 40 112.5 C 80 50, 120 175, 160 112.5 C 200 50, 240 175, 280 112.5" stroke="#9d8cf0" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
-      <path d="M 40 112.5 C 70 175, 110 50, 150 112.5 C 190 175, 230 50, 270 112.5" stroke="#5fd4d6" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
-      <path d="M 40 112.5 C 90 150, 130 75, 170 112.5" stroke="#e8a94c" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
 
-      {/* Central Matrix coefficient block */}
-      <rect x="175" y="72.5" width="90" height="80" rx="6" fill="#11151c" stroke="rgba(95, 212, 214, 0.35)" strokeWidth="1"/>
-      <text x="220" y="108" fill="#5fd4d6" fontSize="9" fontFamily="JetBrains Mono" textAnchor="middle">[NUMPY]</text>
-      <text x="220" y="122" fill="rgba(231, 234, 240, 0.6)" fontSize="7" fontFamily="JetBrains Mono" textAnchor="middle">MATRIX_OP</text>
-
-      {/* Tech parameters */}
-      <text x="50" y="30" fill="rgba(137, 146, 163, 0.5)" fontSize="7" fontFamily="JetBrains Mono">[INPUT_SPECTRUM]</text>
-      <text x="300" y="30" fill="rgba(137, 146, 163, 0.5)" fontSize="7" fontFamily="JetBrains Mono">[SIM_OUTPUT]</text>
-      <circle cx="220" cy="112.5" r="3" fill="#5fd4d6"/>
-    </svg>
-  );
-}
 
 // 2. Custom SVG Schematic: Veloxa Transaction Workflow
 function VeloxaSchematic() {
@@ -72,39 +46,6 @@ function VeloxaSchematic() {
   );
 }
 
-// 3. Custom SVG Schematic: Diabetes Classifier Decision Boundary Plot
-function DiabetesSchematic() {
-  return (
-    <svg className="w-full h-full bg-surface-raised/40 border border-line rounded-[8px]" viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="drp-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(31, 39, 51, 0.4)" strokeWidth="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#drp-grid)"/>
-
-      <line x1="50" y1="35" x2="50" y2="190" stroke="rgba(31, 39, 51, 0.6)" strokeWidth="1"/>
-      <line x1="50" y1="190" x2="350" y2="190" stroke="rgba(31, 39, 51, 0.6)" strokeWidth="1"/>
-
-      <path d="M 50 170 Q 150 150, 200 112.5 T 350 55" stroke="#e8a94c" strokeWidth="1.5" opacity="0.8"/>
-      <text x="210" y="95" fill="#e8a94c" fontSize="7" fontFamily="JetBrains Mono">[DECISION_BOUNDARY]</text>
-
-      {/* Group dots */}
-      <circle cx="100" cy="150" r="3" fill="#5fd4d6" opacity="0.6"/>
-      <circle cx="120" cy="160" r="3" fill="#5fd4d6" opacity="0.6"/>
-      <circle cx="80" cy="120" r="3" fill="#5fd4d6" opacity="0.6"/>
-      <circle cx="140" cy="140" r="3" fill="#5fd4d6" opacity="0.6"/>
-
-      <circle cx="280" cy="80" r="3" fill="#9d8cf0" opacity="0.6"/>
-      <circle cx="310" cy="70" r="3" fill="#9d8cf0" opacity="0.6"/>
-      <circle cx="250" cy="90" r="3" fill="#9d8cf0" opacity="0.6"/>
-      <circle cx="290" cy="100" r="3" fill="#9d8cf0" opacity="0.6"/>
-
-      <text x="60" y="30" fill="rgba(137, 146, 163, 0.5)" fontSize="7" fontFamily="JetBrains Mono">[LOGISTIC_REGRESSION_MODEL]</text>
-    </svg>
-  );
-}
-
 export default function ProjectCard({ project, isFeatured = false }: ProjectCardProps) {
   
   const renderSchematic = () => {
@@ -112,9 +53,9 @@ export default function ProjectCard({ project, isFeatured = false }: ProjectCard
       case 'VX':
         return <VeloxaSchematic />;
       case 'CVD':
-        return <CvdSchematic />;
+        return <CvdInteractiveSchematic />;
       case 'DRP':
-        return <DiabetesSchematic />;
+        return <SmoteInteractivePlot />;
       default:
         return (
           <div className="w-full h-full bg-surface-raised/40 border border-line rounded-[8px] flex items-center justify-center font-mono text-text-muted/60">
@@ -131,8 +72,8 @@ export default function ProjectCard({ project, isFeatured = false }: ProjectCard
       <div className={`grid grid-cols-1 ${isFeatured ? 'lg:grid-cols-12 lg:gap-8' : 'gap-6'} items-stretch flex-grow`}>
         
         {/* Schematic Canvas Section (col-span-5 on featured desktop) */}
-        <div className={`w-full aspect-video rounded-[10px] overflow-hidden border border-line relative shrink-0 group/visual ${isFeatured ? 'lg:col-span-5 lg:h-full lg:aspect-auto lg:min-h-[220px]' : ''}`}>
-          <div className="w-full h-full transition-transform duration-500 ease-out-expo group-hover/visual:scale-[1.015]">
+        <div className={`w-full rounded-[10px] overflow-hidden relative shrink-0 group/visual ${isFeatured ? 'lg:col-span-5 lg:h-full lg:min-h-[220px]' : ''}`}>
+          <div className="w-full h-full transition-transform duration-500 ease-out-expo group-hover/visual:scale-[1.005]">
             {renderSchematic()}
           </div>
         </div>
