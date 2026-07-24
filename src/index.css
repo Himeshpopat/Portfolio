@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  --bg: #0a0d12;
+  --surface: #11151c;
+  --surface-raised: #161b24;
+  --line: #1f2733;
+  --text-primary: #e7eaf0;
+  --text-muted: #8992a3;
+  --signal-cyan: #5fd4d6;
+  --signal-amber: #e8a94c;
+  --signal-violet: #9d8cf0;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Lenis scroll adjustments */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Grid overlay background */
+.bg-grid-telemetry {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(31, 39, 51, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 39, 51, 0.3) 1px, transparent 1px);
+}
+
+.bg-dots-telemetry {
+  background-size: 16px 16px;
+  background-image: radial-gradient(rgba(95, 212, 214, 0.03) 1px, transparent 1px);
+}
+
+/* Radar scanning sweep effect */
+.radar-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.radar-sweep::after {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(95, 212, 214, 0.08) 0deg,
+    rgba(95, 212, 214, 0) 90deg,
+    rgba(95, 212, 214, 0) 360deg
+  );
+  animation: sweep 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus outline styles matching design system rule */
+:focus-visible {
+  outline: 2px solid var(--signal-cyan);
+  outline-offset: 2px;
+}
+
+/* Scroll reveals */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
