@@ -77,7 +77,7 @@ export default function Contact() {
               </span>
               <div className="flex items-center gap-3">
                 <SocialIconButton 
-                  href="https://github.com/himesh-popat" // TODO: verify username
+                  href="https://github.com/Himeshpopat"
                   icon={Github} 
                   label="GitHub Profile" 
                 />

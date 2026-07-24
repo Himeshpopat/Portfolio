@@ -110,7 +110,7 @@ export default function Hero() {
             className="flex items-center gap-3.5"
           >
             <SocialIconButton 
-              href="https://github.com/himesh-popat" // TODO: verify username
+              href="https://github.com/Himeshpopat"
               icon={Github} 
               label="GitHub Profile" 
             />
