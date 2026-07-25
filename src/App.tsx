@@ -89,7 +89,7 @@ const PROJECTS = [
       { url: cvdD15, caption: 'CVD Simulator — Farnsworth D15 Arrangement Test' },
       { url: cvdMosaic, caption: 'CVD Simulator — Color Mosaic Diagnostic Pattern' },
     ],
-    color: '#8b5cf6',
+    color: '#22c55e',
   },
   {
     id: 'diabetes',
@@ -1862,10 +1862,10 @@ function Skills() {
         {SKILLS_GROUPS.map((group) => (
           <div
             key={group.label}
-            className="rounded-xl sm:rounded-2xl p-3 xs:p-3.5 sm:p-4 flex flex-col justify-start h-full"
+            className="rounded-xl sm:rounded-2xl p-4 md:p-5 flex flex-col justify-start h-full"
             style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
           >
-            <div className="h-6 mb-3.5 flex items-center">
+            <div className="mb-3.5 flex items-center">
               <p
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -1880,23 +1880,23 @@ function Skills() {
                 {group.label}
               </p>
             </div>
-            {/* 2-column checkmark grid with full visibility (no truncation) */}
-            <div className="grid grid-cols-2 gap-x-2.5 sm:gap-x-3.5 gap-y-2.5 flex-1 items-start">
+            {/* Vercel/Linear-style compact badge layout */}
+            <div className="flex flex-wrap items-center justify-start gap-2">
               {group.items.map((item) => (
-                <div key={item} className="flex items-center gap-1.5 min-w-0">
-                  <span
-                    className="flex-shrink-0 font-bold text-xs"
-                    style={{ color: '#06b6d4' }}
-                  >
-                    ✓
-                  </span>
-                  <span
-                    className="text-slate-200 text-xs font-mono leading-snug whitespace-nowrap"
-                    style={{ fontFamily: 'var(--font-mono)' }}
-                  >
-                    {item}
-                  </span>
-                </div>
+                <span
+                  key={item}
+                  className="px-2.5 py-1 rounded-md text-xs font-mono whitespace-nowrap transition-all duration-200 hover:scale-[1.03] hover:border-cyan-400/40 hover:bg-cyan-500/15 cursor-default select-none inline-flex items-center"
+                  style={{
+                    background: 'rgba(6,182,212,0.06)',
+                    color: '#e2e8f0',
+                    border: '1px solid rgba(6,182,212,0.16)',
+                    fontFamily: 'var(--font-mono)',
+                    height: 28,
+                  }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full mr-1.5 flex-shrink-0" style={{ background: '#06b6d4' }} />
+                  {item}
+                </span>
               ))}
             </div>
           </div>
@@ -2140,7 +2140,7 @@ function GithubShowcase() {
       <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-6 w-full max-w-full">
         {[
           { label: 'LeetCode Solved', val: '150+' },
-          { label: 'Primary Languages', val: 'C++ · Python' },
+          { label: 'Primary Languages', val: 'C++ · Py' },
           { label: 'Public Repositories', val: '6' },
         ].map((stat, i) => (
           <div
