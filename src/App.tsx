@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, useMemo, Fragment } from 'react'
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import type { ReactNode, MouseEvent } from 'react'
 
 import avatarImg from './assets/avatar.webp'
@@ -18,15 +18,6 @@ import cvdMosaic from './assets/projects/cvd/Mosaic.webp'
 import diabetesP1 from './assets/projects/diabetes/p1.webp'
 import diabetesP2 from './assets/projects/diabetes/p2.webp'
 import diabetesP3 from './assets/projects/diabetes/p3.webp'
-
-function getAssetUrl(path: string): string {
-  if (!path) return ''
-  if (path.startsWith('http://') || path.startsWith('https://')) return path
-  const base = import.meta.env.BASE_URL || '/'
-  const cleanBase = base.endsWith('/') ? base : `${base}/`
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
-  return `${cleanBase}${cleanPath}`
-}
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
