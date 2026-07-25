@@ -1,70 +1,351 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-@import "tailwindcss";
-@config "../tailwind.config.js";
+@import 'tailwindcss';
+
+/* Mobile-audit note: the default Tailwind `md` breakpoint (768px) is where this
+   app switches from mobile-optimized layouts to the desktop layout (nav, hero,
+   grids, etc). The requested target device list includes 768px and 820px
+   viewports that need the mobile-native experience, not the desktop one — so
+   the switch point is moved to 900px. Every existing `md:` utility across the
+   whole codebase now activates at 900px instead of 768px, which means real
+   desktop widths (laptops start around 1024px+) render byte-for-byte the same
+   `md:` styles as before — nothing about true desktop changes — while the
+   768–899px range now correctly receives the mobile-tailored layout. */
+@theme {
+  --breakpoint-md: 56.25rem; /* 900px */
+}
 
 :root {
-  --bg: #0a0d12;
-  --surface: #11151c;
-  --surface-raised: #161b24;
-  --line: #1f2733;
-  --text-primary: #e7eaf0;
-  --text-muted: #8992a3;
-  --signal-cyan: #5fd4d6;
-  --signal-amber: #e8a94c;
-  --signal-violet: #9d8cf0;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg: #0c1020;
+  --bg-card: #111827;
+  --accent: #06b6d4;
+  --accent-glow: rgba(6, 182, 212, 0.12);
+  --numeric: #f59e0b;
+  --tag: #8b5cf6;
+  --text: #f1f5f9;
+  --text-muted: #64748b;
+  --border: rgba(255, 255, 255, 0.07);
 }
 
-@layer base {
-  body {
-    background-color: var(--bg);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--text-primary);
-    font-weight: 600;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep default cursor clean and visible everywhere */
+
+/* thin scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--line);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+/* Hides the scrollbar on the mobile project carousel — the dot pagination
+   already communicates position, and a visible scrollbar reads as desktop UI
+   leaking into a touch-native swipe pattern. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-/* Focus outline styles matching design system rule */
+/* selection */
+::selection {
+  background: rgba(6, 182, 212, 0.2);
+  color: #f1f5f9;
+}
+
+/* Focus rings — never skip these */
 :focus-visible {
-  outline: 2px solid var(--signal-cyan);
-  outline-offset: 2px;
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* Global Accessibility Overrides for Reduced Motion */
+/* Rounded focus for pill-shaped elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+/* Active / pressed states */
+a:active,
+button:active {
+  transform: scale(0.97);
+}
+
+/* Subtle grain overlay for depth — applied via a fixed pseudo behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+}
+
+/* Fade-up keyframes for staged hero entrance */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-fast {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-bar {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spin-fast 3.5s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 14s linear infinite;
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.avatar-float {
+  animation: avatarFloat 5s ease-in-out infinite;
+}
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.avatar-glow-pulse {
+  animation: avatarGlowPulse 4s ease-in-out infinite;
+}
+@keyframes avatarGlowPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.avatar-particle {
+  animation-name: avatarParticleDrift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes avatarParticleDrift {
+  0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+  50% { transform: translate(6px, -10px); opacity: 1; }
+}
+
+/* Floating bubbles — drift from below the viewport to above it, looping,
+   with a gentle side-to-side wobble and a fade in/out so they never pop. */
+.bubble-rise {
+  animation-name: bubbleRise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+@keyframes bubbleRise {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: 0.55; }
+  50% { transform: translate(18px, -55vh); opacity: 0.4; }
+  90% { opacity: 0.15; }
+  100% { transform: translate(-10px, -110vh); opacity: 0; }
+}
+
+.hero-stage-1 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.05s;
+}
+.hero-stage-2 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.18s;
+}
+.hero-stage-3 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.34s;
+}
+.hero-stage-4 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.5s;
+}
+.hero-stage-5 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.66s;
+}
+.hero-stage-6 {
+  animation: fadeUp 0.75s ease both;
+  animation-delay: 0.8s;
+}
+
+/* Aurora background — soft, slowly drifting color blobs behind the hero */
+.aurora-blob {
+  filter: blur(60px);
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+.aurora-cyan {
+  top: 8%;
+  left: 8%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 520px;
+  max-height: 520px;
+  background: radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.22) 0%, rgba(6, 182, 212, 0) 70%);
+  animation: auroraDrift1 18s ease-in-out infinite;
+}
+.aurora-violet {
+  top: 30%;
+  right: 4%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 460px;
+  max-height: 460px;
+  background: radial-gradient(circle at 60% 40%, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: auroraDrift2 22s ease-in-out infinite;
+}
+.aurora-amber {
+  bottom: 4%;
+  left: 30%;
+  width: 30vw;
+  height: 30vw;
+  max-width: 360px;
+  max-height: 360px;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 70%);
+  animation: auroraDrift3 26s ease-in-out infinite;
+}
+@keyframes auroraDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4%, 6%) scale(1.1); }
+  66% { transform: translate(-3%, 3%) scale(0.95); }
+}
+@keyframes auroraDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6%, 4%) scale(1.12); }
+}
+@keyframes cursorRingBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
+}
+
+@keyframes cursorParticleBurst {
+  0% {
+    transform: translate3d(-50%, -50%, 0) translate3d(0, 0, 0) scale(1);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) translate3d(var(--dx), var(--dy), 0) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Respect the user's OS-level motion preference: disable infinite loops,
+   orbiting rings, and staged entrance delays; keep content visible via opacity only. */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: 0s !important;
-    animation-duration: 0s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-spin-slow,
+  .animate-spin-fast {
+    animation: none !important;
+  }
+
+  .hero-stage-1,
+  .hero-stage-2,
+  .hero-stage-3,
+  .hero-stage-4,
+  .hero-stage-5,
+  .hero-stage-6 {
+    animation: none !important;
+    opacity: 1 !important;
     transform: none !important;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Bring back the real pointer — the custom cursor is a motion-heavy affordance */
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s ease-out forwards;
 }
