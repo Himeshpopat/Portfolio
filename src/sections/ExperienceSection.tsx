@@ -51,7 +51,7 @@ export const ExperienceSection = memo(function ExperienceSection() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                Research &amp; Development Intern
+                AI/ML Research &amp; Development Intern
               </h3>
               <p className="mb-2 md:mb-0" style={{ color: '#06b6d4', fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: 13.5 }}>
                 India Meteorological Department (IMD) · Mumbai, India

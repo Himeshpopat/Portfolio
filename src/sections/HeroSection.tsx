@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import avatarImg from '../assets/avatar.webp'
-import { SocialPill } from '../components/ui/SocialPill'
-import { GithubIcon, LinkedinIcon, LeetcodeIcon, EmailIcon, ExternalLinkIcon } from '../components/ui/Icons'
+import { EmailIcon, ExternalLinkIcon } from '../components/ui/Icons'
 import { SITE_CONFIG } from '../constants/siteConfig'
 
 function HeroAvatar() {
@@ -124,7 +123,7 @@ export const HeroSection = memo(function HeroSection() {
       <div className="absolute pointer-events-none aurora-blob aurora-amber" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 pt-20 pb-10 md:pt-28 md:pb-20">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-8">
           {/* Text content */}
           <div className="flex-1 min-w-0 text-center md:text-left">
             <div className="hero-stage-1 inline-flex items-center gap-2 mb-4 max-w-full">
@@ -185,7 +184,7 @@ export const HeroSection = memo(function HeroSection() {
             <div className="hero-stage-3 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 mb-7 w-auto mx-auto md:mx-0">
               {[
                 { val: '9.83 CGPA', detail: 'KJSIT' },
-                { val: 'R&D Intern', detail: 'IMD Mumbai' },
+                { val: 'AI/ML R&D Intern', detail: 'IMD Mumbai' },
                 { val: '150+ Solved', detail: 'LeetCode' },
               ].map((item, i) => (
                 <div
@@ -205,7 +204,7 @@ export const HeroSection = memo(function HeroSection() {
               ))}
             </div>
 
-            <div className="hero-stage-4 flex flex-row items-center gap-3 mb-8 justify-center md:justify-start w-full md:w-auto">
+            <div className="hero-stage-4 flex flex-row items-center gap-3 justify-center md:justify-start w-full md:w-auto">
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 className="flex-1 md:flex-initial min-h-[48px] inline-flex items-center justify-center gap-2 px-4 md:px-6 py-3 rounded-full font-semibold text-xs xs:text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
@@ -230,21 +229,6 @@ export const HeroSection = memo(function HeroSection() {
                 View work
                 <ExternalLinkIcon size={14} />
               </a>
-            </div>
-
-            <div className="hero-stage-5 flex items-center gap-2.5 justify-center md:justify-start">
-              <SocialPill href={SITE_CONFIG.social.github} label="Himesh Popat on GitHub">
-                <GithubIcon />
-              </SocialPill>
-              <SocialPill href={SITE_CONFIG.social.linkedin} label="Himesh Popat on LinkedIn">
-                <LinkedinIcon />
-              </SocialPill>
-              <SocialPill href={SITE_CONFIG.social.leetcode} label="himesh_popat on LeetCode">
-                <LeetcodeIcon />
-              </SocialPill>
-              <SocialPill href={`mailto:${SITE_CONFIG.email}`} label="Email Himesh Popat">
-                <EmailIcon />
-              </SocialPill>
             </div>
           </div>
 
