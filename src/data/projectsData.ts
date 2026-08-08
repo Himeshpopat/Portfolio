@@ -96,8 +96,8 @@ export const PROJECTS: Project[] = [
       { value: '58 → 67%', label: 'Recall via SMOTE' },
     ],
     stack: ['Python', 'Scikit-learn', 'Pandas', 'Streamlit', 'SMOTE', 'Machine Learning'],
-    demo: 'https://ai-diabetes-detection-by-himesh.streamlit.app/',
-    source: '',
+    demo: 'https://diabetes-detection-system-26.streamlit.app/',
+    source: 'https://github.com/Himeshpopat/Diabetes-Detection-System',
     screenshots: [
       { url: diabetesP1, caption: 'Diabetes Risk Classifier — Clinical Patient Input Interface' },
       { url: diabetesP2, caption: 'Diabetes Risk Classifier — Real-Time Risk Assessment & Output' },

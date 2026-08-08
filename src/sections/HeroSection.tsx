@@ -184,7 +184,7 @@ export const HeroSection = memo(function HeroSection() {
             <div className="hero-stage-3 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 mb-7 w-auto mx-auto md:mx-0">
               {[
                 { val: '9.83 CGPA', detail: 'KJSIT' },
-                { val: 'AI/ML R&D Intern', detail: 'IMD Mumbai' },
+                { val: 'AI/ML Intern', detail: 'IMD Mumbai' },
                 { val: '150+ Solved', detail: 'LeetCode' },
               ].map((item, i) => (
                 <div
