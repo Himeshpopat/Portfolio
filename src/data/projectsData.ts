@@ -12,9 +12,11 @@ import cvdIshihara from '../assets/projects/cvd/Ishihara.webp'
 import cvdD15 from '../assets/projects/cvd/D15.webp'
 import cvdMosaic from '../assets/projects/cvd/Mosaic.webp'
 
-import diabetesP1 from '../assets/projects/diabetes/p1.webp'
-import diabetesP2 from '../assets/projects/diabetes/p2.webp'
-import diabetesP3 from '../assets/projects/diabetes/p3.webp'
+import diabetesP1 from '../assets/projects/diabetes/p1.png'
+import diabetesP2 from '../assets/projects/diabetes/p2.png'
+import diabetesP3 from '../assets/projects/diabetes/p3.png'
+import diabetesP4 from '../assets/projects/diabetes/p4.png'
+import diabetesP5 from '../assets/projects/diabetes/p5.png'
 
 export const PROJECTS: Project[] = [
   {
@@ -79,29 +81,32 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'diabetes',
-    name: 'Diabetes Risk Prediction System',
-    tagline: 'ML diagnostic classifier with SMOTE-enhanced minority recall',
+    name: 'Diabetes Risk Prediction & Clinical Decision Support',
+    tagline: 'Clinical ML classifier with SMOTE-enhanced recall, AUC 0.81, & automated risk report generation',
     problem:
-      'Standard ML classifiers on imbalanced medical datasets suffer from high false-negative rates on at-risk patients.',
+      'Standard ML classifiers trained on imbalanced clinical datasets suffer from high false-negative rates, missing critical early-stage diabetic cases.',
     solution:
-      'Built an end-to-end ML pipeline applying SMOTE oversampling to boost minority-class diagnostic recall on the 768-record Pima Indians dataset.',
+      'Engineered an end-to-end clinical decision-support pipeline combining SMOTE oversampling, calibrated risk scoring (AUC 0.81), exportable diagnostic PDF reports, and patient intake logging.',
     outcomes: [
-      '71.4% overall classification accuracy on benchmark clinical dataset',
-      'Boosted minority-class recall from 58% to 67% via SMOTE oversampling',
-      'Deployed interactive Streamlit app for real-time patient risk evaluation',
-      'Feature importance analysis for clinical interpretability and diagnostic insight',
+      '0.81 Test Set AUC-ROC with calibrated 28.0% decision threshold for medical screening',
+      'Boosted minority-class diagnostic recall from 58% to 67% using SMOTE oversampling',
+      'Automated PDF Diagnostic Report generation with risk factor & protective factor breakdowns',
+      'Interactive Streamlit app featuring real-time risk gauges, biomarker history log, and diagnostic curves',
     ],
     pullMetrics: [
-      { value: '71.4%', label: 'Model Accuracy' },
+      { value: '0.81', label: 'Test Set AUC-ROC' },
       { value: '58 → 67%', label: 'Recall via SMOTE' },
+      { value: '28.0%', label: 'Optimal Threshold' },
     ],
-    stack: ['Python', 'Scikit-learn', 'Pandas', 'Streamlit', 'SMOTE', 'Machine Learning'],
+    stack: ['Python', 'Scikit-learn', 'Streamlit', 'SMOTE', 'Pandas', 'NumPy', 'Matplotlib', 'Machine Learning'],
     demo: 'https://diabetes-detection-system-26.streamlit.app/',
     source: 'https://github.com/Himeshpopat/Diabetes-Detection-System',
     screenshots: [
-      { url: diabetesP1, caption: 'Diabetes Risk Classifier — Clinical Patient Input Interface' },
-      { url: diabetesP2, caption: 'Diabetes Risk Classifier — Real-Time Risk Assessment & Output' },
-      { url: diabetesP3, caption: 'Diabetes Risk Classifier — Feature Importance & Analytics' },
+      { url: diabetesP1, caption: 'Diabetes Risk System — Interactive Patient Intake & Calibrated Risk Gauge' },
+      { url: diabetesP2, caption: 'Diabetes Risk System — Historical Prediction Log & Biomarker Tracking' },
+      { url: diabetesP3, caption: 'Diabetes Risk System — Exportable Clinical Diagnostic & Risk Breakdown Report' },
+      { url: diabetesP4, caption: 'Diabetes Risk System — Model Diagnostics: ROC (AUC = 0.81) & Precision-Recall Curves' },
+      { url: diabetesP5, caption: 'Diabetes Risk System — Exploratory Data Analysis: Correlation Matrix & Class Balance' },
     ],
     color: '#f59e0b',
   },
