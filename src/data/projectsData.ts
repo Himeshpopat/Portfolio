@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'diabetes',
     name: 'Diabetes Risk Prediction & Clinical Decision Support',
-    tagline: 'Clinical ML classifier with SMOTE-enhanced recall, AUC 0.81, & automated risk report generation',
+    tagline: 'Clinical ML classifier with 0.81 ROC-AUC, enhanced recall & automated risk reports',
     problem:
       'Standard ML classifiers trained on imbalanced clinical datasets suffer from high false-negative rates, missing critical early-stage diabetic cases.',
     solution:
@@ -96,7 +96,6 @@ export const PROJECTS: Project[] = [
     pullMetrics: [
       { value: '0.81', label: 'Test Set AUC-ROC' },
       { value: '58 → 67%', label: 'Recall via SMOTE' },
-      { value: '28.0%', label: 'Optimal Threshold' },
     ],
     stack: ['Python', 'Scikit-learn', 'Streamlit', 'SMOTE', 'Pandas', 'NumPy', 'Matplotlib', 'Machine Learning'],
     demo: 'https://diabetes-detection-system-26.streamlit.app/',
