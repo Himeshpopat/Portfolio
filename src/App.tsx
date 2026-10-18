@@ -1,6 +1,7 @@
 import { useActiveSection } from './hooks/useActiveSection'
 import { ALL_SECTION_IDS } from './data/navigationData'
 
+import { CinematicIntro } from './components/common/CinematicIntro'
 import { CustomCursor } from './components/common/CustomCursor'
 import { FloatingBubbles } from './components/common/FloatingBubbles'
 import { Nav } from './components/common/Nav'
@@ -32,6 +33,7 @@ export default function App() {
         maxWidth: '100vw',
       }}
     >
+      <CinematicIntro />
       <CustomCursor />
       <FloatingBubbles />
       <div style={{ position: 'relative', zIndex: 10 }}>

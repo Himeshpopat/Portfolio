@@ -1,0 +1,351 @@
+/* ============================================================
+   CinematicIntro.css — Scoped intro overlay animations.
+   Every selector lives under .cinematic-intro so there is zero
+   risk of bleeding into the rest of the portfolio.
+   ============================================================ */
+
+/* ---- Overlay shell ---- */
+.cinematic-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0c1020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto;
+  will-change: opacity;
+}
+
+.cinematic-intro[aria-hidden='true'] {
+  pointer-events: none;
+}
+
+/* ---- Phase A: Technical geometry lines ---- */
+.cinematic-intro__grid {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cinematic-intro__hline,
+.cinematic-intro__vline {
+  position: absolute;
+  background: rgba(6, 182, 212, 0.06);
+  will-change: transform, opacity;
+}
+
+.cinematic-intro__hline {
+  height: 1px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: ci-hline-grow 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.cinematic-intro__vline {
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform: scaleY(0);
+  transform-origin: center;
+  animation: ci-vline-grow 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes ci-hline-grow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes ci-vline-grow {
+  to { transform: scaleY(1); }
+}
+
+/* ---- Light sweep (horizontal pass) ---- */
+.cinematic-intro__lightsweep {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.04) 30%,
+    rgba(6, 182, 212, 0.10) 50%,
+    rgba(6, 182, 212, 0.04) 70%,
+    transparent 100%
+  );
+  animation: ci-light-pass 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+  pointer-events: none;
+}
+
+@keyframes ci-light-pass {
+  to { left: 110%; }
+}
+
+/* ---- Central convergence point (subtle glow) ---- */
+.cinematic-intro__core-glow {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.12) 0%,
+    rgba(139, 92, 246, 0.04) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  opacity: 0;
+  animation: ci-glow-in 0.8s ease-out 0.15s forwards;
+  pointer-events: none;
+}
+
+@keyframes ci-glow-in {
+  0%   { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Phase B: Name reveal container ---- */
+.cinematic-intro__name-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Individual word containers */
+.cinematic-intro__word {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.cinematic-intro__word-inner {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #f1f5f9;
+  line-height: 1.05;
+  transform: translateY(110%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* First word "HIMESH" */
+.cinematic-intro__word--first .cinematic-intro__word-inner {
+  animation: ci-word-reveal 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.35s forwards;
+}
+
+/* Second word "POPAT" — cyan accent */
+.cinematic-intro__word--second .cinematic-intro__word-inner {
+  color: #06b6d4;
+  animation: ci-word-reveal 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.48s forwards;
+}
+
+@keyframes ci-word-reveal {
+  0%   { transform: translateY(110%); opacity: 0; }
+  60%  { opacity: 1; }
+  100% { transform: translateY(0%); opacity: 1; }
+}
+
+/* ---- Name light pass (horizontal shine across text) ---- */
+.cinematic-intro__name-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cinematic-intro__name-shine::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -80%;
+  width: 60%;
+  height: 140%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.08) 60%,
+    transparent 100%
+  );
+  animation: ci-name-shine 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
+}
+
+@keyframes ci-name-shine {
+  to { left: 140%; }
+}
+
+/* ---- Phase C: Convergence lines into center ---- */
+.cinematic-intro__converge-line {
+  position: absolute;
+  background: rgba(6, 182, 212, 0.15);
+  will-change: transform, opacity;
+  transform-origin: center;
+}
+
+.cinematic-intro__converge-line--h {
+  height: 1px;
+  width: 100vw;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) scaleX(0);
+  animation: ci-converge-h 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) 0.55s forwards;
+}
+
+.cinematic-intro__converge-line--v {
+  width: 1px;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  animation: ci-converge-v 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s forwards;
+}
+
+@keyframes ci-converge-h {
+  to { transform: translateX(-50%) scaleX(1); opacity: 0; }
+}
+
+@keyframes ci-converge-v {
+  to { transform: translateY(-50%) scaleY(1); opacity: 0; }
+}
+
+/* ---- Corner accents (engineering detail) ---- */
+.cinematic-intro__corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  opacity: 0;
+  animation: ci-corner-in 0.5s ease-out forwards;
+}
+
+.cinematic-intro__corner::before,
+.cinematic-intro__corner::after {
+  content: '';
+  position: absolute;
+  background: rgba(6, 182, 212, 0.18);
+}
+
+.cinematic-intro__corner--tl { top: 20%; left: 12%; animation-delay: 0.2s; }
+.cinematic-intro__corner--tr { top: 20%; right: 12%; animation-delay: 0.25s; }
+.cinematic-intro__corner--bl { bottom: 20%; left: 12%; animation-delay: 0.3s; }
+.cinematic-intro__corner--br { bottom: 20%; right: 12%; animation-delay: 0.35s; }
+
+.cinematic-intro__corner--tl::before { top: 0; left: 0; width: 18px; height: 1px; }
+.cinematic-intro__corner--tl::after  { top: 0; left: 0; width: 1px; height: 18px; }
+
+.cinematic-intro__corner--tr::before { top: 0; right: 0; width: 18px; height: 1px; }
+.cinematic-intro__corner--tr::after  { top: 0; right: 0; width: 1px; height: 18px; }
+
+.cinematic-intro__corner--bl::before { bottom: 0; left: 0; width: 18px; height: 1px; }
+.cinematic-intro__corner--bl::after  { bottom: 0; left: 0; width: 1px; height: 18px; }
+
+.cinematic-intro__corner--br::before { bottom: 0; right: 0; width: 18px; height: 1px; }
+.cinematic-intro__corner--br::after  { bottom: 0; right: 0; width: 1px; height: 18px; }
+
+@keyframes ci-corner-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ---- Phase D: Final dissolve / reveal ---- */
+.cinematic-intro--dissolving {
+  animation: ci-dissolve 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes ci-dissolve {
+  0% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(2% 2% 2% 2%);
+  }
+}
+
+/* ---- Responsive typography ---- */
+
+/* Desktop (default) */
+.cinematic-intro__word-inner {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+
+/* Tablet */
+@media (max-width: 899px) {
+  .cinematic-intro__word-inner {
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+  }
+
+  .cinematic-intro__core-glow {
+    width: 240px;
+    height: 240px;
+  }
+
+  .cinematic-intro__corner--tl { top: 15%; left: 6%; }
+  .cinematic-intro__corner--tr { top: 15%; right: 6%; }
+  .cinematic-intro__corner--bl { bottom: 15%; left: 6%; }
+  .cinematic-intro__corner--br { bottom: 15%; right: 6%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .cinematic-intro__word-inner {
+    font-size: clamp(2.2rem, 14vw, 3.5rem);
+  }
+
+  .cinematic-intro__core-glow {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cinematic-intro__corner {
+    width: 24px;
+    height: 24px;
+  }
+  .cinematic-intro__corner--tl::before,
+  .cinematic-intro__corner--tr::before,
+  .cinematic-intro__corner--bl::before,
+  .cinematic-intro__corner--br::before { width: 12px; }
+  .cinematic-intro__corner--tl::after,
+  .cinematic-intro__corner--tr::after,
+  .cinematic-intro__corner--bl::after,
+  .cinematic-intro__corner--br::after { height: 12px; }
+
+  .cinematic-intro__corner--tl { top: 10%; left: 5%; }
+  .cinematic-intro__corner--tr { top: 10%; right: 5%; }
+  .cinematic-intro__corner--bl { bottom: 10%; left: 5%; }
+  .cinematic-intro__corner--br { bottom: 10%; right: 5%; }
+}
+
+/* ---- Reduced motion: immediate reveal, no animation ---- */
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-intro,
+  .cinematic-intro * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Immediately show name text */
+  .cinematic-intro__word-inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* The dissolve still needs to work but instantly */
+  .cinematic-intro--dissolving {
+    opacity: 0 !important;
+  }
+}
