@@ -20,7 +20,7 @@ export const GITHUB_REPOS: GithubRepo[] = [
 ]
 
 export const GITHUB_QUICK_STATS = [
-  { label: 'LeetCode Solved', val: '150+' },
+  { label: 'LeetCode Solved', val: '240+' },
   { label: 'Primary Languages', val: 'C++ · Py' },
   { label: 'Public Repositories', val: '6' },
 ]

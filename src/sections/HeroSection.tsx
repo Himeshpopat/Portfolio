@@ -185,7 +185,7 @@ export const HeroSection = memo(function HeroSection() {
               {[
                 { val: '9.83 CGPA', detail: 'KJSIT' },
                 { val: 'AI/ML Intern', detail: 'IMD Mumbai' },
-                { val: '150+ Solved', detail: 'LeetCode' },
+                { val: '240+ Solved', detail: 'LeetCode' },
               ].map((item, i) => (
                 <div
                   key={i}
