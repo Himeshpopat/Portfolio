@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://himeshpopat.github.io/sitemap.xml
+Sitemap: https://himesh-popat.vercel.app/sitemap.xml

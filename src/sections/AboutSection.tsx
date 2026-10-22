@@ -24,7 +24,7 @@ export const AboutSection = memo(function AboutSection() {
             I'm Himesh, an Information Technology student at KJ Somaiya Institute of Technology, Mumbai (CGPA 9.83). I approach software engineering as the discipline of transforming complex operational problems into clean, reliable, and high-performance software solutions.
           </p>
           <p style={{ color: '#94a3b8', lineHeight: 1.75, fontFamily: 'var(--font-body)', fontSize: 15 }}>
-            My interests span data structures &amp; algorithms, problem solving, full-stack web development, scalable backend systems, RESTful API architecture, and production-ready machine learning pipelines. From digitizing B2B wholesale workflows to benchmarking ML regression models on 297K+ meteorological records, I focus on building maintainable systems backed by rigorous evaluation and measurable impact.
+            My interests span data structures &amp; algorithms, problem solving, full-stack web development, scalable backend systems, RESTful API architecture, and production-ready machine learning pipelines. From engineering atmospheric research platforms and B2B workflow systems to benchmarking day-ahead forecasting models across 3M+ weather records, I focus on building maintainable systems backed by rigorous evaluation and measurable impact.
           </p>
         </div>
 

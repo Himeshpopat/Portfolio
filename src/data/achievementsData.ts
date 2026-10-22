@@ -4,8 +4,8 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     stat: 'Intern',
     unit: 'IMD',
-    label: 'AI/ML R&D Intern',
-    sub: 'India Meteorological Department — operational forecasting models',
+    label: 'Full-Stack Development Intern',
+    sub: 'India Meteorological Department — atmospheric research platform',
     isNumeric: false,
   },
   {

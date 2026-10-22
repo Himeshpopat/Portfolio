@@ -181,15 +181,16 @@ export const HeroSection = memo(function HeroSection() {
             </p>
 
             {/* Achievement Badges */}
-            <div className="hero-stage-3 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 mb-7 w-auto mx-auto md:mx-0">
+            <div className="hero-stage-3 flex flex-wrap items-center justify-center md:justify-start gap-2 mb-7 w-auto mx-auto md:mx-0">
               {[
                 { val: '9.83 CGPA', detail: 'KJSIT' },
-                { val: 'AI/ML Intern', detail: 'IMD Mumbai' },
+                { val: 'Full-Stack Intern', detail: 'IMD' },
+                { val: 'ML Intern', detail: 'Tata Power' },
                 { val: '240+ Solved', detail: 'LeetCode' },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="w-[215px] md:w-auto h-9 min-h-[36px] inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap"
+                  className="w-[215px] sm:w-auto h-9 min-h-[36px] inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(255,255,255,0.08)',
