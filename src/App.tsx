@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useActiveSection } from './hooks/useActiveSection'
 import { ALL_SECTION_IDS } from './data/navigationData'
 
@@ -22,8 +21,6 @@ import { ContactSection } from './sections/ContactSection'
 
 export default function App() {
   const active = useActiveSection(ALL_SECTION_IDS)
-  const [isRevealing, setIsRevealing] = useState(false)
-  const [introFinished, setIntroFinished] = useState(false)
 
   return (
     <div
@@ -32,18 +29,14 @@ export default function App() {
         minHeight: '100vh',
         position: 'relative',
         zIndex: 2,
-        overflowX: 'hidden',
+        overflowX: 'clip',
         maxWidth: '100vw',
       }}
     >
-      {!introFinished && (
-        <OpeningSequence
-          name="HIMESH POPAT" // <-- Change to your actual name
-          role="SOFTWARE ENGINEER · AI & FULL-STACK SYSTEMS" // <-- Change to your subtitle
-          onRevealStart={() => setIsRevealing(true)}
-          onComplete={() => setIntroFinished(true)}
-        />
-      )}
+      <OpeningSequence
+        name="HIMESH POPAT"
+        role="SOFTWARE ENGINEERING · FULL-STACK · AI / ML"
+      />
 
       <CustomCursor />
       <FloatingBubbles />
@@ -51,28 +44,18 @@ export default function App() {
       <div style={{ position: 'relative', zIndex: 10 }}>
         <Nav active={active} />
 
-        <div
-          style={{
-            transform: isRevealing || introFinished ? 'scale(1)' : 'scale(1.035)',
-            opacity: isRevealing || introFinished ? 1 : 0.92,
-            transition:
-              'transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease-out',
-            willChange: introFinished ? 'auto' : 'transform, opacity',
-          }}
-        >
-          <main>
-            <HeroSection />
-            <ProjectsSection />
-            <ExperienceSection />
-            <AchievementsSection />
-            <SkillsSection />
-            <CurrentlyLearningSection />
-            <AboutSection />
-            <GithubShowcaseSection />
-            <ContactSection />
-          </main>
-          <Footer />
-        </div>
+        <main>
+          <HeroSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <AchievementsSection />
+          <SkillsSection />
+          <CurrentlyLearningSection />
+          <AboutSection />
+          <GithubShowcaseSection />
+          <ContactSection />
+        </main>
+        <Footer />
 
         <MusicPlayer />
         <MobileTabBar active={active} />
