@@ -38,70 +38,52 @@ export function OpeningSequence({
 }: OpeningSequenceProps) {
   const [phase, setPhase] = useState<OpeningPhase>(getInitialPhase)
   const phaseRef = useRef<OpeningPhase>(phase)
-  const introTimerRef = useRef<number | null>(null)
-  const exitTimerRef = useRef<number | null>(null)
   const skipButtonRef = useRef<HTMLButtonElement>(null)
 
   const beginExit = useCallback(() => {
     if (phaseRef.current !== 'intro') return
-
     phaseRef.current = 'exiting'
     setPhase('exiting')
-
-    if (introTimerRef.current !== null) {
-      window.clearTimeout(introTimerRef.current)
-      introTimerRef.current = null
-    }
-
-    exitTimerRef.current = window.setTimeout(() => {
-      phaseRef.current = 'done'
-      setPhase('done')
-    }, EXIT_DURATION_MS)
   }, [])
 
+  // Each phase owns its timer; cleanup cannot cancel the next phase's timer.
   useEffect(() => {
-    document.body.style.overflow = ''
-    document.documentElement.style.overflow = ''
-
-    if (phase !== 'intro') return
-
-    skipButtonRef.current?.focus({ preventScroll: true })
-
-    introTimerRef.current = window.setTimeout(beginExit, INTRO_DURATION_MS)
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        event.preventDefault()
-        beginExit()
-        return
+    if (phase === 'done') return
+    const timer = window.setTimeout(() => {
+      if (phase === 'intro') beginExit()
+      else {
+        phaseRef.current = 'done'
+        setPhase('done')
       }
+    }, phase === 'intro' ? INTRO_DURATION_MS : EXIT_DURATION_MS)
+    return () => window.clearTimeout(timer)
+  }, [phase, beginExit])
 
-      // The intro is a short modal layer; keep keyboard focus on its only
-      // control rather than allowing focus to move to obscured page content.
-      if (event.key === 'Tab' && phaseRef.current === 'intro') {
+  const finished = phase === 'done'
+  useEffect(() => {
+    if (finished) return
+    const content = document.getElementById('portfolio-content')
+    const previousFocus = document.activeElement as HTMLElement | null
+    if (content) content.inert = true
+    skipButtonRef.current?.focus({ preventScroll: true })
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') beginExit()
+      if (event.key === 'Tab') {
         event.preventDefault()
         skipButtonRef.current?.focus({ preventScroll: true })
       }
     }
-
     window.addEventListener('keydown', handleKeyDown)
-
     return () => {
-      if (introTimerRef.current !== null) {
-        window.clearTimeout(introTimerRef.current)
-        introTimerRef.current = null
-      }
-
-      if (exitTimerRef.current !== null) {
-        window.clearTimeout(exitTimerRef.current)
-        exitTimerRef.current = null
-      }
-
+      if (content) content.inert = false
       window.removeEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
+      if (previousFocus?.isConnected && previousFocus !== document.body) {
+        previousFocus.focus({ preventScroll: true })
+      } else {
+        document.querySelector<HTMLElement>('main')?.focus({ preventScroll: true })
+      }
     }
-  }, [beginExit, phase])
+  }, [finished, beginExit])
 
   if (phase === 'done') return null
 

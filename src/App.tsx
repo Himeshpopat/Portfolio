@@ -41,10 +41,10 @@ export default function App() {
       <CustomCursor />
       <FloatingBubbles />
 
-      <div style={{ position: 'relative', zIndex: 10 }}>
+      <div id="portfolio-content" style={{ position: 'relative', zIndex: 10 }}>
         <Nav active={active} />
 
-        <main>
+        <main id="main-content" tabIndex={-1}>
           <HeroSection />
           <ProjectsSection />
           <ExperienceSection />

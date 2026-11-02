@@ -8,7 +8,7 @@ export function useTilt(): {
   const ref = useRef<HTMLDivElement>(null)
 
   const onMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    if (typeof window !== 'undefined' && window.innerWidth < 900) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return
     if (!ref.current) return
 
     const rect = ref.current.getBoundingClientRect()

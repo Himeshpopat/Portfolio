@@ -5,7 +5,9 @@ export const CustomCursor = memo(function CustomCursor() {
   const [clicks, setClicks] = useState<ClickBurst[]>([])
 
   useEffect(() => {
+    const timers = new Set<ReturnType<typeof setTimeout>>()
     const onClick = (e: globalThis.MouseEvent) => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return
       const angles = [0, 45, 90, 135, 180, 225, 270, 315]
       const dist = 70
       const newClick: ClickBurst = {
@@ -18,13 +20,16 @@ export const CustomCursor = memo(function CustomCursor() {
         })),
       }
       setClicks((prev) => [...prev.slice(-4), newClick])
-      setTimeout(() => {
+      const timer = setTimeout(() => {
+        timers.delete(timer)
         setClicks((prev) => prev.filter((c) => c.id !== newClick.id))
       }, 450)
+      timers.add(timer)
     }
 
     window.addEventListener('pointerdown', onClick, { capture: true, passive: true })
     return () => {
+      timers.forEach(clearTimeout)
       window.removeEventListener('pointerdown', onClick, { capture: true })
     }
   }, [])
