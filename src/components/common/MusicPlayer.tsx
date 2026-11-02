@@ -9,6 +9,8 @@ const STORAGE_KEY = 'himesh_portfolio_music_enabled'
 
 export const MusicPlayer = memo(function MusicPlayer() {
   const [playing, setPlaying] = useState(false)
+  const requestRef = useRef(0)
+  const desiredPlaying = useRef(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const fadeIntervalRef = useRef<number | null>(null)
 
@@ -23,25 +25,33 @@ export const MusicPlayer = memo(function MusicPlayer() {
     if (!audioRef.current && typeof window !== 'undefined') {
       const audio = new Audio(MUSIC_SRC)
       audio.loop = true
-      audio.preload = 'auto'
+      audio.preload = 'none'
       audio.volume = 0
       audio.onerror = (e) => {
         console.error('Failed to load background music audio file:', e)
+        requestRef.current++
+        desiredPlaying.current = false
+        clearFadeTimer()
+        setPlaying(false)
       }
       audioRef.current = audio
     }
     return audioRef.current
-  }, [])
+  }, [clearFadeTimer])
 
   const fadeIn = useCallback(() => {
     const audio = getAudio()
     if (!audio) return
     clearFadeTimer()
 
+    const request = ++requestRef.current
+    desiredPlaying.current = true
     const playPromise = audio.play()
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
+          if (request !== requestRef.current) return
+          clearFadeTimer()
           setPlaying(true)
           try {
             localStorage.setItem(STORAGE_KEY, 'true')
@@ -63,6 +73,8 @@ export const MusicPlayer = memo(function MusicPlayer() {
           }, stepMs)
         })
         .catch((err) => {
+          if (request !== requestRef.current) return
+          desiredPlaying.current = false
           console.warn('Playback interrupted or blocked by browser policy:', err)
           setPlaying(false)
         })
@@ -70,6 +82,9 @@ export const MusicPlayer = memo(function MusicPlayer() {
   }, [getAudio, clearFadeTimer])
 
   const fadeOut = useCallback(() => {
+    requestRef.current++
+    desiredPlaying.current = false
+    setPlaying(false)
     const audio = audioRef.current
     if (!audio) return
     clearFadeTimer()
@@ -107,6 +122,8 @@ export const MusicPlayer = memo(function MusicPlayer() {
     }
 
     return () => {
+      requestRef.current++
+      desiredPlaying.current = false
       clearFadeTimer()
       if (audioRef.current) {
         audioRef.current.pause()
@@ -115,7 +132,7 @@ export const MusicPlayer = memo(function MusicPlayer() {
   }, [fadeIn, clearFadeTimer])
 
   const toggle = () => {
-    if (playing) {
+    if (desiredPlaying.current) {
       fadeOut()
     } else {
       fadeIn()
@@ -153,14 +170,9 @@ export const MusicPlayer = memo(function MusicPlayer() {
 
       <button
         onClick={toggle}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault()
-            toggle()
-          }
-        }}
         className="w-9 h-9 md:w-7 md:h-7 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 flex-shrink-0 cursor-pointer"
         style={{ background: playing ? '#06b6d4' : 'rgba(6,182,212,0.15)' }}
+        aria-pressed={playing}
         aria-label={playing ? 'Pause background music' : 'Play background music'}
       >
         {playing ? (
@@ -180,7 +192,7 @@ export const MusicPlayer = memo(function MusicPlayer() {
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 10,
-          color: '#475569',
+          color: 'var(--text-muted)',
           letterSpacing: '0.1em',
           whiteSpace: 'nowrap',
         }}
