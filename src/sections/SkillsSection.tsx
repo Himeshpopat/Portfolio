@@ -27,7 +27,7 @@ export const SkillsSection = memo(function SkillsSection() {
         {SKILLS_GROUPS.map((group) => (
           <div
             key={group.label}
-            className="rounded-xl sm:rounded-2xl p-4 md:p-5 flex flex-col justify-start h-full"
+            className="surface-card rounded-xl sm:rounded-2xl p-4 md:p-5 flex flex-col justify-start h-full"
             style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
           >
             <div className="mb-3.5 flex items-center">

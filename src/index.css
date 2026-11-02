@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @import 'tailwindcss';
 
@@ -12,6 +11,10 @@
    `md:` styles as before — nothing about true desktop changes — while the
    768–899px range now correctly receives the mobile-tailored layout. */
 @theme {
+  --breakpoint-xs: 23.4375rem;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   --breakpoint-md: 56.25rem; /* 900px */
 }
 
@@ -27,7 +30,7 @@
   --numeric: #f59e0b;
   --tag: #8b5cf6;
   --text: #f1f5f9;
-  --text-muted: #64748b;
+  --text-muted: #9aaac0;
   --border: rgba(255, 255, 255, 0.07);
 }
 
@@ -351,4 +354,77 @@ body::before {
 
 .animate-fadeIn {
   animation: fadeIn 0.22s ease-out forwards;
+}
+
+/* Shared surfaces and responsive composition. Content stays in document order. */
+:root { color-scheme: dark; }
+html { scroll-padding-top: 96px; }
+main:focus { outline: none; }
+main > section { scroll-margin-top: 24px; }
+.portfolio-section { padding-block: clamp(40px, 6vw, 88px); }
+.section-label { margin-bottom: clamp(24px, 3vw, 36px); }
+.section-label > span { flex-shrink: 0; }
+.section-label > div { background: linear-gradient(90deg, #244052, transparent) !important; }
+.surface-card {
+  background: linear-gradient(145deg, #141e30, #101827) !important;
+  border-color: #263247 !important;
+  box-shadow: 0 12px 40px -24px #0009;
+}
+.project-card { border-radius: 24px; }
+.project-track { scroll-padding-inline: 24px; align-items: stretch; }
+.project-dot { position: relative; margin: 12px 8px; }
+.project-dot::after { content: ''; position: absolute; inset: -18px -10px; }
+.carousel-dot { min-width: 24px; min-height: 32px; }
+.carousel-play { min-width: 32px; min-height: 32px; color: #cbd5e1; cursor: pointer; border-radius: 6px; }
+.screenshot-carousel button[aria-label$="screenshot"] { width: 44px; height: 44px; }
+.screenshot-carousel { isolation: isolate; }
+.screenshot-carousel > div:first-child { min-height: 48px; }
+.screenshot-carousel > div:nth-child(2) { padding-bottom: 44px; }
+.screenshot-carousel img { padding-bottom: 38px; }
+nav a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+header > div > a { min-height: 36px !important; }
+button { touch-action: manipulation; }
+.hero-section { background: radial-gradient(ellipse at 80% 40%, #0c253640, transparent 60%); }
+.hero-section h1 { text-wrap: balance; }
+.hero-section h2 { max-width: 30ch; }
+.hero-section .aurora-blob { opacity: .6; }
+.hero-scroll-cue { pointer-events: none; }
+#contact { position: relative; padding-block: clamp(64px, 10vw, 136px); }
+#contact::before { content: ''; position: absolute; inset: 24px 0; z-index: -1; border: 1px solid #263247; border-radius: 28px; background: radial-gradient(ellipse at 50% 100%, #083b4b50, transparent 70%); }
+@media (min-width: 900px) {
+  .project-slide + .project-slide { margin-top: 32px; }
+  .hero-portrait { width: clamp(300px, 34vw, 420px); height: clamp(300px, 34vw, 420px); }
+  .hero-portrait > div.relative { width: 87%; height: 87%; }
+}
+@media (min-width: 1100px) {
+  .project-body { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 28px 32px; align-items: start; }
+  .project-body > div { min-width: 0; }
+  .project-footer, .project-actions { grid-column: 1 / -1; }
+  .project-body .screenshot-carousel { margin-bottom: 0; }
+  .project-body .screenshot-carousel > div:nth-child(2) { height: 320px; }
+  .project-body > div:first-child > div:nth-child(2) { margin-bottom: 0; }
+}
+@media (max-width: 899px) {
+  .hero-section h2 { margin-inline: auto; }
+  .hero-section > div.relative { padding-bottom: 104px; }
+  .hero-scroll-cue { bottom: 18px; }
+  .project-slide { width: min(87vw, 640px); }
+  .portfolio-section { padding-inline: 24px; }
+  #contact::before { inset-inline: 12px; }
+}
+@media (max-width: 374px) {
+  #achievements > .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .surface-card { transform: none !important; }
+  .aurora-blob, .avatar-particle, .bubble-rise { display: none; }
+  main > section { opacity: 1 !important; transform: none !important; }
+}
+@media print {
+  header, nav, .opening-sequence, .hero-scroll-cue, .fixed, button { display: none !important; }
+  main > section { opacity: 1 !important; transform: none !important; padding-block: 24px !important; }
+  .project-track { display: block; overflow: visible; }
+  .project-slide { width: 100%; margin-bottom: 24px; }
+  [id^="details-"] { display: block !important; }
+  .surface-card { break-inside: avoid; box-shadow: none; }
 }

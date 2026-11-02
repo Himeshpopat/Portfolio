@@ -14,12 +14,12 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
       data-card
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="rounded-2xl overflow-hidden h-full flex flex-col justify-between"
+      className="project-card surface-card rounded-2xl overflow-hidden h-full flex flex-col justify-between"
       style={{
         background: '#111827',
         border: '1px solid rgba(255,255,255,0.07)',
         transition: 'transform 0.15s ease',
-        willChange: 'transform',
+
       }}
     >
       {/* Top accent bar */}
@@ -30,7 +30,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
         }}
       />
 
-      <div className="p-3.5 xs:p-4 sm:p-6 md:p-8 flex flex-col flex-1 justify-between">
+      <div className="project-body p-3.5 xs:p-4 sm:p-6 md:p-8 flex flex-col flex-1 justify-between">
         <div>
           {/* 1. Project Title & Tagline */}
           <div className="mb-6 md:mb-3 text-center md:text-left">
@@ -91,7 +91,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 >
                   {m.value}
                 </div>
-                <div className="truncate" style={{ color: '#64748b', fontSize: 10, fontFamily: 'var(--font-mono)' }}>
+                <div className="truncate" style={{ color: 'var(--text-muted)', fontSize: 10, fontFamily: 'var(--font-mono)' }}>
                   {m.label}
                 </div>
               </div>
@@ -118,7 +118,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
         </div>
 
         {/* 5. Expandable Details */}
-        <div className={`${expanded ? 'block' : 'hidden'} md:!block`}>
+        <div id={`details-${project.id}`} className={`${expanded ? 'block' : 'hidden'} md:!block`}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             <div
               className="rounded-xl p-3"
@@ -128,7 +128,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
-                  color: '#64748b',
+                  color: 'var(--text-muted)',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   marginBottom: 3,
@@ -148,7 +148,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: 10,
-                  color: '#64748b',
+                  color: 'var(--text-muted)',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   marginBottom: 3,
@@ -181,6 +181,8 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
 
         {/* Mobile Expand Toggle */}
         <button
+          aria-expanded={expanded}
+          aria-controls={`details-${project.id}`}
           onClick={() => setExpanded((v) => !v)}
           className="md:hidden w-full min-h-[38px] flex items-center justify-center gap-1.5 mb-6 rounded-lg text-[11px] font-mono active:scale-[0.98] transition-all cursor-pointer"
           style={{
@@ -196,7 +198,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
         </button>
 
         {/* Desktop-only Metrics & Stack footer */}
-        <div className="hidden md:flex flex-row items-center justify-between gap-4 pt-4 border-t border-white/5">
+        <div className="project-footer hidden md:flex flex-row items-center justify-between gap-4 pt-4 border-t border-white/5">
           <div className="flex gap-6 flex-shrink-0">
             {project.pullMetrics.map((m) => (
               <div key={m.label}>
@@ -211,7 +213,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 >
                   {m.value}
                 </div>
-                <div style={{ color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>{m.label}</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>{m.label}</div>
               </div>
             ))}
           </div>
@@ -243,7 +245,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
         </div>
 
         {/* 6. Action Buttons */}
-        <div className="flex flex-row items-center gap-2.5 pt-3 mt-1 w-full border-t border-white/5 md:border-t-0 md:pt-0 md:mt-6.5">
+        <div className="project-actions flex flex-row items-center gap-2.5 pt-3 mt-1 w-full border-t border-white/5 md:border-t-0 md:pt-0 md:mt-6.5">
           {project.demo ? (
             <a
               href={project.demo}

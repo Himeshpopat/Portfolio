@@ -31,7 +31,7 @@ export const AboutSection = memo(function AboutSection() {
         {/* Education card */}
         <div
           data-card
-          className="rounded-2xl p-6"
+          className="surface-card rounded-2xl p-6"
           style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
         >
           <p
@@ -58,10 +58,10 @@ export const AboutSection = memo(function AboutSection() {
           >
             KJ Somaiya Institute of Technology
           </h3>
-          <p style={{ color: '#64748b', fontSize: 14, marginBottom: 2, fontFamily: 'var(--font-body)' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 2, fontFamily: 'var(--font-body)' }}>
             B.Tech — Information Technology
           </p>
-          <p style={{ color: '#475569', fontSize: 13, fontFamily: 'var(--font-body)', marginBottom: 20 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: 13, fontFamily: 'var(--font-body)', marginBottom: 20 }}>
             Sep 2024 – Jun 2028 · Mumbai, India
           </p>
           <div
@@ -80,9 +80,9 @@ export const AboutSection = memo(function AboutSection() {
               >
                 9.83
               </span>
-              <span style={{ color: '#64748b', fontSize: 13 }}>CGPA</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>CGPA</span>
             </div>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', letterSpacing: '0.1em' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>
               Semesters II &amp; IV · SGPA 10.0
             </p>
           </div>

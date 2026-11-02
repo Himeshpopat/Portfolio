@@ -25,7 +25,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
 
   return (
     <div
-      className="rounded-2xl overflow-hidden"
+      className="surface-card rounded-2xl overflow-hidden"
       style={{ border: '1px solid rgba(255,255,255,0.07)', background: '#111827' }}
     >
       {/* Header */}
@@ -77,7 +77,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 12.5,
-              color: '#64748b',
+              color: 'var(--text-muted)',
               whiteSpace: 'nowrap',
             }}
           >
@@ -128,7 +128,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
                   {m.value}
                 </span>
               </div>
-              <div style={{ color: '#64748b', fontSize: 12, fontFamily: 'var(--font-mono)' }}>{m.label}</div>
+              <div style={{ color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>{m.label}</div>
             </div>
           ))}
         </div>
@@ -157,7 +157,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
         style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
       >
         <div className="w-full pt-5 pb-1">
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#475569', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
             Tech Stack
           </p>
         </div>
@@ -167,7 +167,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
             className="px-3 py-1 rounded-full text-xs font-mono"
             style={{
               background: 'rgba(139,92,246,0.08)',
-              color: '#8b5cf6',
+              color: '#b7a0fa',
               border: '1px solid rgba(139,92,246,0.18)',
               fontFamily: 'var(--font-mono)',
             }}
@@ -183,7 +183,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
 export const ExperienceSection = memo(function ExperienceSection() {
   return (
     <FadeSection id="experience">
-      <SectionLabel>Experience</SectionLabel>
+      <SectionLabel id="experience-heading">Experience</SectionLabel>
       <div className="space-y-6 md:space-y-8">
         {EXPERIENCES.map((exp) => (
           <ExperienceCard key={exp.id} experience={exp} />

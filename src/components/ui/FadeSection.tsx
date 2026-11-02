@@ -18,7 +18,7 @@ export const FadeSection = memo(function FadeSection({
       ref={ref}
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`${noPad ? '' : 'max-w-6xl mx-auto px-5 py-6 md:py-14'} ${className}`}
+      className={`portfolio-section ${noPad ? '' : 'max-w-6xl mx-auto px-5 py-6 md:py-14'} ${className}`}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(30px)',

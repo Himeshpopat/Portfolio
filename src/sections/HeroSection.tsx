@@ -6,15 +6,15 @@ import { SITE_CONFIG } from '../constants/siteConfig'
 function HeroAvatar() {
   const particles = [
     { top: '2%', left: '10%', size: 4, color: '#06b6d4', delay: '0s', dur: '6s' },
-    { top: '85%', left: '4%', size: 3, color: '#8b5cf6', delay: '1.2s', dur: '7.5s' },
+    { top: '85%', left: '4%', size: 3, color: '#b7a0fa', delay: '1.2s', dur: '7.5s' },
     { top: '10%', left: '92%', size: 3, color: '#f59e0b', delay: '0.6s', dur: '5.5s' },
     { top: '92%', left: '86%', size: 5, color: '#06b6d4', delay: '2s', dur: '8s' },
-    { top: '48%', left: '-2%', size: 3, color: '#8b5cf6', delay: '1.6s', dur: '6.5s' },
+    { top: '48%', left: '-2%', size: 3, color: '#b7a0fa', delay: '1.6s', dur: '6.5s' },
     { top: '45%', left: '100%', size: 4, color: '#f59e0b', delay: '0.3s', dur: '7s' },
   ]
 
   return (
-    <div className="relative flex items-center justify-center flex-shrink-0 avatar-float w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[425px] md:h-[425px] lg:w-[445px] lg:h-[445px]">
+    <div className="hero-portrait relative flex items-center justify-center flex-shrink-0 avatar-float w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[425px] md:h-[425px] lg:w-[445px] lg:h-[445px]">
       {/* Ambient pulsing glow behind everything */}
       <div
         className="absolute rounded-full avatar-glow-pulse w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[495px] md:h-[495px] lg:w-[515px] lg:h-[515px]"
@@ -104,7 +104,7 @@ function HeroAvatar() {
 
 export const HeroSection = memo(function HeroSection() {
   return (
-    <section className="relative min-h-[88vh] md:min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+    <section className="hero-section relative min-h-[88vh] md:min-h-screen flex items-center justify-center overflow-hidden" id="hero">
       {/* Grid lines */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -145,7 +145,7 @@ export const HeroSection = memo(function HeroSection() {
             </div>
 
             <h1
-              className="hero-stage-2 font-bold leading-tight md:leading-none mb-3 max-md:whitespace-nowrap text-[clamp(2.2rem,8.5vw,3.2rem)] md:text-[clamp(2.4rem,8vw,5.5rem)]"
+              className="hero-stage-2 font-bold leading-tight md:leading-none mb-3 text-[clamp(2.2rem,8.5vw,3.2rem)] md:text-[clamp(2.4rem,8vw,5.5rem)]"
               style={{
                 fontFamily: 'var(--font-display)',
                 letterSpacing: '-0.035em',
@@ -190,7 +190,7 @@ export const HeroSection = memo(function HeroSection() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="w-[215px] sm:w-auto h-9 min-h-[36px] inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap"
+                  className="w-auto h-9 min-h-[36px] inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -200,7 +200,7 @@ export const HeroSection = memo(function HeroSection() {
                   <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, color: '#f59e0b' }}>
                     {item.val}
                   </span>
-                  <span style={{ color: '#64748b', fontSize: 11.5 }}>· {item.detail}</span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: 11.5 }}>· {item.detail}</span>
                 </div>
               ))}
             </div>
@@ -216,10 +216,6 @@ export const HeroSection = memo(function HeroSection() {
               </a>
               <a
                 href="#projects"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-                }}
                 className="flex-1 md:flex-initial min-h-[48px] inline-flex items-center justify-center gap-2 px-4 md:px-6 py-3 rounded-full font-semibold text-xs xs:text-sm whitespace-nowrap transition-all duration-200 hover:bg-white/5"
                 style={{
                   border: '1px solid rgba(255,255,255,0.14)',
@@ -242,11 +238,11 @@ export const HeroSection = memo(function HeroSection() {
 
       {/* Scroll cue */}
       <div
-        className="hero-stage-6 absolute bottom-20 md:bottom-8 left-1/2 flex flex-col items-center gap-2"
+        className="hero-scroll-cue hero-stage-6 absolute bottom-20 md:bottom-8 left-1/2 flex flex-col items-center gap-2"
         style={{ transform: 'translateX(-50%)', animation: 'drift 3s ease-in-out infinite' }}
       >
         <span
-          style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: '#334155', letterSpacing: '0.2em' }}
+          style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.2em' }}
         >
           SCROLL
         </span>

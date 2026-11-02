@@ -1,9 +1,9 @@
 import { memo, type ReactNode } from 'react'
 
-export const SectionLabel = memo(function SectionLabel({ children }: { children: ReactNode }) {
+export const SectionLabel = memo(function SectionLabel({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <div className="flex items-center gap-3 mb-5 md:mb-12">
-      <span
+    <div className="section-label flex items-center gap-3 mb-5 md:mb-12">
+      <span id={id}
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 11,

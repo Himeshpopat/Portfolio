@@ -30,7 +30,7 @@ export const CurrentlyLearningSection = memo(function CurrentlyLearningSection()
           <div
             key={item.name}
             data-card
-            className="rounded-xl p-3 xs:p-3.5 sm:p-4 transition-all duration-200 hover:border-cyan-500/30"
+            className="surface-card rounded-xl p-3 xs:p-3.5 sm:p-4 transition-all duration-200 hover:border-cyan-500/30"
             style={{
               background: '#111827',
               border: '1px solid rgba(255,255,255,0.07)',
@@ -51,7 +51,7 @@ export const CurrentlyLearningSection = memo(function CurrentlyLearningSection()
                 {item.tag}
               </span>
             </div>
-            <p style={{ color: '#64748b', fontSize: 12, lineHeight: 1.5, fontFamily: 'var(--font-body)' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: 12, lineHeight: 1.5, fontFamily: 'var(--font-body)' }}>
               {item.desc}
             </p>
           </div>

@@ -12,16 +12,17 @@ export const ProjectsSection = memo(function ProjectsSection() {
   const handleScroll = useCallback(() => {
     const el = scrollerRef.current
     if (!el) return
-    const cardWidth = el.scrollWidth / PROJECTS.length
-    const idx = Math.round(el.scrollLeft / cardWidth)
+    const cards = Array.from(el.children) as HTMLElement[]
+    const idx = cards.reduce((best, card, i) => Math.abs(card.offsetLeft - cards[0].offsetLeft - el.scrollLeft) < Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - el.scrollLeft) ? i : best, 0)
     setActiveIdx(Math.max(0, Math.min(PROJECTS.length - 1, idx)))
   }, [])
 
   const scrollToIdx = (idx: number) => {
     const el = scrollerRef.current
     if (!el) return
-    const cardWidth = el.scrollWidth / PROJECTS.length
-    el.scrollTo({ left: cardWidth * idx, behavior: 'smooth' })
+    const first = el.children[0] as HTMLElement
+    const card = el.children[idx] as HTMLElement
+    el.scrollTo({ left: card.offsetLeft - first.offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }
 
   return (
@@ -63,11 +64,11 @@ export const ProjectsSection = memo(function ProjectsSection() {
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 px-6 pb-2 no-scrollbar"
+          className="project-track relative flex md:block overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 px-6 md:px-0 pb-2 no-scrollbar"
           style={{ scrollSnapType: 'x mandatory' }}
         >
           {PROJECTS.map((p) => (
-            <div key={p.id} className="flex-shrink-0 w-[87vw] snap-center">
+            <div key={p.id} className="project-slide flex-shrink-0 w-[87vw] md:w-full snap-center">
               <ProjectCard project={p} />
             </div>
           ))}
@@ -78,7 +79,8 @@ export const ProjectsSection = memo(function ProjectsSection() {
               key={p.id}
               onClick={() => scrollToIdx(i)}
               aria-label={`Go to ${p.name}`}
-              className="rounded-full transition-all duration-300"
+              aria-current={activeIdx === i ? 'true' : undefined}
+              className="project-dot rounded-full transition-all duration-300"
               style={{
                 width: activeIdx === i ? 20 : 6,
                 height: 6,
@@ -89,16 +91,10 @@ export const ProjectsSection = memo(function ProjectsSection() {
         </div>
         <p
           className="md:hidden text-center mt-3"
-          style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: '#334155', letterSpacing: '0.12em' }}
+          style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, color: 'var(--text-muted)', letterSpacing: '0.12em' }}
         >
           ← SWIPE →
         </p>
-
-        <div className="hidden md:block space-y-6 px-0">
-          {PROJECTS.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
-        </div>
       </div>
     </section>
   )

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
 export function useActiveSection(ids: string[]): string {
-  const [active, setActive] = useState(ids[0] || '')
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     if (!ids || ids.length === 0) return
 
+    if (!('IntersectionObserver' in window)) return
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

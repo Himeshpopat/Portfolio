@@ -1,15 +1,10 @@
 import { memo } from 'react'
-import { useScrollY } from '../../hooks/useScrollY'
+import { useScrolled } from '../../hooks/useScrollY'
 import { NAV_SECTIONS } from '../../data/navigationData'
 import { SITE_CONFIG } from '../../constants/siteConfig'
 
 export const Nav = memo(function Nav({ active }: { active: string }) {
-  const scrollY = useScrollY()
-  const scrolled = scrollY > 64
-
-  const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const scrolled = useScrolled()
 
   return (
     <header>
@@ -27,10 +22,10 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
         }}
       >
         {NAV_SECTIONS.map((s) => (
-          <button
+          <a
             key={s}
-            onClick={() => go(s)}
-            aria-current={active === s ? 'page' : undefined}
+            href={`#${s}`}
+            aria-current={active === s ? 'location' : undefined}
             className="px-3.5 py-1.5 rounded-full text-sm capitalize transition-all duration-200 cursor-pointer"
             style={{
               fontFamily: 'var(--font-body)',
@@ -40,7 +35,7 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
             }}
           >
             {s}
-          </button>
+          </a>
         ))}
         <a
           href={`mailto:${SITE_CONFIG.email}`}

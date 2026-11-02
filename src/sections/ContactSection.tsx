@@ -54,7 +54,7 @@ export const ContactSection = memo(function ContactSection() {
           </SocialPill>
         </div>
 
-        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#64748b', letterSpacing: '0.08em' }}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
           {SITE_CONFIG.location}
         </p>
       </div>

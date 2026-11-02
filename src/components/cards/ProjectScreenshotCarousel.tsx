@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, memo } from 'react'
+import { useInView } from '../../hooks/useInView'
 import type { Screenshot } from '../../types/portfolio'
 
 export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel({
@@ -16,6 +17,27 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
   )
   const [index, setIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [onScreen, setOnScreen] = useState(false)
+  const [pageVisible, setPageVisible] = useState(!document.hidden)
+  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const { ref, visible } = useInView()
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const preference = () => setReducedMotion(media.matches)
+    const visibility = () => setPageVisible(!document.hidden)
+    media.addEventListener('change', preference)
+    document.addEventListener('visibilitychange', visibility)
+    const observer = 'IntersectionObserver' in window ? new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting)) : null
+    if (!observer) setOnScreen(true)
+    if (ref.current) observer?.observe(ref.current)
+    return () => {
+      observer?.disconnect()
+      media.removeEventListener('change', preference)
+      document.removeEventListener('visibilitychange', visibility)
+    }
+  }, [ref])
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
 
@@ -23,12 +45,12 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
   const safeIndex = count > 0 ? ((index % count) + count) % count : 0
 
   useEffect(() => {
-    if (isPaused || count <= 1) return
+    if (isPaused || hovered || focused || !onScreen || !pageVisible || reducedMotion || count <= 1) return
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % count)
     }, 4500)
     return () => clearInterval(timer)
-  }, [isPaused, count])
+  }, [isPaused, hovered, focused, onScreen, pageVisible, reducedMotion, count])
 
   const goNext = (e?: React.MouseEvent) => {
     e?.stopPropagation()
@@ -46,6 +68,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX
+    touchEndX.current = touchStartX.current
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -67,13 +90,23 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
 
   return (
     <div
-      className="relative w-full rounded-xl overflow-hidden mb-6 border border-white/10 group select-none"
+      ref={ref}
+      role="region"
+      aria-label={title}
+      aria-roledescription="carousel"
+      onFocusCapture={() => setFocused(true)}
+      onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false) }}
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goNext() }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev() }
+      }}
+      className="screenshot-carousel relative w-full rounded-xl overflow-hidden mb-6 border border-white/10 group select-none"
       style={{
         background: '#0b0f19',
         boxShadow: `0 12px 36px ${color}12, 0 4px 20px rgba(0,0,0,0.5)`,
       }}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -89,6 +122,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
           </span>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+          <button type="button" onClick={() => setIsPaused(v => !v)} aria-label={isPaused ? 'Play screenshots' : 'Pause screenshots'} aria-pressed={isPaused} className="carousel-play">{isPaused ? '▷' : 'Ⅱ'}</button>
           <span
             className="text-[9.5px] font-mono px-1.5 py-0.5 rounded"
             style={{
@@ -109,6 +143,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
           return (
             <div
               key={s.url || idx}
+              aria-hidden={!isActive}
               className="absolute inset-0 flex items-center justify-center p-1 xs:p-1.5 sm:p-3 transition-opacity duration-500 ease-in-out"
               style={{
                 opacity: isActive ? 1 : 0,
@@ -116,13 +151,13 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
             >
-              <img
+              {visible && (isActive || idx === (safeIndex + 1) % count) && <img
                 src={s.url}
                 alt={`${title} - ${s.caption}`}
-                loading={idx === 0 ? 'eager' : 'lazy'}
+                loading="lazy"
                 decoding="async"
                 className="max-w-full max-h-full w-auto h-auto object-contain object-center rounded shadow-lg"
-              />
+              />}
             </div>
           )
         })}
@@ -159,7 +194,8 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
                   setIndex(posIdx)
                 }}
                 aria-label={`Go to screenshot ${posIdx + 1}`}
-                className="transition-all duration-300 rounded-full cursor-pointer p-2.5 -m-2.5 md:p-0 md:m-0 flex items-center justify-center"
+                aria-current={posIdx === safeIndex ? 'true' : undefined}
+                className="carousel-dot transition-all duration-300 rounded-full cursor-pointer flex items-center justify-center"
               >
                 <span
                   className="block rounded-full transition-all duration-300"

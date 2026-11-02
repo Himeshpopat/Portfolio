@@ -7,7 +7,7 @@ export const AchievementCard = memo(function AchievementCard({ a }: { a: Achieve
     <div
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="rounded-xl md:rounded-2xl p-3 xs:p-3.5 md:p-6 flex flex-col justify-between h-full min-w-0 box-border overflow-hidden"
+      className="surface-card rounded-xl md:rounded-2xl p-3 xs:p-3.5 md:p-6 flex flex-col justify-between h-full min-w-0 box-border overflow-hidden"
       style={{
         background: '#111827',
         border: hov ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.07)',

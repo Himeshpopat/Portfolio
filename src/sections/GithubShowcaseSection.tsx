@@ -48,7 +48,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
         {GITHUB_QUICK_STATS.map((stat, i) => (
           <div
             key={i}
-            className="rounded-xl p-2.5 xs:p-3 sm:p-3.5 text-center min-w-0 overflow-hidden box-border"
+            className="surface-card rounded-xl p-2.5 xs:p-3 sm:p-3.5 text-center min-w-0 overflow-hidden box-border"
             style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div
@@ -61,7 +61,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
             >
               {stat.val}
             </div>
-            <div className="text-[9.5px] xs:text-[10px] sm:text-xs leading-snug break-words" style={{ color: '#64748b', fontFamily: 'var(--font-mono)' }}>{stat.label}</div>
+            <div className="text-[9.5px] xs:text-[10px] sm:text-xs leading-snug break-words" style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{stat.label}</div>
           </div>
         ))}
       </div>
@@ -75,7 +75,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
             target="_blank"
             rel="noopener noreferrer"
             data-card
-            className="rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-white/20 hover:-translate-y-1 w-full max-w-full box-border overflow-hidden"
+            className="surface-card rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-white/20 hover:-translate-y-1 w-full max-w-full box-border overflow-hidden"
             style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
           >
             <div className="w-full max-w-full min-w-0">
@@ -100,7 +100,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
                   {repo.stars}
                 </span>
               </div>
-              <p className="break-words" style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6, fontFamily: 'var(--font-body)', marginBottom: 14 }}>
+              <p className="break-words" style={{ color: 'var(--text-muted)', fontSize: 12, lineHeight: 1.6, fontFamily: 'var(--font-body)', marginBottom: 14 }}>
                 {repo.desc}
               </p>
             </div>
