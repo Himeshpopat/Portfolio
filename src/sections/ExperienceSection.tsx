@@ -25,12 +25,12 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
 
   return (
     <div
-      className="surface-card rounded-2xl overflow-hidden"
+      className="experience-entry surface-card rounded-2xl overflow-hidden"
       style={{ border: '1px solid rgba(255,255,255,0.07)', background: 'var(--bg-card)' }}
     >
       {/* Header */}
       <div
-        className="px-5 md:px-10 pt-7 md:pt-8 pb-6"
+        className="experience-heading px-5 md:px-10 pt-7 md:pt-8 pb-6"
         style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between text-center md:text-left gap-3 md:gap-4">
@@ -89,7 +89,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
       {/* Key metrics */}
       {experience.metrics && experience.metrics.length > 0 && (
         <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-px"
+          className="experience-metrics grid grid-cols-2 md:grid-cols-4 gap-px"
           style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.06)' }}
         >
           {experience.metrics.map((m) => (
@@ -135,7 +135,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
       )}
 
       {/* Detail bullets */}
-      <div className="px-6 md:px-10 py-7 space-y-3">
+      <div className="experience-detail px-6 md:px-10 py-7 space-y-3">
         {experience.bullets.map((item, i) => (
           <div key={i} className="flex items-start gap-3">
             <span
@@ -153,7 +153,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
 
       {/* Tech stack */}
       <div
-        className="px-6 md:px-10 pb-7 flex flex-wrap gap-2"
+        className="experience-stack px-6 md:px-10 pb-7 flex flex-wrap gap-2"
         style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
       >
         <div className="w-full pt-5 pb-1">

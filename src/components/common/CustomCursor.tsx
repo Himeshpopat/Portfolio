@@ -9,7 +9,7 @@ export const CustomCursor = memo(function CustomCursor() {
     const onClick = (e: globalThis.MouseEvent) => {
       if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return
       const angles = [0, 45, 90, 135, 180, 225, 270, 315]
-      const dist = 70
+      const dist = 22
       const newClick: ClickBurst = {
         id: Date.now() + Math.random(),
         x: e.clientX,
@@ -57,16 +57,16 @@ export const CustomCursor = memo(function CustomCursor() {
             />
           </div>
           {c.particles.map((p, idx) => {
-            const pColor = idx % 2 === 0 ? 'var(--accent)' : '#8b5cf6'
+            const pColor = 'var(--accent)'
             return (
               <div
                 key={idx}
                 className="pointer-events-none fixed top-0 left-0 z-[9997] rounded-full"
                 style={{
-                  width: 6,
-                  height: 6,
+                  width: 3,
+                  height: 3,
                   background: pColor,
-                  boxShadow: `0 0 8px ${pColor}`,
+                  boxShadow: 'none',
                   left: c.x,
                   top: c.y,
                   ['--dx' as string]: `${p.dx}px`,

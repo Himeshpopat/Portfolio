@@ -15,8 +15,8 @@ export function useTilt(): {
     const x = (e.clientX - rect.left) / rect.width - 0.5
     const y = (e.clientY - rect.top) / rect.height - 0.5
 
-    ref.current.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 6}deg) translateZ(10px)`
-    ref.current.style.boxShadow = `${-x * 20}px ${y * 20}px 40px rgba(0,0,0,0.4), 0 0 40px rgba(6,182,212,0.05)`
+    ref.current.style.transform = `perspective(1000px) rotateY(${x * 1.2}deg) rotateX(${-y * 1}deg) translateZ(0px)`
+    ref.current.style.boxShadow = `${-x * 20}px ${y * 20}px 24px rgba(0,0,0,0.12)`
   }, [])
 
   const onLeave = useCallback(() => {

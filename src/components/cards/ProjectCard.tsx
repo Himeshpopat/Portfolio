@@ -30,10 +30,8 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
         }}
       />
 
-      <div className="project-body p-3.5 xs:p-4 sm:p-6 md:p-8 flex flex-col flex-1 justify-between">
-        <div>
           {/* 1. Project Title & Tagline */}
-          <div className="mb-6 md:mb-3 text-center md:text-left">
+          <div className="project-heading">
             <h3
               className="mb-3 md:mb-1"
               style={{
@@ -60,6 +58,8 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
             </p>
           </div>
 
+      <div className="project-body p-3.5 xs:p-4 sm:p-6 md:p-8 flex flex-col flex-1 justify-between">
+        <div>
           {/* 2. Screenshot Carousel */}
           <div className="mb-6 md:mb-0">
             <ProjectScreenshotCarousel
@@ -119,7 +119,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
 
         {/* 5. Expandable Details */}
         <div id={`details-${project.id}`} className={`${expanded ? 'block' : 'hidden'} md:!block`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          <div className="project-narrative grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             <div
               className="rounded-xl p-3"
               style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)' }}

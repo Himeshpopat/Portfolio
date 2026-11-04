@@ -23,7 +23,7 @@ export const SkillsSection = memo(function SkillsSection() {
       <p className="text-slate-400 text-sm mb-8 max-w-xl" style={{ fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
         Capability-based toolkit ordered by core proficiency, engineering focus, and production experience.
       </p>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 items-stretch">
+      <div className="skills-matrix grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 items-stretch">
         {SKILLS_GROUPS.map((group) => (
           <div
             key={group.label}

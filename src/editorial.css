@@ -129,3 +129,151 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 .opening-sequence { background: #222722; }
 .opening-sequence__beam, .opening-sequence__monogram-halo { display: none; }
 .opening-sequence__name { letter-spacing: -.04em; }
+/* Projects are spacious case studies with original, unaltered application imagery. */
+#projects { padding-block: 88px 100px; }
+#projects > div { max-width: 1280px; padding-inline: 48px; }
+#projects h2 { max-width: 12ch; }
+#projects h2 + p { max-width: 64ch; margin-top: 22px; }
+#projects .project-card { background: transparent !important; border: 0 !important; border-top: 1px solid var(--border) !important; border-radius: 0; box-shadow: none !important; overflow: visible; }
+.project-card > div:first-child:not(.project-heading) { display: none; }
+.project-heading { padding: 34px 0 28px; max-width: 850px; text-align: left; }
+.project-heading h3 { font-size: clamp(1.65rem,3.1vw,2.8rem) !important; font-weight: 500 !important; letter-spacing: -.035em !important; margin-bottom: 12px; }
+.project-heading p { font-size: 12px !important; line-height: 1.7; color: var(--text-muted) !important; }
+.project-body { padding: 0; gap: 30px; }
+.project-body .screenshot-carousel { margin-bottom: 0; border-radius: 3px; border: 1px solid #56634f; box-shadow: none !important; }
+.screenshot-carousel > div:first-child { background: #30392f; }
+.screenshot-carousel > div:nth-child(2) { background: #d8ddd0; padding-bottom: 44px; }
+.screenshot-carousel img { padding: 0; box-shadow: none; border-radius: 1px; }
+.screenshot-carousel > div:nth-child(2) > div[aria-hidden] { padding: 12px 12px 58px; }
+.screenshot-carousel button[aria-label$="screenshot"] { top: auto; bottom: 3px; transform: none; border-radius: 2px; width: 38px; height: 38px; background: #202720; }
+.screenshot-carousel > div:nth-child(2) > div:last-child { bottom: 4px; background: #202720; border-radius: 2px; padding-block: 0; }
+.project-narrative { grid-template-columns: 1fr; gap: 20px; }
+.project-narrative > div { padding: 0 0 20px; background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
+.project-narrative > div > p:first-child { color: var(--accent) !important; margin-bottom: 9px !important; }
+.project-narrative p:last-child, [id^="details-"] > div:last-child p { font-size: 13px !important; line-height: 1.8 !important; }
+.project-footer { border-color: var(--border); padding-block: 24px 0; }
+.project-footer > div:first-child { gap: 38px; }
+.project-footer > div:first-child > div > div:first-child { color: var(--text) !important; font-size: 27px !important; margin-bottom: 8px; }
+.project-footer span.rounded-full { background: transparent !important; border-color: var(--border) !important; color: var(--text-muted) !important; border-radius: 2px; font-size: 10px; }
+.project-actions { margin-top: 0; padding-bottom: 14px; }
+.project-actions a { border-radius: 2px; padding-inline: 20px; }
+.project-actions a:first-child { background: #e7a37b !important; }
+.project-actions a:last-child { border: 1px solid var(--border) !important; background: transparent !important; }
+@media (min-width: 900px) {
+  .project-slide + .project-slide { margin-top: 70px; }
+  .project-body { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 32px 42px; align-items: start; }
+  .project-body > div { min-width: 0; }
+  .project-body .screenshot-carousel > div:nth-child(2) { height: 380px; }
+  .project-footer, .project-actions { grid-column: 1 / -1; }
+  .project-footer { margin-top: 0; }
+}
+/* Experience reads as a professional record with a fixed role column. */
+#experience .section-label > span { font-family: var(--font-display) !important; text-transform: none !important; font-size: clamp(2.3rem,4.5vw,4rem) !important; letter-spacing: -.045em !important; color: var(--text) !important; }
+.experience-entry { background: transparent !important; border: 0 !important; border-top: 1px solid var(--border) !important; padding-top: 28px; border-radius: 0; }
+.experience-heading { padding: 0 0 25px; border: 0 !important; }
+.experience-heading > div, .experience-heading > div > div { align-items: flex-start; text-align: left; }
+.experience-heading > div { flex-direction: column; gap: 20px; }
+.experience-heading h3 { font-size: clamp(1.6rem,2.6vw,2.3rem) !important; font-weight: 500 !important; line-height: 1.2; margin-bottom: 15px; }
+.experience-heading > div > p { text-align: left; font-size: 11px !important; }
+.experience-heading > div > div > div { justify-content: flex-start; }
+.experience-heading span { background: transparent !important; border: 1px solid var(--border) !important; border-radius: 2px; padding: 5px 7px; font-size: 9px; letter-spacing: .05em; }
+.experience-detail { padding: 22px 0; }
+.experience-detail p { font-size: 14px !important; line-height: 1.8 !important; }
+.experience-detail > div + div { margin-top: 16px; }
+.experience-stack { padding: 0 0 25px; border-color: var(--border) !important; }
+.experience-stack > span { border-radius: 2px; background: #e4e6dc !important; border-color: #c9cdc1 !important; color: var(--text-secondary) !important; font-size: 10px; padding: 5px 8px; }
+.experience-metrics { background: var(--border) !important; border: 1px solid var(--border) !important; }
+.experience-metrics > div { padding: 18px 10px; background: #e5e7dc !important; text-align: left; }
+.experience-metrics > div > div:first-child { justify-content: flex-start; }
+.experience-metrics > div > div:last-child { font-size: 10px !important; line-height: 1.6; }
+@media (min-width: 1000px) {
+  .experience-entry { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.5fr); column-gap: 60px; }
+  .experience-heading { grid-column: 1; grid-row: 1 / span 4; }
+  .experience-metrics, .experience-detail, .experience-stack { grid-column: 2; }
+  .experience-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+/* A numerical wall, a capability index, and a quiet learning ledger. */
+#achievements { border-top: 1px solid var(--border); }
+#achievements > .grid { gap: 0; margin-top: 36px; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+#achievements .surface-card { background: transparent !important; padding: 28px; min-height: 215px; border: 0 !important; border-right: 1px solid var(--border) !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
+#achievements .surface-card:nth-child(3) { background: #dce1d0 !important; }
+#achievements .surface-card > div > div > span:first-child { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.3rem,4.3vw,3.7rem); letter-spacing: -.05em; color: var(--text) !important; }
+#achievements .surface-card > div > p { margin-block: 16px; font-size: 15px; font-weight: 500; }
+#achievements .surface-card > p { line-height: 1.7; }
+#skills { border-top: 1px solid var(--border); }
+.skills-matrix { display: block; margin-top: 40px; border-top: 1px solid var(--border); }
+.skills-matrix > div { display: grid; grid-template-columns: 220px 1fr; gap: 20px; padding: 25px 0; background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
+.skills-matrix > div > div:first-child { margin: 0; align-items: flex-start; padding-top: 8px; }
+.skills-matrix > div > div:first-child p { color: var(--text) !important; font-size: 11px !important; line-height: 1.5 !important; letter-spacing: .08em !important; }
+.skills-matrix span.inline-flex { height: auto !important; padding: 7px 11px; font-family: var(--font-body) !important; color: var(--text-secondary) !important; background: #e4e6dc !important; border: 1px solid #d3d6ca !important; border-radius: 2px; font-size: 12px; }
+.skills-matrix span.inline-flex > span { display: none; }
+#learning { padding-top: 35px; }
+#learning > .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; margin-top: 36px; border-top: 1px solid var(--border); }
+#learning .surface-card { padding: 25px 25px 25px 0; background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
+#learning .surface-card:nth-child(even) { padding-left: 30px; border-left: 1px solid var(--border) !important; }
+#learning .surface-card > div { align-items: flex-start; flex-direction: column-reverse; gap: 16px; }
+#learning .surface-card > div > span:first-child { font-size: 20px; line-height: 1.25; font-weight: 500; max-width: 28ch; }
+#learning .surface-card > div > span:last-child { background: transparent !important; border: 0 !important; color: var(--accent) !important; padding: 0; }
+#learning .surface-card > p { margin-top: 16px; max-width: 48ch; font-size: 13px !important; line-height: 1.8 !important; }
+#about { background: #e3e6da; }
+#about .surface-card { border: 1px solid #b5beaa !important; background: transparent !important; padding: 32px; }
+#about .surface-card h3 { font-size: 25px !important; font-weight: 500 !important; margin-block: 22px 12px !important; }
+#about .surface-card .pt-5 { margin-top: 36px; border-color: #b5beaa !important; }
+#about .surface-card .pt-5 span:first-child { font-family: var(--font-display) !important; font-size: 75px !important; font-weight: 400 !important; letter-spacing: -.05em; }
+#about h2 { font-size: clamp(2.3rem,3.6vw,3.4rem) !important; }
+#about p { line-height: 1.85 !important; }
+#github > .grid.grid-cols-3 { border-block: 1px solid var(--border); gap: 0; margin-top: 32px; margin-bottom: 0; }
+#github > .grid.grid-cols-3 .surface-card { border: 0 !important; background: transparent !important; padding: 28px 12px; }
+#github > .grid.grid-cols-3 .surface-card + .surface-card { border-left: 1px solid var(--border) !important; }
+#github > .grid.grid-cols-3 .surface-card > div:first-child { font-family: var(--font-display) !important; color: var(--text) !important; font-size: clamp(1.5rem,3vw,2.7rem); font-weight: 500; }
+#github > .grid:last-child { gap: 0; }
+#github a.surface-card { padding: 32px 0; border: 0 !important; border-bottom: 1px solid var(--border) !important; background: transparent !important; border-radius: 0; }
+#github a.surface-card:nth-child(even) { padding-left: 36px; }
+#github a.surface-card span.font-semibold { font-size: 21px; white-space: normal; font-weight: 500; }
+#github a.surface-card p { margin-block: 15px; max-width: 48ch; font-size: 13px !important; }
+#contact { --text: #f2f0e9; --text-muted: #bbc2b2; --accent: #e7a37b; --border: #495343; --button-ink: #222722; background: #222b22; max-width: none; padding: 75px max(48px,calc((100vw - 1184px)/2)) 100px; }
+#contact > div:last-child { max-width: 850px; text-align: left; margin-inline: 0; }
+#contact h2 { font-size: clamp(3rem,6.5vw,6rem) !important; font-weight: 500 !important; }
+#contact p { max-width: 60ch; margin-block: 28px; }
+#contact a[href^="mailto:"] { min-height: 55px; padding-inline: 24px; margin-bottom: 16px; }
+#contact .flex.flex-wrap { justify-content: flex-start; }
+#contact .flex.flex-wrap a { border-color: #64715e !important; width: 48px; height: 48px; }
+footer { padding-block: 28px; }
+@media (hover: hover) {
+  .desktop-nav a:hover { color: var(--accent) !important; }
+  .desktop-nav a:last-child:hover { color: var(--button-ink) !important; }
+  .skills-matrix > div:hover { background: #e9eae2 !important; }
+  #github a.surface-card:hover { transform: none; background: #e5e7dc !important; }
+}
+@media (max-width: 899px) {
+  #projects { padding-block: 64px; }
+  #projects > div { padding-inline: 0; }
+  #projects .project-card { border: 1px solid var(--border) !important; padding: 20px; }
+  .project-heading { padding: 0 0 24px; }
+  .project-heading h3 { font-size: 1.8rem !important; }
+  .project-body { gap: 0; }
+  .project-body > div:first-child > .mb-6 { margin-bottom: 24px; }
+  .project-body > div:first-child > .grid { margin-top: 24px; }
+  .project-body > div:first-child > .flex span { color: var(--text-secondary) !important; background: transparent !important; border-color: var(--border) !important; border-radius: 2px; }
+  .project-actions { padding-bottom: 0; }
+  .project-actions a { padding-inline: 12px; }
+  #achievements .surface-card { padding: 22px; }
+  #about .surface-card { padding: 25px; }
+  #github a.surface-card:nth-child(even) { padding-left: 0; }
+  #contact { padding: 64px 24px 80px; }
+  footer { padding-bottom: 105px; }
+}
+@media (max-width: 599px) {
+  #projects .project-card { padding: 17px; }
+  .project-heading h3 { font-size: 1.6rem !important; }
+  #achievements .surface-card { padding: 20px 16px; min-height: 230px; }
+  #achievements .surface-card > div > div > span:first-child { font-size: 2.1rem; }
+  #achievements .surface-card:nth-child(5) > div > div > span:first-child { font-size: 1.6rem; }
+  #achievements .surface-card > div > p { font-size: 13px; }
+  .skills-matrix > div { grid-template-columns: 1fr; gap: 14px; }
+  .skills-matrix > div > div:first-child { padding-top: 0; }
+  #learning > .grid { grid-template-columns: 1fr; }
+  #learning .surface-card:nth-child(even) { padding-left: 0; border-left: 0 !important; }
+  #github a.surface-card span.font-semibold { font-size: 19px; }
+  #contact h2 { font-size: clamp(2.7rem,11vw,4rem) !important; }
+}
