@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div
       style={{
-        background: '#0c1020',
+        background: 'var(--bg)',
         minHeight: '100vh',
         position: 'relative',
         zIndex: 2,

@@ -50,14 +50,14 @@ export const CustomCursor = memo(function CustomCursor() {
               style={{
                 width: 24,
                 height: 24,
-                border: '1.5px solid #06b6d4',
+                border: '1.5px solid var(--accent)',
                 animation: 'cursorRingBurst 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 willChange: 'transform, opacity',
               }}
             />
           </div>
           {c.particles.map((p, idx) => {
-            const pColor = idx % 2 === 0 ? '#06b6d4' : '#8b5cf6'
+            const pColor = idx % 2 === 0 ? 'var(--accent)' : '#8b5cf6'
             return (
               <div
                 key={idx}

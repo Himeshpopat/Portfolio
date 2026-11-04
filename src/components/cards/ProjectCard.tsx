@@ -16,7 +16,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
       onMouseLeave={onLeave}
       className="project-card surface-card rounded-2xl overflow-hidden h-full flex flex-col justify-between"
       style={{
-        background: '#111827',
+        background: 'var(--bg-card)',
         border: '1px solid rgba(255,255,255,0.07)',
         transition: 'transform 0.15s ease',
 
@@ -40,7 +40,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
                 fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
-                color: '#f1f5f9',
+                color: 'var(--text)',
                 letterSpacing: '-0.015em',
                 lineHeight: 1.3,
                 wordBreak: 'break-word',
@@ -136,7 +136,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
               >
                 Problem
               </p>
-              <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
                 {project.problem}
               </p>
             </div>
@@ -156,7 +156,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
               >
                 Solution
               </p>
-              <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
                 {project.solution}
               </p>
             </div>
@@ -171,7 +171,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
                 >
                   ✓
                 </span>
-                <p style={{ color: '#94a3b8', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: 12.5, lineHeight: 1.55, fontFamily: 'var(--font-body)' }}>
                   {o}
                 </p>
               </div>
@@ -254,7 +254,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
               className="flex-1 md:flex-initial min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 md:px-4 py-2 rounded-lg text-xs font-semibold font-mono whitespace-nowrap transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
               style={{
                 background: project.color,
-                color: '#0c1020',
+                color: 'var(--button-ink)',
                 fontFamily: 'var(--font-mono)',
               }}
             >
@@ -271,7 +271,7 @@ export const ProjectCard = memo(function ProjectCard({ project }: { project: Pro
               className="flex-1 md:flex-initial min-h-[44px] inline-flex items-center justify-center gap-1.5 px-3 md:px-4 py-2 rounded-lg text-xs font-semibold font-mono whitespace-nowrap transition-all duration-200 hover:opacity-90"
               style={{
                 background: 'rgba(255,255,255,0.06)',
-                color: '#f1f5f9',
+                color: 'var(--text)',
                 border: '1px solid rgba(255,255,255,0.1)',
                 fontFamily: 'var(--font-mono)',
               }}

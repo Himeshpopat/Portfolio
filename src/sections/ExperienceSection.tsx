@@ -9,24 +9,24 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
   const primaryBadgeStyle = isViolet
     ? {
         background: 'rgba(139,92,246,0.12)',
-        color: '#a78bfa',
+        color: 'var(--accent)',
         border: '1px solid rgba(139,92,246,0.25)',
         fontFamily: 'var(--font-mono)',
       }
     : {
         background: 'rgba(6,182,212,0.1)',
-        color: '#06b6d4',
+        color: 'var(--accent)',
         border: '1px solid rgba(6,182,212,0.2)',
         fontFamily: 'var(--font-mono)',
       }
 
-  const roleAccentColor = isViolet ? '#a78bfa' : '#06b6d4'
-  const checkmarkColor = isViolet ? '#a78bfa' : '#06b6d4'
+  const roleAccentColor = isViolet ? 'var(--accent)' : 'var(--accent)'
+  const checkmarkColor = isViolet ? 'var(--accent)' : 'var(--accent)'
 
   return (
     <div
       className="surface-card rounded-2xl overflow-hidden"
-      style={{ border: '1px solid rgba(255,255,255,0.07)', background: '#111827' }}
+      style={{ border: '1px solid rgba(255,255,255,0.07)', background: 'var(--bg-card)' }}
     >
       {/* Header */}
       <div
@@ -45,7 +45,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
                       ? primaryBadgeStyle
                       : {
                           background: 'rgba(255,255,255,0.03)',
-                          color: '#94a3b8',
+                          color: 'var(--text-muted)',
                           border: '1px solid rgba(255,255,255,0.08)',
                           fontFamily: 'var(--font-mono)',
                         }
@@ -62,7 +62,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
                 fontSize: 'clamp(1.35rem, 3vw, 2rem)',
-                color: '#f1f5f9',
+                color: 'var(--text)',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -96,7 +96,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
             <div
               key={m.label}
               className="px-4 md:px-5 py-5 text-center"
-              style={{ background: '#111827' }}
+              style={{ background: 'var(--bg-card)' }}
             >
               <div
                 className="flex items-baseline justify-center gap-1.5 flex-wrap"
@@ -120,7 +120,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
                     fontFamily: 'var(--font-mono)',
                     fontWeight: 700,
                     fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
-                    color: '#f59e0b',
+                    color: 'var(--numeric)',
                     lineHeight: 1,
                     whiteSpace: 'nowrap',
                   }}
@@ -144,7 +144,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
             >
               ✓
             </span>
-            <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.65, fontFamily: 'var(--font-body)' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: 13.5, lineHeight: 1.65, fontFamily: 'var(--font-body)' }}>
               {item}
             </p>
           </div>
@@ -167,7 +167,7 @@ const ExperienceCard = memo(function ExperienceCard({ experience }: { experience
             className="px-3 py-1 rounded-full text-xs font-mono"
             style={{
               background: 'rgba(139,92,246,0.08)',
-              color: '#b7a0fa',
+              color: 'var(--accent)',
               border: '1px solid rgba(139,92,246,0.18)',
               fontFamily: 'var(--font-mono)',
             }}

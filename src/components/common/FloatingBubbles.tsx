@@ -14,7 +14,7 @@ export const FloatingBubbles = memo(function FloatingBubbles() {
   ]
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }} aria-hidden="true">
+    <div className="ambient-field fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }} aria-hidden="true">
       {bubbles.map((b, i) => (
         <span
           key={i}

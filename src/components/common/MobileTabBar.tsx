@@ -3,38 +3,38 @@ import { NAV_SECTIONS } from '../../data/navigationData'
 
 const TAB_ICONS: Record<string, (active: boolean) => ReactNode> = {
   about: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <circle cx="12" cy="8" r="4" />
       <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
     </svg>
   ),
   experience: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <rect x="3" y="7" width="18" height="13" rx="2" />
       <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
     </svg>
   ),
   projects: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <polyline points="8 6 3 12 8 18" />
       <polyline points="16 6 21 12 16 18" />
     </svg>
   ),
   skills: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <rect x="6" y="6" width="12" height="12" rx="1" />
       <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
     </svg>
   ),
   achievements: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <path d="M8 21h8M12 17v4" />
       <path d="M7 4h10v5a5 5 0 0 1-10 0V4z" />
       <path d="M5 5H3v1a4 4 0 0 0 4 4M19 5h2v1a4 4 0 0 1-4 4" />
     </svg>
   ),
   contact: (active) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : '#9aaac0'} strokeWidth={2}>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#22d3ee' : 'var(--text-muted)'} strokeWidth={2}>
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m2 7 10 7 10-7" />
     </svg>
@@ -81,7 +81,7 @@ export const MobileTabBar = memo(function MobileTabBar({ active }: { active: str
                 fontFamily: 'var(--font-mono)',
                 lineHeight: 1.1,
                 letterSpacing: '0.01em',
-                color: isActive ? '#38bdf8' : '#9aaac0',
+                color: isActive ? '#38bdf8' : 'var(--text-muted)',
                 fontWeight: isActive ? 600 : 400,
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
@@ -95,7 +95,7 @@ export const MobileTabBar = memo(function MobileTabBar({ active }: { active: str
                 width: isActive ? 16 : 0,
                 height: 3,
                 borderRadius: 3,
-                background: '#06b6d4',
+                background: 'var(--accent)',
                 boxShadow: isActive ? '0 0 8px rgba(6,182,212,0.8)' : 'none',
                 transition: 'width 0.2s ease, box-shadow 0.2s ease',
                 marginTop: 1,

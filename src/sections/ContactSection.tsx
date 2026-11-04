@@ -18,17 +18,17 @@ export const ContactSection = memo(function ContactSection() {
             fontWeight: 800,
             fontSize: 'clamp(2.2rem, 6vw, 3.8rem)',
             letterSpacing: '-0.035em',
-            color: '#f1f5f9',
+            color: 'var(--text)',
             lineHeight: 1.1,
           }}
         >
           Let's build impactful
           <br />
-          <span style={{ color: '#06b6d4' }}>software together.</span>
+          <span style={{ color: 'var(--accent)' }}>software together.</span>
         </h2>
         <p
           className="mb-8"
-          style={{ color: '#94a3b8', fontFamily: 'var(--font-body)', lineHeight: 1.7, fontSize: 15 }}
+          style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)', lineHeight: 1.7, fontSize: 15 }}
         >
           Open to software engineering internships, research collaborations, and ambitious technical challenges. If you're building high-impact products, I'd love to connect.
         </p>
@@ -36,7 +36,7 @@ export const ContactSection = memo(function ContactSection() {
         <a
           href={`mailto:${SITE_CONFIG.email}`}
           className="w-full sm:w-auto max-w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 px-4 sm:px-8 py-3.5 rounded-full font-semibold text-xs xs:text-sm sm:text-base transition-all duration-200 hover:opacity-90 hover:scale-[1.02] mb-8 truncate"
-          style={{ background: '#06b6d4', color: '#0c1020', fontFamily: 'var(--font-body)' }}
+          style={{ background: 'var(--accent)', color: 'var(--button-ink)', fontFamily: 'var(--font-body)' }}
         >
           <EmailIcon size={18} />
           <span className="truncate">{SITE_CONFIG.email}</span>

@@ -11,7 +11,7 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
       {/* Desktop floating pill nav — untouched */}
       <nav
         aria-label="Main Navigation"
-        className="fixed top-5 left-1/2 z-50 hidden md:flex items-center gap-1 px-2 py-1.5 rounded-full"
+        className="desktop-nav fixed top-5 left-1/2 z-50 hidden md:flex items-center gap-1 px-2 py-1.5 rounded-full"
         style={{
           transform: 'translateX(-50%)',
           background: scrolled ? 'rgba(12,16,32,0.9)' : 'transparent',
@@ -30,7 +30,7 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
             style={{
               fontFamily: 'var(--font-body)',
               fontWeight: 500,
-              color: active === s ? '#06b6d4' : '#94a3b8',
+              color: active === s ? 'var(--accent)' : 'var(--text-muted)',
               background: active === s ? 'rgba(6,182,212,0.1)' : 'transparent',
             }}
           >
@@ -40,7 +40,7 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
         <a
           href={`mailto:${SITE_CONFIG.email}`}
           className="ml-2 px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 hover:opacity-85"
-          style={{ background: '#06b6d4', color: '#0c1020', fontFamily: 'var(--font-body)' }}
+          style={{ background: 'var(--accent)', color: 'var(--button-ink)', fontFamily: 'var(--font-body)' }}
         >
           Let's Connect
         </a>
@@ -48,7 +48,7 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
 
       {/* Mobile top bar */}
       <div
-        className="fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5"
+        className="mobile-header fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5"
         style={{
           height: 56,
           background: scrolled ? 'rgba(10,14,26,0.92)' : 'rgba(10,14,26,0.55)',
@@ -62,16 +62,16 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
             fontFamily: 'var(--font-display)',
             fontWeight: 900,
             fontSize: 21,
-            color: '#f1f5f9',
+            color: 'var(--text)',
             letterSpacing: '-0.02em',
           }}
         >
-          <span style={{ color: '#06b6d4' }}>H</span>P
+          <span style={{ color: 'var(--accent)' }}>H</span>P
         </span>
         <a
           href={`mailto:${SITE_CONFIG.email}`}
           className="px-3 py-1 inline-flex items-center justify-center rounded-[12px] text-[11px] font-semibold active:scale-95 transition-transform duration-150 cursor-pointer"
-          style={{ background: '#06b6d4', color: '#0c1020', fontFamily: 'var(--font-body)', minHeight: 27, height: 27 }}
+          style={{ background: 'var(--accent)', color: 'var(--button-ink)', fontFamily: 'var(--font-body)', minHeight: 27, height: 27 }}
         >
           Let's Connect
         </a>

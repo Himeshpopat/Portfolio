@@ -48,13 +48,13 @@ export const ProjectsSection = memo(function ProjectsSection() {
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
                 fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-                color: '#f1f5f9',
+                color: 'var(--text)',
                 letterSpacing: '-0.03em',
               }}
             >
               Featured Projects
             </h2>
-            <p style={{ color: '#94a3b8', marginTop: 6, fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6 }}>
+            <p style={{ color: 'var(--text-muted)', marginTop: 6, fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6 }}>
               Production-ready applications engineered with scalable architecture, performance optimization, and measurable impact.
             </p>
           </div>
@@ -84,7 +84,7 @@ export const ProjectsSection = memo(function ProjectsSection() {
               style={{
                 width: activeIdx === i ? 20 : 6,
                 height: 6,
-                background: activeIdx === i ? '#06b6d4' : 'rgba(255,255,255,0.15)',
+                background: activeIdx === i ? 'var(--accent)' : 'rgba(255,255,255,0.15)',
               }}
             />
           ))}

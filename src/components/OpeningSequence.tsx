@@ -118,13 +118,13 @@ export function OpeningSequence({
           >
             <defs>
               <linearGradient id="opening-sequence-spectrum" x1="42" y1="190" x2="192" y2="40" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#06b6d4" />
-                <stop offset="0.58" stopColor="#67e8f9" />
-                <stop offset="1" stopColor="#a78bfa" />
+                <stop offset="0" stopColor="#d98d62" />
+                <stop offset="0.58" stopColor="#edd6bc" />
+                <stop offset="1" stopColor="#c5cdb4" />
               </linearGradient>
               <radialGradient id="opening-sequence-core" cx="0" cy="0" r="1" gradientTransform="translate(120 118) rotate(90) scale(92)" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#06b6d4" stopOpacity="0.16" />
-                <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
+                <stop stopColor="#d98d62" stopOpacity="0.16" />
+                <stop offset="1" stopColor="#d98d62" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -142,14 +142,14 @@ export function OpeningSequence({
             <path
               className="opening-sequence__monogram-highlight"
               d="M72 62V166M72 114H120M120 62V166M120 62H151C171 62 179 73 179 88C179 103 169 114 151 114H120"
-              stroke="#ecfeff"
+              stroke="#f5eddd"
               strokeOpacity="0.68"
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <circle className="opening-sequence__orbit-node" cx="120" cy="29" r="2.5" fill="#67e8f9" />
-            <circle className="opening-sequence__orbit-node opening-sequence__orbit-node--warm" cx="184" cy="147" r="2" fill="#a78bfa" />
+            <circle className="opening-sequence__orbit-node" cx="120" cy="29" r="2.5" fill="#edd6bc" />
+            <circle className="opening-sequence__orbit-node opening-sequence__orbit-node--warm" cx="184" cy="147" r="2" fill="#c5cdb4" />
           </svg>
           <span className="opening-sequence__monogram-halo" />
         </div>

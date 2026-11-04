@@ -17,13 +17,13 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
               fontFamily: 'var(--font-display)',
               fontWeight: 800,
               fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-              color: '#f1f5f9',
+              color: 'var(--text)',
               letterSpacing: '-0.03em',
             }}
           >
             GitHub Activity &amp; Repositories
           </h2>
-          <p style={{ color: '#94a3b8', marginTop: 4, fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--text-muted)', marginTop: 4, fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6 }}>
             Explore open-source projects, algorithm implementations, and software repositories.
           </p>
         </div>
@@ -34,7 +34,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
           className="self-center md:self-auto w-fit inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-semibold transition-all duration-200 hover:bg-cyan-500/10"
           style={{
             background: 'rgba(6,182,212,0.06)',
-            color: '#06b6d4',
+            color: 'var(--accent)',
             border: '1px solid rgba(6,182,212,0.2)',
           }}
         >
@@ -49,13 +49,13 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
           <div
             key={i}
             className="surface-card rounded-xl p-2.5 xs:p-3 sm:p-3.5 text-center min-w-0 overflow-hidden box-border"
-            style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div
               className="text-xs xs:text-sm sm:text-base font-mono font-bold leading-snug break-words"
               style={{
                 fontFamily: 'var(--font-mono)',
-                color: '#f59e0b',
+                color: 'var(--numeric)',
                 marginBottom: 2,
               }}
             >
@@ -76,7 +76,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
             rel="noopener noreferrer"
             data-card
             className="surface-card rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-white/20 hover:-translate-y-1 w-full max-w-full box-border overflow-hidden"
-            style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.07)' }}
           >
             <div className="w-full max-w-full min-w-0">
               <div className="flex items-center justify-between gap-2 mb-2 w-full max-w-full min-w-0">
@@ -93,7 +93,7 @@ export const GithubShowcaseSection = memo(function GithubShowcaseSection() {
                   className="text-[10px] font-mono px-2 py-0.5 rounded flex-shrink-0 whitespace-nowrap"
                   style={{
                     background: 'rgba(255,255,255,0.04)',
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >

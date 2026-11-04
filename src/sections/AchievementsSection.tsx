@@ -15,7 +15,7 @@ export const AchievementsSection = memo(function AchievementsSection() {
           fontFamily: 'var(--font-display)',
           fontWeight: 800,
           fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
-          color: '#f1f5f9',
+          color: 'var(--text)',
           letterSpacing: '-0.03em',
         }}
       >

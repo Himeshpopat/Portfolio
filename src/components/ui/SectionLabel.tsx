@@ -7,7 +7,7 @@ export const SectionLabel = memo(function SectionLabel({ children, id }: { child
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 11,
-          color: '#06b6d4',
+          color: 'var(--accent)',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
         }}

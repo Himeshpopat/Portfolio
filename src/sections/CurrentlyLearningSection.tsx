@@ -14,13 +14,13 @@ export const CurrentlyLearningSection = memo(function CurrentlyLearningSection()
             fontFamily: 'var(--font-display)',
             fontWeight: 800,
             fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-            color: '#f1f5f9',
+            color: 'var(--text)',
             letterSpacing: '-0.03em',
           }}
         >
           Active Learning Focus
         </h2>
-        <p style={{ color: '#94a3b8', fontSize: 14, marginTop: 4, fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 4, fontFamily: 'var(--font-body)', lineHeight: 1.6 }}>
           Technologies &amp; concepts I am actively mastering to deepen backend and architectural depth.
         </p>
       </div>
@@ -32,7 +32,7 @@ export const CurrentlyLearningSection = memo(function CurrentlyLearningSection()
             data-card
             className="surface-card rounded-xl p-3 xs:p-3.5 sm:p-4 transition-all duration-200 hover:border-cyan-500/30"
             style={{
-              background: '#111827',
+              background: 'var(--bg-card)',
               border: '1px solid rgba(255,255,255,0.07)',
             }}
           >

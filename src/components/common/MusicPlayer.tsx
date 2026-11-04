@@ -141,7 +141,7 @@ export const MusicPlayer = memo(function MusicPlayer() {
 
   return (
     <div
-      className="fixed bottom-[72px] right-3 md:bottom-6 md:right-6 z-40 flex items-center gap-3 rounded-full"
+      className="music-player fixed bottom-[72px] right-3 md:bottom-6 md:right-6 z-40 flex items-center gap-3 rounded-full"
       style={{
         background: 'rgba(12,16,32,0.92)',
         border: '1px solid rgba(255,255,255,0.08)',
@@ -157,7 +157,7 @@ export const MusicPlayer = memo(function MusicPlayer() {
             className="w-0.5 rounded-full"
             style={{
               height: 14,
-              background: '#06b6d4',
+              background: 'var(--accent)',
               transformOrigin: 'center',
               transform: playing ? `scaleY(${h})` : 'scaleY(0.25)',
               animation: playing ? `pulse-bar ${0.5 + i * 0.1}s ease-in-out infinite alternate` : 'none',
@@ -171,17 +171,17 @@ export const MusicPlayer = memo(function MusicPlayer() {
       <button
         onClick={toggle}
         className="w-9 h-9 md:w-7 md:h-7 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 flex-shrink-0 cursor-pointer"
-        style={{ background: playing ? '#06b6d4' : 'rgba(6,182,212,0.15)' }}
+        style={{ background: playing ? 'var(--accent)' : 'rgba(6,182,212,0.15)' }}
         aria-pressed={playing}
         aria-label={playing ? 'Pause background music' : 'Play background music'}
       >
         {playing ? (
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="#0c1020" aria-hidden="true">
+          <svg width="10" height="12" viewBox="0 0 10 12" fill="var(--button-ink)" aria-hidden="true">
             <rect x="0" y="0" width="3" height="12" rx="1" />
             <rect x="6" y="0" width="3" height="12" rx="1" />
           </svg>
         ) : (
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="#06b6d4" aria-hidden="true">
+          <svg width="10" height="12" viewBox="0 0 10 12" fill="var(--accent)" aria-hidden="true">
             <path d="M0 0 L10 6 L0 12 Z" />
           </svg>
         )}

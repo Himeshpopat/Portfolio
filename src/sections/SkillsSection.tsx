@@ -14,7 +14,7 @@ export const SkillsSection = memo(function SkillsSection() {
           fontFamily: 'var(--font-display)',
           fontWeight: 800,
           fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-          color: '#f1f5f9',
+          color: 'var(--text)',
           letterSpacing: '-0.03em',
         }}
       >
@@ -28,7 +28,7 @@ export const SkillsSection = memo(function SkillsSection() {
           <div
             key={group.label}
             className="surface-card rounded-xl sm:rounded-2xl p-4 md:p-5 flex flex-col justify-start h-full"
-            style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.07)' }}
           >
             <div className="mb-3.5 flex items-center">
               <p
@@ -36,7 +36,7 @@ export const SkillsSection = memo(function SkillsSection() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: 11,
                   fontWeight: 600,
-                  color: '#06b6d4',
+                  color: 'var(--accent)',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   lineHeight: 1,
@@ -52,13 +52,13 @@ export const SkillsSection = memo(function SkillsSection() {
                   className="px-2.5 py-1 rounded-md text-xs font-mono whitespace-nowrap transition-all duration-200 hover:scale-[1.03] hover:border-cyan-400/40 hover:bg-cyan-500/15 cursor-default select-none inline-flex items-center"
                   style={{
                     background: 'rgba(6,182,212,0.06)',
-                    color: '#e2e8f0',
+                    color: 'var(--text)',
                     border: '1px solid rgba(6,182,212,0.16)',
                     fontFamily: 'var(--font-mono)',
                     height: 28,
                   }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full mr-1.5 flex-shrink-0" style={{ background: '#06b6d4' }} />
+                  <span className="w-1.5 h-1.5 rounded-full mr-1.5 flex-shrink-0" style={{ background: 'var(--accent)' }} />
                   {item}
                 </span>
               ))}

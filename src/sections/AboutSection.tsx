@@ -15,15 +15,15 @@ export const AboutSection = memo(function AboutSection() {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
               letterSpacing: '-0.025em',
-              color: '#f1f5f9',
+              color: 'var(--text)',
             }}
           >
             Engineering software with rigor, clarity, and real-world impact.
           </h2>
-          <p style={{ color: '#94a3b8', lineHeight: 1.75, fontFamily: 'var(--font-body)', fontSize: 15 }}>
+          <p style={{ color: 'var(--text-muted)', lineHeight: 1.75, fontFamily: 'var(--font-body)', fontSize: 15 }}>
             I'm Himesh, an Information Technology student at KJ Somaiya Institute of Technology, Mumbai (CGPA 9.83). I approach software engineering as the discipline of transforming complex operational problems into clean, reliable, and high-performance software solutions.
           </p>
-          <p style={{ color: '#94a3b8', lineHeight: 1.75, fontFamily: 'var(--font-body)', fontSize: 15 }}>
+          <p style={{ color: 'var(--text-muted)', lineHeight: 1.75, fontFamily: 'var(--font-body)', fontSize: 15 }}>
             My interests span data structures &amp; algorithms, problem solving, full-stack web development, scalable backend systems, RESTful API architecture, and production-ready machine learning pipelines. From engineering atmospheric research platforms and B2B workflow systems to benchmarking day-ahead forecasting models across 3M+ weather records, I focus on building maintainable systems backed by rigorous evaluation and measurable impact.
           </p>
         </div>
@@ -32,13 +32,13 @@ export const AboutSection = memo(function AboutSection() {
         <div
           data-card
           className="surface-card rounded-2xl p-6"
-          style={{ background: '#111827', border: '1px solid rgba(255,255,255,0.07)' }}
+          style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.07)' }}
         >
           <p
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 10,
-              color: '#06b6d4',
+              color: 'var(--accent)',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               marginBottom: 12,
@@ -51,7 +51,7 @@ export const AboutSection = memo(function AboutSection() {
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
               fontSize: 16,
-              color: '#f1f5f9',
+              color: 'var(--text)',
               lineHeight: 1.4,
               marginBottom: 4,
             }}
@@ -74,7 +74,7 @@ export const AboutSection = memo(function AboutSection() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: 36,
                   fontWeight: 700,
-                  color: '#f59e0b',
+                  color: 'var(--numeric)',
                   lineHeight: 1,
                 }}
               >

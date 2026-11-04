@@ -9,7 +9,7 @@ export const AchievementCard = memo(function AchievementCard({ a }: { a: Achieve
       onMouseLeave={() => setHov(false)}
       className="surface-card rounded-xl md:rounded-2xl p-3 xs:p-3.5 md:p-6 flex flex-col justify-between h-full min-w-0 box-border overflow-hidden"
       style={{
-        background: '#111827',
+        background: 'var(--bg-card)',
         border: hov ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.07)',
         transform: hov ? 'translateY(-3px)' : 'translateY(0)',
         boxShadow: hov ? '0 12px 32px rgba(0,0,0,0.35)' : 'none',
@@ -23,7 +23,7 @@ export const AchievementCard = memo(function AchievementCard({ a }: { a: Achieve
               <span
                 className="font-mono font-extrabold text-xl xs:text-2xl md:text-[clamp(1.8rem,3.2vw,2.4rem)] leading-none"
                 style={{
-                  color: a.isNumeric ? '#f59e0b' : '#06b6d4',
+                  color: a.isNumeric ? 'var(--numeric)' : 'var(--accent)',
                 }}
               >
                 {a.stat}
