@@ -33,9 +33,9 @@ export const ProjectsSection = memo(function ProjectsSection() {
       className="pt-16 pb-8 md:py-14"
       style={{
         background: 'rgba(255,255,255,0.012)',
-        opacity: visible ? 1 : 0,
+        opacity: 1,
         transform: visible ? 'translateY(0)' : 'translateY(30px)',
-        transition: 'opacity 0.75s ease, transform 0.75s ease',
+        transition: 'transform 0.65s ease',
       }}
     >
       <div className="max-w-6xl mx-auto md:px-6">

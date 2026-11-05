@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process'
 import ts from 'typescript'
 import assert from 'node:assert/strict'
 
-const baseline = '8509574'
+const baseline = process.argv[2] || '8509574'
 const files = execFileSync('git', ['ls-tree', '-r', '--name-only', baseline], { encoding: 'utf8' }).trim().split('\n')
 let checked = 0
 for (const file of files) {
@@ -35,6 +35,7 @@ for (const file of files) {
     }
     const before = content(original), after = content(current)
     for (const value of before) assert.ok(after.includes(value), `${file}: missing original content ${value}`)
+    if (process.argv.includes('--exact')) assert.deepEqual([...after].sort(), [...before].sort(), `${file}: original text or link inventory changed`)
   }
   checked++
 }

@@ -1,0 +1,548 @@
+[
+  {
+    "capture": "final-320",
+    "width": 320,
+    "viewport": 320,
+    "documentWidth": 320,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 320
+      },
+      {
+        "id": "projects",
+        "width": 320
+      },
+      {
+        "id": "experience",
+        "width": 320
+      },
+      {
+        "id": "achievements",
+        "width": 320
+      },
+      {
+        "id": "skills",
+        "width": 320
+      },
+      {
+        "id": "learning",
+        "width": 320
+      },
+      {
+        "id": "about",
+        "width": 320
+      },
+      {
+        "id": "github",
+        "width": 320
+      },
+      {
+        "id": "contact",
+        "width": 320
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "final-390",
+    "width": 390,
+    "viewport": 390,
+    "documentWidth": 390,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 390
+      },
+      {
+        "id": "projects",
+        "width": 390
+      },
+      {
+        "id": "experience",
+        "width": 390
+      },
+      {
+        "id": "achievements",
+        "width": 390
+      },
+      {
+        "id": "skills",
+        "width": 390
+      },
+      {
+        "id": "learning",
+        "width": 390
+      },
+      {
+        "id": "about",
+        "width": 390
+      },
+      {
+        "id": "github",
+        "width": 390
+      },
+      {
+        "id": "contact",
+        "width": 390
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "final-768",
+    "width": 768,
+    "viewport": 768,
+    "documentWidth": 768,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 768
+      },
+      {
+        "id": "projects",
+        "width": 768
+      },
+      {
+        "id": "experience",
+        "width": 768
+      },
+      {
+        "id": "achievements",
+        "width": 768
+      },
+      {
+        "id": "skills",
+        "width": 768
+      },
+      {
+        "id": "learning",
+        "width": 768
+      },
+      {
+        "id": "about",
+        "width": 768
+      },
+      {
+        "id": "github",
+        "width": 768
+      },
+      {
+        "id": "contact",
+        "width": 768
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "final-1440",
+    "width": 1440,
+    "viewport": 1440,
+    "documentWidth": 1440,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 1440
+      },
+      {
+        "id": "projects",
+        "width": 1440
+      },
+      {
+        "id": "experience",
+        "width": 1280
+      },
+      {
+        "id": "achievements",
+        "width": 1280
+      },
+      {
+        "id": "skills",
+        "width": 1280
+      },
+      {
+        "id": "learning",
+        "width": 1280
+      },
+      {
+        "id": "about",
+        "width": 1280
+      },
+      {
+        "id": "github",
+        "width": 1280
+      },
+      {
+        "id": "contact",
+        "width": 1440
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "screen-1024",
+    "width": 1024,
+    "viewport": 1024,
+    "documentWidth": 1024,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 1024
+      },
+      {
+        "id": "projects",
+        "width": 1024
+      },
+      {
+        "id": "experience",
+        "width": 1024
+      },
+      {
+        "id": "achievements",
+        "width": 1024
+      },
+      {
+        "id": "skills",
+        "width": 1024
+      },
+      {
+        "id": "learning",
+        "width": 1024
+      },
+      {
+        "id": "about",
+        "width": 1024
+      },
+      {
+        "id": "github",
+        "width": 1024
+      },
+      {
+        "id": "contact",
+        "width": 1024
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "screen-1920",
+    "width": 1920,
+    "viewport": 1920,
+    "documentWidth": 1920,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 1920
+      },
+      {
+        "id": "projects",
+        "width": 1920
+      },
+      {
+        "id": "experience",
+        "width": 1280
+      },
+      {
+        "id": "achievements",
+        "width": 1280
+      },
+      {
+        "id": "skills",
+        "width": 1280
+      },
+      {
+        "id": "learning",
+        "width": 1280
+      },
+      {
+        "id": "about",
+        "width": 1280
+      },
+      {
+        "id": "github",
+        "width": 1280
+      },
+      {
+        "id": "contact",
+        "width": 1920
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  },
+  {
+    "capture": "project-details-390",
+    "width": 390,
+    "viewport": 390,
+    "documentWidth": 390,
+    "introReleased": true,
+    "sections": [
+      {
+        "id": "hero",
+        "width": 390
+      },
+      {
+        "id": "projects",
+        "width": 390
+      },
+      {
+        "id": "experience",
+        "width": 390
+      },
+      {
+        "id": "achievements",
+        "width": 390
+      },
+      {
+        "id": "skills",
+        "width": 390
+      },
+      {
+        "id": "learning",
+        "width": 390
+      },
+      {
+        "id": "about",
+        "width": 390
+      },
+      {
+        "id": "github",
+        "width": 390
+      },
+      {
+        "id": "contact",
+        "width": 390
+      }
+    ],
+    "disclosures": [
+      {
+        "id": "details-veloxa",
+        "expanded": true
+      },
+      {
+        "id": "details-color-vision",
+        "expanded": true
+      },
+      {
+        "id": "details-diabetes",
+        "expanded": true
+      }
+    ],
+    "carousels": [
+      {
+        "name": "Veloxa — B2B Commerce Platform",
+        "nextWorks": true
+      },
+      {
+        "name": "Color Vision Deficiency System",
+        "nextWorks": true
+      },
+      {
+        "name": "Diabetes Risk Prediction & Clinical Decision Support",
+        "nextWorks": true
+      }
+    ],
+    "headingOverflow": [],
+    "clippedText": [],
+    "brokenImages": [],
+    "pendingImages": [],
+    "controlOverlaps": []
+  }
+]

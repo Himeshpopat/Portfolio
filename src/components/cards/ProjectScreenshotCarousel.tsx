@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo, memo } from 'react'
-import { useInView } from '../../hooks/useInView'
 import type { Screenshot } from '../../types/portfolio'
 
 export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel({
@@ -22,7 +21,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
   const [onScreen, setOnScreen] = useState(false)
   const [pageVisible, setPageVisible] = useState(!document.hidden)
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  const { ref, visible } = useInView()
+  const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     const preference = () => setReducedMotion(media.matches)
@@ -151,7 +150,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
             >
-              {visible && (isActive || idx === (safeIndex + 1) % count) && <img
+              {(isActive || idx === (safeIndex + 1) % count) && <img
                 src={s.url}
                 alt={`${title} - ${s.caption}`}
                 loading="lazy"
