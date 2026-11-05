@@ -54,16 +54,15 @@ nav[aria-label="Mobile section navigation"] a[aria-current] span { color: var(--
 .hero-section p { font-size: 14px; line-height: 1.8 !important; max-width: 49ch; margin-inline: 0; margin-bottom: 25px; }
 .hero-credentials { gap: 0; display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--border); padding-block: 12px; margin-bottom: 26px; }
 .hero-credentials > div { padding: 5px 0; justify-content: flex-start; border: 0 !important; background: none !important; backdrop-filter: none !important; height: auto; min-height: 28px; }
-.hero-credentials > div > span:first-child { font-size: 11px; color: var(--text) !important; }
-.hero-credentials > div > span:last-child { font-size: 10px !important; }
+.hero-credentials > div > span:first-child { font-size: clamp(12px, 1.05vw, 14px); color: var(--text) !important; }
+.hero-credentials > div > span:last-child { font-size: 12px !important; }
 .hero-stage-4 { justify-content: flex-start; }
 .hero-stage-4 a { border-radius: 2px; min-height: 50px; font-size: 12px; }
 .hero-stage-4 a:last-child { border-color: var(--border) !important; }
 .hero-image { position: relative; align-self: center; }
 .hero-portrait { width: 100%; height: auto; position: relative; padding: 20px 20px 0 0; }
 .portrait-frame { position: relative; aspect-ratio: .88; background: #d9ddcf; overflow: hidden; border-radius: 160px 160px 2px 2px; }
-.portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; mix-blend-mode: multiply; filter: saturate(.45); transition: filter .6s; }
-.hero-portrait:hover img { filter: saturate(1); }
+.portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; mix-blend-mode: normal; }
 .portrait-registration { position: absolute; width: 66%; height: 85%; right: 0; top: 0; border: 1px solid #9ea792; border-radius: 180px 180px 2px 2px; }
 .portrait-rule { height: 14px; margin-top: 18px; background: repeating-linear-gradient(90deg,#a5ad9c 0 1px,transparent 1px 10px); border-top: 1px solid #a5ad9c; width: 100%; }
 .hero-scroll-cue { bottom: 24px; left: 48px; transform: none !important; animation: none !important; flex-direction: row; }
