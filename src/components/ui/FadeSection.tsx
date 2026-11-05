@@ -1,5 +1,6 @@
 import { memo, type ReactNode } from 'react'
 import { useInView } from '../../hooks/useInView'
+import { SectionAmbiance } from '../ambient/SectionAmbiance'
 
 export const FadeSection = memo(function FadeSection({
   id,
@@ -27,6 +28,7 @@ export const FadeSection = memo(function FadeSection({
         willChange: 'opacity, transform',
       }}
     >
+      <SectionAmbiance id={id} visible={visible} />
       {children}
     </section>
   )

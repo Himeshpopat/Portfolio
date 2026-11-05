@@ -1,0 +1,259 @@
+/* Ambient Environment System: Atmospheric depth, organic movement, living canvas */
+
+.ambient-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  contain: strict;
+}
+
+.ambient-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Hero atmospheric gradient mesh */
+.hero-ambient-orb-1 {
+  width: min(650px, 90vw);
+  height: min(650px, 90vw);
+  background: radial-gradient(circle at 45% 45%, rgba(184, 70, 31, 0.08) 0%, rgba(184, 70, 31, 0.02) 50%, transparent 70%);
+  filter: blur(85px);
+  top: -120px;
+  right: -80px;
+  animation: heroOrb1 24s infinite alternate ease-in-out;
+}
+
+.hero-ambient-orb-2 {
+  width: min(580px, 85vw);
+  height: min(580px, 85vw);
+  background: radial-gradient(circle at 50% 50%, rgba(125, 139, 116, 0.11) 0%, rgba(125, 139, 116, 0.03) 55%, transparent 75%);
+  filter: blur(95px);
+  bottom: -60px;
+  left: -90px;
+  animation: heroOrb2 30s infinite alternate ease-in-out;
+}
+
+.hero-ambient-orb-3 {
+  width: min(520px, 75vw);
+  height: min(480px, 70vw);
+  background: radial-gradient(circle at 40% 40%, rgba(255, 250, 240, 0.65) 0%, rgba(255, 245, 230, 0.25) 45%, transparent 70%);
+  filter: blur(75px);
+  top: 25%;
+  left: 15%;
+  animation: heroOrb3 20s infinite alternate ease-in-out;
+}
+
+.hero-precision-rings {
+  position: absolute;
+  top: 48%;
+  right: 6%;
+  transform: translateY(-50%);
+  width: min(620px, 75vw);
+  height: min(620px, 75vw);
+  pointer-events: none;
+  opacity: 0.7;
+  animation: rotatePrecisionRings 160s linear infinite;
+  will-change: transform;
+}
+
+@keyframes heroOrb1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(45px, -35px, 0) scale(1.12); }
+  100% { transform: translate3d(-30px, 25px, 0) scale(0.92); }
+}
+
+@keyframes heroOrb2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-40px, 40px, 0) scale(1.14); }
+  100% { transform: translate3d(35px, -20px, 0) scale(0.88); }
+}
+
+@keyframes heroOrb3 {
+  0% { transform: translate3d(0, 0, 0) scale(0.95); }
+  50% { transform: translate3d(30px, 20px, 0) scale(1.08); }
+  100% { transform: translate3d(-20px, -25px, 0) scale(1); }
+}
+
+@keyframes rotatePrecisionRings {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Projects bioluminescent deep-forest aurora */
+.projects-aurora-1 {
+  width: min(720px, 95vw);
+  height: min(540px, 80vw);
+  background: radial-gradient(circle at 50% 45%, rgba(48, 82, 44, 0.52) 0%, rgba(35, 60, 32, 0.18) 55%, transparent 75%);
+  filter: blur(100px);
+  top: 5%;
+  left: 20%;
+  animation: projectsAurora1 28s infinite alternate ease-in-out;
+}
+
+.projects-aurora-2 {
+  width: min(600px, 85vw);
+  height: min(500px, 75vw);
+  background: radial-gradient(circle at 50% 50%, rgba(235, 165, 125, 0.16) 0%, rgba(235, 165, 125, 0.04) 50%, transparent 75%);
+  filter: blur(115px);
+  bottom: 12%;
+  right: 10%;
+  animation: projectsAurora2 34s infinite alternate ease-in-out;
+}
+
+.projects-aurora-3 {
+  width: min(500px, 70vw);
+  height: min(440px, 65vw);
+  background: radial-gradient(circle at 45% 45%, rgba(65, 110, 60, 0.32) 0%, transparent 70%);
+  filter: blur(90px);
+  top: 45%;
+  left: 5%;
+  animation: projectsAurora1 22s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes projectsAurora1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-50px, 35px, 0) scale(1.15); }
+  100% { transform: translate3d(40px, -45px, 0) scale(0.9); }
+}
+
+@keyframes projectsAurora2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(45px, -30px, 0) scale(1.12); }
+  100% { transform: translate3d(-35px, 35px, 0) scale(0.94); }
+}
+
+/* Experience timeline lightstream */
+.experience-stream {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  background: linear-gradient(180deg, transparent 0%, rgba(184, 70, 31, 0.07) 35%, rgba(125, 139, 116, 0.08) 65%, transparent 100%);
+  filter: blur(40px);
+  animation: timelineStream 14s infinite alternate ease-in-out;
+}
+
+@media (min-width: 1000px) {
+  .experience-stream {
+    left: clamp(40px, 12vw, 160px);
+    width: 320px;
+  }
+}
+
+@keyframes timelineStream {
+  0% { transform: translate3d(0, -60px, 0) scaleY(0.9); opacity: 0.6; }
+  50% { transform: translate3d(20px, 40px, 0) scaleY(1.1); opacity: 0.95; }
+  100% { transform: translate3d(-15px, -20px, 0) scaleY(1); opacity: 0.7; }
+}
+
+/* Achievements subtle focal halo */
+.achievements-halo {
+  position: absolute;
+  width: min(520px, 80vw);
+  height: min(440px, 70vw);
+  background: radial-gradient(circle at 50% 50%, rgba(184, 70, 31, 0.065) 0%, rgba(215, 222, 208, 0.3) 45%, transparent 70%);
+  filter: blur(80px);
+  top: 35%;
+  right: 15%;
+  animation: achievementsHalo 18s infinite alternate ease-in-out;
+}
+
+@keyframes achievementsHalo {
+  0% { transform: translate3d(0, 0, 0) scale(0.95); opacity: 0.7; }
+  50% { transform: translate3d(30px, -20px, 0) scale(1.1); opacity: 1; }
+  100% { transform: translate3d(-25px, 25px, 0) scale(0.92); opacity: 0.75; }
+}
+
+/* Skills flowing technical gradient */
+.skills-gradient-band {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 45%, rgba(189, 195, 178, 0.16) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: skillsWave 16s infinite alternate ease-in-out;
+}
+
+@keyframes skillsWave {
+  0% { transform: translate3d(-40px, 0, 0) scaleX(0.95); }
+  100% { transform: translate3d(40px, 0, 0) scaleX(1.05); }
+}
+
+/* About topographical contour curves */
+.about-contours {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  opacity: 0.45;
+  animation: aboutContourDrift 28s infinite alternate ease-in-out;
+}
+
+.about-academic-glow {
+  position: absolute;
+  width: min(460px, 75vw);
+  height: min(460px, 75vw);
+  background: radial-gradient(circle at 50% 50%, rgba(184, 70, 31, 0.075) 0%, rgba(175, 185, 162, 0.15) 50%, transparent 75%);
+  filter: blur(85px);
+  top: 30%;
+  right: 10%;
+}
+
+@keyframes aboutContourDrift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(20px, -15px, 0) scale(1.03); }
+  100% { transform: translate3d(-15px, 20px, 0) scale(0.98); }
+}
+
+/* Contact closing embers & aurora */
+.contact-aurora {
+  position: absolute;
+  width: min(750px, 95vw);
+  height: min(520px, 80vw);
+  background: radial-gradient(circle at 50% 50%, rgba(235, 165, 125, 0.14) 0%, rgba(48, 75, 42, 0.22) 45%, transparent 75%);
+  filter: blur(105px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: contactBreath 18s infinite alternate ease-in-out;
+}
+
+@keyframes contactBreath {
+  0% { transform: translateX(-50%) scale(0.92); opacity: 0.75; }
+  50% { transform: translateX(-47%) scale(1.1); opacity: 1; }
+  100% { transform: translateX(-53%) scale(0.96); opacity: 0.8; }
+}
+
+/* Reduced motion preference: freeze or suppress */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient-orb-1,
+  .hero-ambient-orb-2,
+  .hero-ambient-orb-3,
+  .hero-precision-rings,
+  .projects-aurora-1,
+  .projects-aurora-2,
+  .projects-aurora-3,
+  .experience-stream,
+  .achievements-halo,
+  .skills-gradient-band,
+  .about-contours,
+  .contact-aurora {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+

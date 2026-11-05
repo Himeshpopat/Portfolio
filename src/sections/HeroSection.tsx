@@ -2,6 +2,7 @@ import { memo } from 'react'
 import avatarImg from '../assets/avatar.webp'
 import { EmailIcon, ExternalLinkIcon } from '../components/ui/Icons'
 import { SITE_CONFIG } from '../constants/siteConfig'
+import { AmbientHero } from '../components/ambient/AmbientHero'
 
 function HeroAvatar() {
   return (
@@ -18,6 +19,7 @@ function HeroAvatar() {
 export const HeroSection = memo(function HeroSection() {
   return (
     <section className="hero-section relative min-h-[88vh] md:min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+      <AmbientHero />
       <div className="hero-layout relative z-10 w-full max-w-6xl mx-auto px-5 pt-20 pb-10 md:pt-28 md:pb-20">
         <div className="hero-composition">
           {/* Text content */}

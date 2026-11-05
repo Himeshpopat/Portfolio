@@ -3,6 +3,7 @@ import { PROJECTS } from '../data/projectsData'
 import { ProjectCard } from '../components/cards/ProjectCard'
 import { SectionLabel } from '../components/ui/SectionLabel'
 import { useInView } from '../hooks/useInView'
+import { AmbientProjects } from '../components/ambient/AmbientProjects'
 
 export const ProjectsSection = memo(function ProjectsSection() {
   const { ref, visible } = useInView()
@@ -40,6 +41,7 @@ export const ProjectsSection = memo(function ProjectsSection() {
         willChange: 'opacity, transform',
       }}
     >
+      <AmbientProjects visible={visible} />
       <div className="max-w-6xl mx-auto md:px-6">
         <div className="px-6 md:px-0">
           <SectionLabel>Projects</SectionLabel>
