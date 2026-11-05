@@ -11,6 +11,7 @@
   --numeric: #a84322;
   --border: #c9cdc1;
   --button-ink: #fffaf0;
+  --reading-size: clamp(16px, 1.15vw, 17px);
 }
 body { margin: 0; }
 body::before { display: none; }
@@ -23,13 +24,13 @@ body::before { display: none; }
 .surface-card { background: var(--bg-card) !important; border-color: var(--border) !important; border-radius: 3px; box-shadow: none; }
 .portfolio-section { max-width: 1280px; padding: clamp(64px,8vw,112px) 48px; }
 .section-label { gap: 20px; margin-bottom: 38px; }
-.section-label > span { color: var(--accent) !important; font-size: 11px !important; letter-spacing: .16em !important; }
+.section-label > span { color: var(--accent) !important; font-size: 12px !important; letter-spacing: .14em !important; }
 .section-label > div { background: var(--border) !important; }
 .section-label::before { content: ''; width: 9px; height: 9px; background: var(--accent); flex-shrink: 0; }
 main > section h2 { font-size: clamp(2.3rem,4.5vw,4rem) !important; font-weight: 500 !important; line-height: 1.06; letter-spacing: -.045em !important; }
 main > section h2 + p { margin-top: 20px; max-width: 62ch; }
 .desktop-nav { top: 0; width: 100%; padding: 18px max(32px,calc((100vw - 1184px)/2)); justify-content: flex-end; border-radius: 0; background: #f2f0e9f5 !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; box-shadow: none !important; backdrop-filter: blur(12px) !important; gap: 5px; }
-.desktop-nav a { white-space: nowrap; padding: 8px 13px; font-size: 12px; border-radius: 2px; }
+.desktop-nav a { white-space: nowrap; padding: 8px 13px; font-size: 14px; border-radius: 2px; }
 .desktop-nav a[aria-current] { background: #dedfd5 !important; color: var(--text) !important; }
 .desktop-nav a:last-child { margin-left: 24px; padding-inline: 22px; }
 .mobile-header { background: #f2f0e9f5 !important; border-bottom: 1px solid var(--border) !important; }
@@ -47,17 +48,17 @@ nav[aria-label="Mobile section navigation"] a[aria-current] span { color: var(--
 .hero-composition { display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 70px; }
 .hero-copy { min-width: 0; text-align: left; }
 .hero-copy .hero-stage-1 { margin-bottom: 28px; }
-.hero-copy .hero-stage-1 > span { border: 0 !important; border-radius: 0; background: none !important; padding: 0; letter-spacing: .11em; font-size: 10px; }
+.hero-copy .hero-stage-1 > span { border: 0 !important; border-radius: 0; background: none !important; padding: 0; letter-spacing: .07em; font-size: 12px; white-space: normal; }
 .hero-section h1 { font-weight: 500; font-size: clamp(5rem,9vw,8.8rem); line-height: .88; letter-spacing: -.065em !important; margin-bottom: 30px; }
 .hero-section h1 span { color: var(--text) !important; }
 .hero-section h2 { font-size: clamp(1.25rem,2.1vw,1.75rem) !important; line-height: 1.25; letter-spacing: -.025em !important; max-width: 29ch; margin-bottom: 18px; }
-.hero-section p { font-size: 14px; line-height: 1.8 !important; max-width: 49ch; margin-inline: 0; margin-bottom: 25px; }
+.hero-section p { font-size: var(--reading-size); line-height: 1.8 !important; max-width: 49ch; margin-inline: 0; margin-bottom: 25px; }
 .hero-credentials { gap: 0; display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--border); padding-block: 12px; margin-bottom: 26px; }
 .hero-credentials > div { padding: 5px 0; justify-content: flex-start; border: 0 !important; background: none !important; backdrop-filter: none !important; height: auto; min-height: 28px; }
 .hero-credentials > div > span:first-child { font-size: clamp(12px, 1.05vw, 14px); color: var(--text) !important; }
 .hero-credentials > div > span:last-child { font-size: 12px !important; }
 .hero-stage-4 { justify-content: flex-start; }
-.hero-stage-4 a { border-radius: 2px; min-height: 50px; font-size: 12px; }
+.hero-stage-4 a { border-radius: 2px; min-height: 50px; font-size: 14px; }
 .hero-stage-4 a:last-child { border-color: var(--border) !important; }
 .hero-image { position: relative; align-self: center; }
 .hero-portrait { width: 100%; height: auto; position: relative; padding: 20px 20px 0 0; }
@@ -137,7 +138,7 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 .project-card > div:first-child:not(.project-heading) { display: none; }
 .project-heading { padding: 34px 0 28px; max-width: 850px; text-align: left; }
 .project-heading h3 { font-size: clamp(1.65rem,3.1vw,2.8rem) !important; font-weight: 500 !important; letter-spacing: -.035em !important; margin-bottom: 12px; }
-.project-heading p { font-size: 12px !important; line-height: 1.7; color: var(--text-muted) !important; }
+.project-heading p { font-size: 14px !important; line-height: 1.7; color: var(--text-muted) !important; }
 .project-body { padding: 0; gap: 30px; }
 .project-body .screenshot-carousel { margin-bottom: 0; border-radius: 3px; border: 1px solid #56634f; box-shadow: none !important; }
 .screenshot-carousel > div:first-child { background: #30392f; }
@@ -149,11 +150,11 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 .project-narrative { grid-template-columns: 1fr; gap: 20px; }
 .project-narrative > div { padding: 0 0 20px; background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
 .project-narrative > div > p:first-child { color: var(--accent) !important; margin-bottom: 9px !important; }
-.project-narrative p:last-child, [id^="details-"] > div:last-child p { font-size: 13px !important; line-height: 1.8 !important; }
+.project-narrative p:last-child, [id^="details-"] > div:last-child p { font-size: var(--reading-size) !important; line-height: 1.75 !important; }
 .project-footer { border-color: var(--border); padding-block: 24px 0; }
 .project-footer > div:first-child { gap: 38px; }
 .project-footer > div:first-child > div > div:first-child { color: var(--text) !important; font-size: 27px !important; margin-bottom: 8px; }
-.project-footer span.rounded-full { background: transparent !important; border-color: var(--border) !important; color: var(--text-muted) !important; border-radius: 2px; font-size: 10px; }
+.project-footer span.rounded-full { background: transparent !important; border-color: var(--border) !important; color: var(--text-muted) !important; border-radius: 2px; font-size: 12px; }
 .project-actions { margin-top: 0; padding-bottom: 14px; }
 .project-actions a { border-radius: 2px; padding-inline: 20px; }
 .project-actions a:first-child { background: #e7a37b !important; }
@@ -162,7 +163,7 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
   .project-slide + .project-slide { margin-top: 70px; }
   .project-body { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 32px 42px; align-items: start; }
   .project-body > div { min-width: 0; }
-  .project-body .screenshot-carousel > div:nth-child(2) { height: 380px; }
+  .project-body .screenshot-carousel > div:nth-child(2) { height: 440px; }
   .project-footer, .project-actions { grid-column: 1 / -1; }
   .project-footer { margin-top: 0; }
 }
@@ -173,18 +174,18 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 .experience-heading > div, .experience-heading > div > div { align-items: flex-start; text-align: left; }
 .experience-heading > div { flex-direction: column; gap: 20px; }
 .experience-heading h3 { font-size: clamp(1.6rem,2.6vw,2.3rem) !important; font-weight: 500 !important; line-height: 1.2; margin-bottom: 15px; }
-.experience-heading > div > p { text-align: left; font-size: 11px !important; }
+.experience-heading > div > p { text-align: left; font-size: 13px !important; }
 .experience-heading > div > div > div { justify-content: flex-start; }
-.experience-heading span { background: transparent !important; border: 1px solid var(--border) !important; border-radius: 2px; padding: 5px 7px; font-size: 9px; letter-spacing: .05em; }
+.experience-heading span { background: transparent !important; border: 1px solid var(--border) !important; border-radius: 2px; padding: 5px 7px; font-size: 11px; letter-spacing: .04em; }
 .experience-detail { padding: 22px 0; }
-.experience-detail p { font-size: 14px !important; line-height: 1.8 !important; }
+.experience-detail p { font-size: var(--reading-size) !important; line-height: 1.8 !important; }
 .experience-detail > div + div { margin-top: 16px; }
 .experience-stack { padding: 0 0 25px; border-color: var(--border) !important; }
-.experience-stack > span { border-radius: 2px; background: #e4e6dc !important; border-color: #c9cdc1 !important; color: var(--text-secondary) !important; font-size: 10px; padding: 5px 8px; }
+.experience-stack > span { border-radius: 2px; background: #e4e6dc !important; border-color: #c9cdc1 !important; color: var(--text-secondary) !important; font-size: 12px; padding: 6px 9px; }
 .experience-metrics { background: var(--border) !important; border: 1px solid var(--border) !important; }
 .experience-metrics > div { padding: 18px 10px; background: #e5e7dc !important; text-align: left; }
 .experience-metrics > div > div:first-child { justify-content: flex-start; }
-.experience-metrics > div > div:last-child { font-size: 10px !important; line-height: 1.6; }
+.experience-metrics > div > div:last-child { font-size: 12px !important; line-height: 1.6; }
 @media (min-width: 1000px) {
   .experience-entry { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.5fr); column-gap: 60px; }
   .experience-heading { grid-column: 1; grid-row: 1 / span 4; }
@@ -197,14 +198,14 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 #achievements .surface-card { background: transparent !important; padding: 28px; min-height: 215px; border: 0 !important; border-right: 1px solid var(--border) !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
 #achievements .surface-card:nth-child(3) { background: #dce1d0 !important; }
 #achievements .surface-card > div > div > span:first-child { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.3rem,4.3vw,3.7rem); letter-spacing: -.05em; color: var(--text) !important; }
-#achievements .surface-card > div > p { margin-block: 16px; font-size: 15px; font-weight: 500; }
-#achievements .surface-card > p { line-height: 1.7; }
+#achievements .surface-card > div > p { margin-block: 16px; font-size: 16px; font-weight: 500; }
+#achievements .surface-card > p { font-size: 14px; line-height: 1.75; }
 #skills { border-top: 1px solid var(--border); }
 .skills-matrix { display: block; margin-top: 40px; border-top: 1px solid var(--border); }
 .skills-matrix > div { display: grid; grid-template-columns: 220px 1fr; gap: 20px; padding: 25px 0; background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0; }
 .skills-matrix > div > div:first-child { margin: 0; align-items: flex-start; padding-top: 8px; }
-.skills-matrix > div > div:first-child p { color: var(--text) !important; font-size: 11px !important; line-height: 1.5 !important; letter-spacing: .08em !important; }
-.skills-matrix span.inline-flex { height: auto !important; padding: 7px 11px; font-family: var(--font-body) !important; color: var(--text-secondary) !important; background: #e4e6dc !important; border: 1px solid #d3d6ca !important; border-radius: 2px; font-size: 12px; }
+.skills-matrix > div > div:first-child p { color: var(--text) !important; font-size: 13px !important; line-height: 1.5 !important; letter-spacing: .08em !important; }
+.skills-matrix span.inline-flex { height: auto !important; padding: 7px 11px; font-family: var(--font-body) !important; color: var(--text-secondary) !important; background: #e4e6dc !important; border: 1px solid #d3d6ca !important; border-radius: 2px; font-size: 14px; }
 .skills-matrix span.inline-flex > span { display: none; }
 #learning { padding-top: 35px; }
 #learning > .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; margin-top: 36px; border-top: 1px solid var(--border); }
@@ -213,7 +214,7 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 #learning .surface-card > div { align-items: flex-start; flex-direction: column-reverse; gap: 16px; }
 #learning .surface-card > div > span:first-child { font-size: 20px; line-height: 1.25; font-weight: 500; max-width: 28ch; }
 #learning .surface-card > div > span:last-child { background: transparent !important; border: 0 !important; color: var(--accent) !important; padding: 0; }
-#learning .surface-card > p { margin-top: 16px; max-width: 48ch; font-size: 13px !important; line-height: 1.8 !important; }
+#learning .surface-card > p { margin-top: 16px; max-width: 48ch; font-size: var(--reading-size) !important; line-height: 1.75 !important; }
 #about { background: #e3e6da; }
 #about .surface-card { border: 1px solid #b5beaa !important; background: transparent !important; padding: 32px; }
 #about .surface-card h3 { font-size: 25px !important; font-weight: 500 !important; margin-block: 22px 12px !important; }
@@ -229,7 +230,7 @@ footer { max-width: 1184px !important; border-color: var(--border) !important; }
 #github a.surface-card { padding: 32px 0; border: 0 !important; border-bottom: 1px solid var(--border) !important; background: transparent !important; border-radius: 0; }
 #github a.surface-card:nth-child(even) { padding-left: 36px; }
 #github a.surface-card span.font-semibold { font-size: 21px; white-space: normal; font-weight: 500; }
-#github a.surface-card p { margin-block: 15px; max-width: 48ch; font-size: 13px !important; }
+#github a.surface-card p { margin-block: 15px; max-width: 48ch; font-size: var(--reading-size) !important; line-height: 1.75 !important; }
 #contact { --text: #f2f0e9; --text-muted: #bbc2b2; --accent: #e7a37b; --border: #495343; --button-ink: #222722; background: #222b22; max-width: none; padding: 75px max(48px,calc((100vw - 1184px)/2)) 100px; }
 #contact > div:last-child { max-width: 850px; text-align: left; margin-inline: 0; }
 #contact h2 { font-size: clamp(3rem,6.5vw,6rem) !important; font-weight: 500 !important; }
@@ -268,7 +269,7 @@ footer { padding-block: 28px; }
   #achievements .surface-card { padding: 20px 16px; min-height: 230px; }
   #achievements .surface-card > div > div > span:first-child { font-size: 2.1rem; }
   #achievements .surface-card:nth-child(5) > div > div > span:first-child { font-size: 1.6rem; }
-  #achievements .surface-card > div > p { font-size: 13px; }
+  #achievements .surface-card > div > p { font-size: 16px; }
   .skills-matrix > div { grid-template-columns: 1fr; gap: 14px; }
   .skills-matrix > div > div:first-child { padding-top: 0; }
   #learning > .grid { grid-template-columns: 1fr; }
@@ -295,3 +296,50 @@ footer { padding-block: 28px; }
   nav[aria-label="Mobile section navigation"] a > span:nth-child(2) { font-family: var(--font-body) !important; font-size: clamp(7.5px,2.2vw,10px) !important; letter-spacing: -.02em !important; overflow: visible !important; text-overflow: clip !important; }
 }
 #github > .flex a { border-radius: 2px; border-color: var(--border) !important; background: transparent !important; }
+/* Readable supporting type across the complete portfolio. */
+#projects h2 + p,
+#achievements > p,
+#skills > p,
+#learning > div > p,
+#about .space-y-5 > p,
+#github > .flex > div > p,
+#contact > div:last-child > p:first-of-type { font-size: var(--reading-size) !important; line-height: 1.75 !important; }
+.project-narrative > div > p:first-child,
+.experience-stack > div > p,
+#about .surface-card > p:first-child { font-size: 12px !important; letter-spacing: .12em !important; }
+.project-footer > div:first-child > div > div:last-child { font-size: 13px !important; line-height: 1.6; }
+.project-footer > div:last-child > span { font-size: 12px; }
+.project-body > div:first-child > .grid > div > div:last-child { font-size: 12px !important; font-family: var(--font-body) !important; white-space: normal; overflow: visible; line-height: 1.5; margin-top: 6px; }
+.project-body > div:first-child > .flex > span { font-size: 12px; padding: 5px 8px; }
+.project-actions a { font-family: var(--font-body) !important; font-size: 14px; }
+.project-body > button[aria-controls] { font-size: 14px; font-family: var(--font-body); }
+.screenshot-carousel > div:first-child .truncate { font-size: 12px; }
+.screenshot-carousel > div:first-child .flex-shrink-0 > span { font-size: 11px; }
+.experience-heading > div > div > p { font-size: 15px !important; line-height: 1.7; }
+#achievements .surface-card > div > div > span:last-child:not(:first-child) { font-size: 12px; }
+#learning .surface-card > div > span:last-child { font-size: 12px; }
+#about .surface-card > p:not(:first-child) { font-size: 15px !important; }
+#about .surface-card .pt-5 p { font-size: 13px !important; letter-spacing: .04em !important; }
+#about .surface-card .pt-5 span:last-child { font-size: 15px !important; }
+#github > .grid.grid-cols-3 .surface-card > div:last-child { font-family: var(--font-body) !important; font-size: 14px; line-height: 1.5; margin-top: 8px; }
+#github a.surface-card > div:last-child { font-size: 13px; }
+#github a.surface-card span.whitespace-nowrap { font-size: 12px; }
+#contact > div:last-child > p:last-child, footer p { font-size: 13px !important; }
+.hero-scroll-cue span, #projects > div > p { font-size: 12px !important; }
+.mobile-header a { font-size: 12px; }
+@media (max-width: 899px) {
+  nav[aria-label="Mobile section navigation"] { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2px; padding-inline: 6px; padding-top: 5px !important; }
+  nav[aria-label="Mobile section navigation"] a { flex-direction: row; gap: 5px; min-height: 40px; padding: 4px 0; }
+  nav[aria-label="Mobile section navigation"] a > span:nth-child(2) { font-size: clamp(11px,2.9vw,13px) !important; width: auto; flex: 0 1 auto; }
+  nav[aria-label="Mobile section navigation"] a > span:last-child { display: none; }
+  nav[aria-label="Mobile section navigation"] svg { width: 17px; height: 17px; }
+  footer { padding-bottom: 128px; }
+}
+@media (max-width: 599px) {
+  .hero-copy .hero-stage-1 > span > span:last-child { white-space: normal; overflow: visible; }
+  .project-actions a { font-size: 13px; padding-inline: 10px; }
+  .project-body > button[aria-controls] { font-size: 13px; }
+  .project-footer { flex-wrap: wrap; }
+  #github > .grid.grid-cols-3 .surface-card { padding-inline: 8px; }
+  #github > .grid.grid-cols-3 .surface-card > div:last-child { font-size: 13px; }
+}
