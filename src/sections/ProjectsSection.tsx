@@ -31,11 +31,13 @@ export const ProjectsSection = memo(function ProjectsSection() {
       id="projects"
       aria-labelledby="projects-heading"
       className="pt-16 pb-8 md:py-14"
+      data-visible={visible}
       style={{
         background: 'rgba(255,255,255,0.012)',
-        opacity: 1,
-        transform: visible ? 'translateY(0)' : 'translateY(30px)',
-        transition: 'transform 0.65s ease',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(24px)',
+        transition: 'opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)',
+        willChange: 'opacity, transform',
       }}
     >
       <div className="max-w-6xl mx-auto md:px-6">
