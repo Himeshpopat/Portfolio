@@ -327,14 +327,6 @@ footer { padding-block: 28px; }
 #contact > div:last-child > p:last-child, footer p { font-size: 13px !important; }
 .hero-scroll-cue span, #projects > div > p { font-size: 12px !important; }
 .mobile-header a { font-size: 12px; }
-@media (max-width: 899px) {
-  nav[aria-label="Mobile section navigation"] { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2px; padding-inline: 6px; padding-top: 5px !important; }
-  nav[aria-label="Mobile section navigation"] a { flex-direction: row; gap: 5px; min-height: 40px; padding: 4px 0; }
-  nav[aria-label="Mobile section navigation"] a > span:nth-child(2) { font-size: clamp(11px,2.9vw,13px) !important; width: auto; flex: 0 1 auto; }
-  nav[aria-label="Mobile section navigation"] a > span:last-child { display: none; }
-  nav[aria-label="Mobile section navigation"] svg { width: 17px; height: 17px; }
-  footer { padding-bottom: 128px; }
-}
 @media (max-width: 599px) {
   .hero-copy .hero-stage-1 > span > span:last-child { white-space: normal; overflow: visible; }
   .project-actions a { font-size: 13px; padding-inline: 10px; }
