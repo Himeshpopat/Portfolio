@@ -20,10 +20,10 @@ interface Firefly {
 }
 
 const PROJECT_PALETTE = [
-  '235, 165, 125', // Warm Peach
-  '110, 165, 102', // Bioluminescent Forest Emerald
-  '166, 176, 158', // Sage Dust
-  '200, 140, 100', // Deep Terracotta Warmth
+  '218, 171, 237', // Warm Peach
+  '188, 133, 205', // Bioluminescent Forest Emerald
+  '192, 174, 211', // Sage Dust
+  '190, 142, 211', // Deep Terracotta Warmth
 ]
 
 export const AmbientProjects = memo(function AmbientProjects({
@@ -95,7 +95,7 @@ export const AmbientProjects = memo(function AmbientProjects({
       // Interactive warm peach lantern glow on dark forest ground
       if (pointer.active && pointer.x > 0 && pointer.y > 0) {
         const lantern = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 360)
-        lantern.addColorStop(0, 'rgba(235, 165, 125, 0.075)')
+        lantern.addColorStop(0, 'rgba(218, 171, 237, 0.075)')
         lantern.addColorStop(0.4, 'rgba(48, 82, 44, 0.04)')
         lantern.addColorStop(1, 'rgba(0, 0, 0, 0)')
         ctx.fillStyle = lantern
@@ -114,7 +114,7 @@ export const AmbientProjects = memo(function AmbientProjects({
             ctx.beginPath()
             ctx.moveTo(fireflies[i].x, fireflies[i].y)
             ctx.lineTo(fireflies[j].x, fireflies[j].y)
-            ctx.strokeStyle = `rgba(235, 165, 125, ${lineAlpha})`
+            ctx.strokeStyle = `rgba(218, 171, 237, ${lineAlpha})`
             ctx.lineWidth = 0.6
             ctx.stroke()
           }

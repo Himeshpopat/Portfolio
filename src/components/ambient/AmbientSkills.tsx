@@ -90,7 +90,7 @@ export const AmbientSkills = memo(function AmbientSkills({
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(189, 195, 178, ${lineAlpha})`
+            ctx.strokeStyle = `rgba(192, 174, 211, ${lineAlpha})`
             ctx.lineWidth = 0.6
             ctx.stroke()
           }
@@ -121,14 +121,14 @@ export const AmbientSkills = memo(function AmbientSkills({
         // Solid core
         ctx.beginPath()
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(125, 139, 116, ${n.alpha})`
+        ctx.fillStyle = `rgba(188, 133, 205, ${n.alpha})`
         ctx.fill()
 
         // Occasional concentric radar ring
         if (n.hasRing) {
           ctx.beginPath()
           ctx.arc(n.x, n.y, n.radius * 3.5, 0, Math.PI * 2)
-          ctx.strokeStyle = `rgba(184, 70, 31, ${n.alpha * 0.35})`
+          ctx.strokeStyle = `rgba(223, 183, 243, ${n.alpha * 0.35})`
           ctx.lineWidth = 0.5
           ctx.stroke()
         }

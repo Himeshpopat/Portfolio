@@ -20,9 +20,9 @@ interface Ember {
 }
 
 const EMBER_COLORS = [
-  '235, 165, 125', // Warm Peach
-  '215, 125, 80',  // Hearth Terracotta
-  '245, 195, 160', // Golden Amber
+  '223, 183, 243', // Mint
+  '188, 133, 205', // Periwinkle
+  '219, 201, 235', // Ice blue
 ]
 
 export const AmbientContact = memo(function AmbientContact({
@@ -91,7 +91,7 @@ export const AmbientContact = memo(function AmbientContact({
       // Interactive warm lantern aura around email & links
       if (pointer.active && pointer.x > 0 && pointer.y > 0) {
         const lantern = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 340)
-        lantern.addColorStop(0, 'rgba(235, 165, 125, 0.09)')
+        lantern.addColorStop(0, 'rgba(218, 171, 237, 0.09)')
         lantern.addColorStop(0.4, 'rgba(48, 75, 42, 0.04)')
         lantern.addColorStop(1, 'rgba(0, 0, 0, 0)')
         ctx.fillStyle = lantern

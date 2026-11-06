@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, memo } from 'react'
 import type { Screenshot } from '../../types/portfolio'
+import { ScreenshotPreview } from './ScreenshotPreview'
 
 export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel({
   screenshots,
@@ -209,6 +210,7 @@ export const ProjectScreenshotCarousel = memo(function ProjectScreenshotCarousel
           </div>
         )}
       </div>
+      <ScreenshotPreview screenshot={currentScreenshot} />
     </div>
   )
 })

@@ -8,6 +8,7 @@ import { Nav } from './components/common/Nav'
 import { MobileTabBar } from './components/common/MobileTabBar'
 import { MusicPlayer } from './components/common/MusicPlayer'
 import { Footer } from './components/common/Footer'
+import { StudioMotion } from './components/common/StudioMotion'
 
 import { HeroSection } from './sections/HeroSection'
 import { ProjectsSection } from './sections/ProjectsSection'
@@ -39,6 +40,7 @@ export default function App() {
       />
 
       <CustomCursor />
+      <StudioMotion />
       <FloatingBubbles />
 
       <div id="portfolio-content" style={{ position: 'relative', zIndex: 10 }}>
