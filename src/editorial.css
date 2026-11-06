@@ -111,8 +111,17 @@ main>section h2+p{
   padding-inline:20px
 }
 .mobile-header{
-  background:#0b0b0dd9!important;
-  border-bottom:1px solid var(--border)!important
+  background:transparent!important;
+  border-bottom:1px solid transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease
+}
+.mobile-header.is-scrolled{
+  background:#0b0b0df0!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important
 }
 .mobile-header a{
   min-height:36px!important

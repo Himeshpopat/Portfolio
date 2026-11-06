@@ -48,13 +48,14 @@ export const Nav = memo(function Nav({ active }: { active: string }) {
 
       {/* Mobile top bar */}
       <div
-        className="mobile-header fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5"
+        className={`mobile-header fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5 ${scrolled ? 'is-scrolled' : ''}`}
         style={{
           height: 56,
-          background: scrolled ? 'rgba(10,14,26,0.92)' : 'rgba(10,14,26,0.55)',
-          backdropFilter: 'blur(16px)',
+          background: scrolled ? 'rgba(11,11,13,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
-          transition: 'background 0.3s, border-color 0.3s, backdrop-filter 0.3s',
+          transition: 'background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
         }}
       >
         <span

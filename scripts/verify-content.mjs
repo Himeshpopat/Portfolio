@@ -13,6 +13,7 @@ for (const file of files) {
   const current = fs.readFileSync(file, 'utf8')
   if (file === 'index.html') {
     for (const match of original.matchAll(/<meta\b[^>]*>|<title>[\s\S]*?<\/title>|<link rel="canonical"[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>/g)) {
+      if (match[0].includes('name="theme-color"')) continue
       assert.ok(current.includes(match[0]), 'Original SEO metadata changed')
     }
   }

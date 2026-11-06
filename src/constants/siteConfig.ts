@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Himesh Popat',
   title: 'Himesh Popat — Software Engineer | Full-Stack & AI/ML',
   description:
-    'Software Engineer specialising in full-stack web architecture, REST APIs, and production AI/ML pipelines.',
+    'Himesh Popat | Software Engineer specialising in Full-Stack Development &amp; AI/ML. B.Tech IT @ KJSIT (CGPA 9.83) | Intern @ IMD &amp; Tata Power.',
   url: 'https://himesh-popat.vercel.app/',
   email: 'himeshpopat2006@gmail.com',
   location: 'Mumbai, India',
