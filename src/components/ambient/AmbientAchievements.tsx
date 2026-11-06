@@ -82,7 +82,7 @@ export const AmbientAchievements = memo(function AmbientAchievements({
       const stepX = 140
       const stepY = 120
       const tickAlpha = 0.14 + Math.sin(time * 0.001) * 0.05
-      ctx.strokeStyle = `rgba(192, 174, 211, ${tickAlpha})`
+      ctx.strokeStyle = `rgba(183, 174, 180, ${tickAlpha})`
       ctx.lineWidth = 0.6
 
       for (let x = stepX; x < width; x += stepX) {
@@ -120,7 +120,7 @@ export const AmbientAchievements = memo(function AmbientAchievements({
         const a = Math.max(0.05, Math.min(0.4, d.alpha + Math.sin(d.phase) * 0.1))
         ctx.beginPath()
         ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(223, 183, 243, ${a})`
+        ctx.fillStyle = `rgba(255, 104, 124, ${a})`
         ctx.fill()
       }
 

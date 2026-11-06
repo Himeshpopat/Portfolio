@@ -22,10 +22,10 @@ interface Particle {
 }
 
 const COLORS = [
-  '223, 183, 243',   // Terracotta
-  '188, 133, 205', // Sage
-  '219, 201, 235', // Warm Gold/Ivory
-  '192, 174, 211', // Paper Tint
+  '255, 104, 124',   // Terracotta
+  '210, 40, 76', // Sage
+  '225, 218, 223', // Warm Gold/Ivory
+  '183, 174, 180', // Paper Tint
 ]
 
 export const AmbientHero = memo(function AmbientHero() {
@@ -93,8 +93,8 @@ export const AmbientHero = memo(function AmbientHero() {
       // Interactive subtle ambient cursor halo
       if (pointer.active && pointer.x > 0 && pointer.y > 0) {
         const glow = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 320)
-        glow.addColorStop(0, 'rgba(223, 183, 243, 0.045)')
-        glow.addColorStop(0.5, 'rgba(188, 133, 205, 0.02)')
+        glow.addColorStop(0, 'rgba(255, 104, 124, 0.045)')
+        glow.addColorStop(0.5, 'rgba(210, 40, 76, 0.02)')
         glow.addColorStop(1, 'rgba(0, 0, 0, 0)')
         ctx.fillStyle = glow
         ctx.fillRect(0, 0, width, height)
@@ -161,22 +161,22 @@ export const AmbientHero = memo(function AmbientHero() {
       <svg className="hero-precision-rings" viewBox="0 0 600 600" fill="none">
         <circle cx="300" cy="300" r="160" stroke="#c4ae9a" strokeWidth="0.8" strokeDasharray="3 7" strokeOpacity="0.4" />
         <circle cx="300" cy="300" r="230" stroke="#c4ae9a" strokeWidth="0.6" strokeDasharray="6 10" strokeOpacity="0.3" />
-        <circle cx="300" cy="300" r="285" stroke="#dfb7f3" strokeWidth="0.5" strokeOpacity="0.22" />
-        <line x1="290" y1="300" x2="310" y2="300" stroke="#dfb7f3" strokeWidth="1" strokeOpacity="0.35" />
-        <line x1="300" y1="290" x2="300" y2="310" stroke="#dfb7f3" strokeWidth="1" strokeOpacity="0.35" />
+        <circle cx="300" cy="300" r="285" stroke="#ff687c" strokeWidth="0.5" strokeOpacity="0.22" />
+        <line x1="290" y1="300" x2="310" y2="300" stroke="#ff687c" strokeWidth="1" strokeOpacity="0.35" />
+        <line x1="300" y1="290" x2="300" y2="310" stroke="#ff687c" strokeWidth="1" strokeOpacity="0.35" />
       </svg>
 
       {/* Living stardust canvas */}
       <svg className="hero-ribbons" viewBox="0 0 800 900" fill="none" aria-hidden="true">
         <defs>
-          <linearGradient id="orchid-ribbon" x1="0" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#dfb7f3" stopOpacity="0" />
-            <stop offset=".48" stopColor="#dfb7f3" stopOpacity=".6" />
-            <stop offset="1" stopColor="#dfb7f3" stopOpacity="0" />
+          <linearGradient id="crimson-ribbon" x1="0" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#ff687c" stopOpacity="0" />
+            <stop offset=".48" stopColor="#ff687c" stopOpacity=".6" />
+            <stop offset="1" stopColor="#ff687c" stopOpacity="0" />
           </linearGradient>
         </defs>
         {Array.from({ length: 9 }, (_, index) => (
-          <path key={index} d={`M ${160 + index * 22} -80 C ${720 + index * 18} 170, ${-180 + index * 25} 480, ${470 + index * 25} 980`} stroke="url(#orchid-ribbon)" strokeWidth=".7" />
+          <path key={index} d={`M ${160 + index * 22} -80 C ${720 + index * 18} 170, ${-180 + index * 25} 480, ${470 + index * 25} 980`} stroke="url(#crimson-ribbon)" strokeWidth=".7" />
         ))}
       </svg>
       <canvas ref={canvasRef} className="ambient-canvas" />

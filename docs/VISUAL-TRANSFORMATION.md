@@ -1,6 +1,6 @@
-# Orchid nocturne visual refinement — 6 November 2026
+# Black and crimson visual refinement — 6 November 2026
 
-The portfolio now uses deep plum surfaces, soft orchid accents, pearl-white text, fine metallic edges, and restrained contour lighting. This replaces the earlier blue/mint and copper directions while preserving all original factual content, data, project images, links, and integrations.
+The portfolio now uses architectural obsidian black surfaces, vivid crimson accents, crisp white text, fine metallic edges, and restrained contour lighting. This replaces the earlier directions while preserving all original factual content, data, project images, links, and integrations.
 
 ## Requested corrections
 

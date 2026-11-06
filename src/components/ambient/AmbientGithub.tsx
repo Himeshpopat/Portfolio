@@ -87,7 +87,7 @@ export const AmbientGithub = memo(function AmbientGithub({
           ctx.beginPath()
           ctx.moveTo(nodes[i].x, nodes[i].y)
           ctx.lineTo(target.x, target.y)
-          ctx.strokeStyle = 'rgba(192, 174, 211, 0.18)'
+          ctx.strokeStyle = 'rgba(183, 174, 180, 0.18)'
           ctx.lineWidth = 0.7
           ctx.stroke()
 
@@ -98,7 +98,7 @@ export const AmbientGithub = memo(function AmbientGithub({
 
           ctx.beginPath()
           ctx.arc(px, py, 1.4, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(223, 183, 243, 0.4)'
+          ctx.fillStyle = 'rgba(255, 104, 124, 0.4)'
           ctx.fill()
         }
       }

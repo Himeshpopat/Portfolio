@@ -19,9 +19,9 @@ interface WaveMote {
 }
 
 const LEARNING_PALETTE = [
-  '223, 183, 243',   // Terracotta
-  '188, 133, 205', // Sage
-  '219, 201, 235', // Warm Gold
+  '255, 104, 124',   // Terracotta
+  '210, 40, 76', // Sage
+  '225, 218, 223', // Warm Gold
 ]
 
 export const AmbientLearning = memo(function AmbientLearning({

@@ -18,9 +18,9 @@ interface TimeMote {
 }
 
 const EXP_PALETTE = [
-  '223, 183, 243',   // Terracotta
-  '188, 133, 205', // Sage
-  '192, 174, 211', // Paper Tint
+  '255, 104, 124',   // Terracotta
+  '210, 40, 76', // Sage
+  '183, 174, 180', // Paper Tint
 ]
 
 export const AmbientExperience = memo(function AmbientExperience({

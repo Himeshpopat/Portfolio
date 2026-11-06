@@ -81,7 +81,7 @@ export const AmbientAbout = memo(function AmbientAbout({
       // Interactive gentle warmth aura
       if (pointer.active && pointer.x > 0 && pointer.y > 0) {
         const aura = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 280)
-        aura.addColorStop(0, 'rgba(223, 183, 243, 0.04)')
+        aura.addColorStop(0, 'rgba(255, 104, 124, 0.04)')
         aura.addColorStop(0.5, 'rgba(175, 185, 162, 0.03)')
         aura.addColorStop(1, 'rgba(0, 0, 0, 0)')
         ctx.fillStyle = aura
@@ -102,7 +102,7 @@ export const AmbientAbout = memo(function AmbientAbout({
 
         ctx.beginPath()
         ctx.arc(m.x, m.y, m.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(223, 183, 243, ${m.alpha})`
+        ctx.fillStyle = `rgba(255, 104, 124, ${m.alpha})`
         ctx.fill()
       }
 
@@ -137,7 +137,7 @@ export const AmbientAbout = memo(function AmbientAbout({
         />
         <path
           d="M0,480 C300,420 500,520 800,460 C900,440 960,490 1000,480"
-          stroke="#dfb7f3"
+          stroke="#ff687c"
           strokeWidth="0.6"
           strokeDasharray="3 9"
           strokeOpacity="0.25"
