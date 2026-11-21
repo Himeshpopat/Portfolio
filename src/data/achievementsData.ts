@@ -9,7 +9,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     isNumeric: false,
   },
   {
-    stat: '250+',
+    stat: '260+',
     unit: 'LeetCode',
     label: 'DSA Problem Solving',
     sub: 'Arrays, Trees, Graphs & Dynamic Programming algorithms',
